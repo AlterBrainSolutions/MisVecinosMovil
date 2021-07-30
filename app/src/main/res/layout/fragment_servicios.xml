@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/grismv"
+    tools:context=".ui.ServiciosFragment">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutHomeServ"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ImageV_fondolog"
+            android:layout_width="match_parent"
+            android:layout_height="159dp"
+
+            android:scaleType="center"
+            android:src="@drawable/frac"
+            app:srcCompat="@drawable/frac" />
+
+        <fragment
+            android:id="@+id/fragment4"
+            android:name="alterbrain.com.ui.ServicioFragment"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginTop="220dp"
+            android:visibility="visible"
+            tools:layout="@layout/fragment_servicio_list" />
+
+        <!--<fragment
+            android:id="@+id/fragment4"
+            android:name="alterbrain.com.ui.VisitanteFragment"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginTop="220dp"
+            android:visibility="visible"
+            tools:layout="@layout/fragment_visitante_list" />-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="110dp">
+
+            <ImageView
+                android:id="@+id/imageView_face"
+                android:layout_width="107dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/carpintero"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDescripcion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Fraccionamiento Santa Monica Casa 20"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
+                app:layout_constraintStart_toEndOf="@+id/imageView_face"
+                app:layout_constraintTop_toTopOf="@+id/imageView_face" />
+
+            <TextView
+                android:id="@+id/textViewDescFrac"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Carpintero, Fracc. Santa Mónica"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
+                app:layout_constraintStart_toStartOf="@+id/textViewDescripcion"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescripcion" />
+
+            <ImageView
+                android:id="@+id/imageView_mas"
+                android:layout_width="81dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/manitacent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintMenuPop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:background="@color/common_google_signin_btn_text_light_focused"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imageViewBuzon"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/manitabuzo"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewCerrarPop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <ImageView
+                android:id="@+id/imageViewServicios"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="110dp"
+                android:src="@drawable/manitaserv"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewBuzon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewCerrarPop"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:src="@drawable/manitacent"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewReserva"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewAnuncios"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewServicios"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewBuzon" />
+
+            <ImageView
+                android:id="@+id/imageViewReserva"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/manitaa"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewCerrarPop"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageViewCerrarPop"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewCerrarPop" />
+
+            <ImageView
+                android:id="@+id/imageViewAnuncios"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="110dp"
+                android:src="@drawable/manitab"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewBuzon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    </RelativeLayout>
+</ScrollView>

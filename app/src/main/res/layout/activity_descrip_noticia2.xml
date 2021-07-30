@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grismv"
+    tools:context=".DescripNoticia2Activity">
+
+    <TextView
+        android:id="@+id/textViewTituloAtr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azulmv"
+        android:text="FRACCIONAMIENTO SANTA MÓNICA"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViewDescNoti"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/edificios" />
+
+            <TextView
+                android:id="@+id/textViewTituloDesN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Situación de vivienda en México"
+                android:textColor="@color/azulmv"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewFechaDesN"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="17-03-2021"
+                android:textAlignment="textStart"
+                android:textColor="@color/verdemv"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textViewDescripcionDesN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El sector inmobiliario en México ha sido una de las industrias más afectadas por la emergencia de salud provocada por el Covid-19, debido al paro y disminución de operaciones y transacciones inmobiliarias."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="La Cámara Nacional de la Industria de Desarrollo y Promoción de Vivienda (CANADEVI) reportó en su último informe de 2020 que, entre enero y agosto, la producción de viviendas disminuyó 13.6 por ciento comparado con 2019."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Por otro lado, la baja demanda de vivienda puede asociarse a la inestabilidad laboral y a la cantidad de empleos perdidos debido a la crisis económica provocada por la pandemia; tan solo en junio del presente año, Banxico informó en el reporte “Los impactos económicos de la pandemia en México” un millón de empleos perdidos."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

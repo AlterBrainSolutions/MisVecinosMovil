@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grismv"
+    tools:context=".DescripNoticiaActivity">
+
+    <TextView
+        android:id="@+id/textViewTituloAtr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azulmv"
+        android:text="FRACCIONAMIENTO SANTA MÓNICA"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViewDescNoti"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/monic" />
+
+            <TextView
+                android:id="@+id/textViewTituloDesN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fraccionamiento San Francisco"
+                android:textColor="@color/azulmv"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewFechaDesN"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="24-02-2021"
+                android:textAlignment="textStart"
+                android:textColor="@color/verdemv"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textViewDescripcionDesN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Este fraccionamiento esta ubicado en las afueras de Toluca, cerca de la carretera Tenango-Toluca, cuenta con seguridad 24/7 y servicios a domicilio."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

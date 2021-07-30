@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grismv"
+    tools:context=".ui.home.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutHomeServ"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/ImageV_fondolog"
+            android:layout_width="match_parent"
+            android:layout_height="159dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/monic" />
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView_face"
+                android:layout_width="107dp"
+                android:layout_height="102dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <LinearLayout
+                android:layout_width="197dp"
+                android:layout_height="47dp"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewDescripcion"
+                    android:layout_width="197dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Fraccionamiento Santa Monica Casa 20"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/textViewDescFrac"
+                    android:layout_width="197dp"
+                    android:layout_height="47dp"
+                    android:layout_weight="1"
+                    android:text="Fracc. Santa Mónica"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView_mas"
+                android:layout_width="81dp"
+                android:layout_height="90dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/manitacent"
+                tools:visibility="visible" />
+        </LinearLayout>-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="110dp">
+
+            <ImageView
+                android:id="@+id/imageView_face"
+                android:layout_width="107dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/monic"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDescripcion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Fraccionamiento Santa Monica Casa 20"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
+                app:layout_constraintStart_toEndOf="@+id/imageView_face"
+                app:layout_constraintTop_toTopOf="@+id/imageView_face" />
+
+            <TextView
+                android:id="@+id/textViewDescFrac"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Fracc. Santa Mónica"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
+                app:layout_constraintStart_toStartOf="@+id/textViewDescripcion"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescripcion" />
+
+            <ImageView
+                android:id="@+id/imageView_mas"
+                android:layout_width="81dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/manitacent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp">
+
+            <ImageView
+                android:id="@+id/imageViewNoticias"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_ntc"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewAgenda"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewAgenda"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_agn"
+                app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNoticias"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_cnv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewAgenda"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewEncuestas"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="132dp"
+                android:src="@drawable/ic_enc"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewTransparenciah"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewTransparenciah"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="132dp"
+                android:src="@drawable/ic_trn"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewDocumentosh"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewEncuestas"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewDocumentosh"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="132dp"
+                android:src="@drawable/ic_dcm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTransparenciah"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="455dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/imageViewPagosh"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_pgs"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewAdeudosh"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewPagosh"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintMenuPop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:background="@color/common_google_signin_btn_text_light_focused"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imageViewBuzon"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/manitaacceso"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewCerrarPop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <ImageView
+                android:id="@+id/imageViewServicios"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="110dp"
+                android:src="@drawable/manitaserv"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewBuzon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewCerrarPop"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:src="@drawable/manitacent"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewReserva"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewAnuncios"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewServicios"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewBuzon" />
+
+            <ImageView
+                android:id="@+id/imageViewReserva"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/manitaa"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewCerrarPop"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageViewCerrarPop"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewCerrarPop" />
+
+            <ImageView
+                android:id="@+id/imageViewAnuncios"
+                android:layout_width="85dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="110dp"
+                android:src="@drawable/manitab"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewBuzon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</ScrollView>

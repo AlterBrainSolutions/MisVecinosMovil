@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="servicios">
+        <item>Carpintero</item>
+        <item>Plomero</item>
+        <item>Electricista</item>
+        <item>Cerrajero</item>
+    </string-array>
+    <string-array name="areas">
+        <item>Cancha deportiva</item>
+        <item>Salón de eventos</item>
+        <item>Jardín</item>
+        <item>Sala de reunión</item>
+    </string-array>
+    <string-array name="tipoacc">
+        <item>Habitual</item>
+        <item>Esporádico</item>
+        <item>Servicios</item>
+        <item>General</item>
+    </string-array>
+</resources>

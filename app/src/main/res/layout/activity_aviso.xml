@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grismv"
+    tools:context=".AvisoActivity">
+    <TextView
+        android:id="@+id/textViewTituloAtr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azulmv"
+        android:text="AVISO DE PRIVACIDAD"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        style="@android:style/Widget.DeviceDefault.Light.ScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAceptar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="La Ley Federal de Protección de Datos Personales en Posesión de los Particulares, publicada en el Diario Oficial de la Federación el día 5 de julio de 2010, tiene por objeto la protección de los datos personales en posesión de los particulares con la finalidad de regular su tratamiento legítimo, controlado e informado, a efecto de garantizar la privacidad y el derecho a la autodeterminación informativa de las personas. En este contexto y mediante este documento, se informa a usted sobre los datos personales que le son recabados y las finalidades y características relevantes de su tratamiento.\n\n"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RESPONSABLE DEL TRATAMIENTO DE SUS DATOS PERSONALES"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alter Brain Solutions, S.A. de C.V., con domicilio en Independencia Norte Número 101 Planta Alta-A, Colonia Centro, C.P. 52300, Tenango del Valle, Estado de México, México, es responsable del tratamiento de sus datos personales. La información de nuestros clientes, clientes potenciales y antiguos clientes es tratada de forma estrictamente confidencial y es tan importante como su seguridad al adquirir algún bien y/o servicio, por lo que hacemos un esfuerzo permanente para salvaguardarla.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DATOS QUE SE RECABAN"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Los datos personales que tratará Alter Brain Solutions, S.A. de C.V. son: nombre o razón social, domicilio, Cuenta Única de Registro de Población, Registro Federal de Contribuyentes, edad, correo electrónico, teléfono (fijo y/o celular), si es usuario de redes sociales, género, gustos y preferencias; así como también, de resultar aplicable, al centro escolar, lugares de trabajo y cargo laborales. \n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2C2929"
+                android:text="FINALIDADES DEL TRATAMIENTO DE LOS DATOS PERSONALES"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Más que una política, en Alter Brain Solutions, S.A. de C.V. tenemos la filosofía de mantener una relación estrecha y activa con nuestros clientes, clientes potenciales y antiguos cliente. En este sentido, Alter Brain Solutions, S.A. de C.V. tratará sus datos personales para las siguientes finalidades:\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView08"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#000000"
+                android:foregroundTint="#673AB7"
+                android:text="I.  Para el caso de clientes:"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="a) Finalidades necesarias para el mantenimiento de la relación con el Cliente:"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView010"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="· Proveerle un bien o servicio;\n· Mantener actualizados nuestros registros para poder responder a sus consultas;\n· Hacer válida la garantía en la adquisición de bienes o servicios\n· Informarle acerca de llamados a revisión del uso de sus bienes o servicios adquiridos.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView011"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="b) Finalidades distintas:"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView012"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="· Realizar actividades de mercadeo y promoción;\n
+· Ofrecerle nuestros productos, servicios e información de nuestros socios de negocios;\n
+· Análisis estadísticos y de mercado;\n
+· Invitarlo a eventos;\n
+· Hacer de su conocimiento nuestras promociones y lanzamientos.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView013"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En caso de que nuestros clientes no deseen que Alter Brain Solutions, S.A. de C.V. dé tratamiento a sus datos personales para las finalidades previstas en el inciso b) anterior, tendrán un plazo de 5 (cinco) días para manifestar su negativa mediante escrito debidamente firmado, enviado al Comité de Protección de Datos Personales de Alter Brain Solutions, S.A. de C.V. y/u Oficina de Asuntos Legales vía correo electrónico a la siguiente dirección: info@alterbrain.com.mx;  o bien, presentado en días hábiles en horario de 10:00 a 17:00 hrs. en el domicilio de Alter Brain Solutions, S.A. de C.V. señalado al inicio de este Aviso de Privacidad.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView014"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="II. Para el caso de clientes potenciales y antiguos clientes:"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView015"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="· Realizar actividades de mercadeo y promoción;\n
+· Ofrecerle nuestros productos, servicios e información de nuestros socios de negocios;\n
+· Análisis estadísticos y de mercado;\n
+· Mantener actualizados nuestros registros para poder responder a sus consultas;\n
+· Invitarle a eventos;\n
+· Hacer de su conocimiento nuestras promociones y lanzamientos.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView016"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MEDIDAS PARA PROTEGER LOS DATOS PERSONALES"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView017"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Para prevenir el acceso no autorizado de sus datos personales y con el fin de asegurar que la información sea utilizada para los fines establecidos en este Aviso de Privacidad, Alter Brain Solutions, S.A. de C.V. ha establecido procedimientos físicos, electrónicos y administrativos, utilizando tecnologías avanzadas que limitan el uso o divulgación de sus datos, lo que permite que éstos sean tratados de forma adecuada. Estos procedimientos son evaluados y revisados constantemente por el Área de Control Interno de Alter Brain Solutions, S.A. de C.V., a fin de controlar el uso y divulgación de sus datos personales.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView018"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TRANSFERENCIA DE DATOS PERSONALES"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView019"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Con el fin de proveerle un bien y/o servicio, así como hacer válida la garantía correspondiente, realizar actividades de promoción, realizar análisis estadísticos y de mercadeo, así como para  hacerle llegar información de nuestros socios de negocios, Alter Brain Solutions, S.A. de C.V. podrá transferir sus datos personales tanto dentro como fuera de los Estados Unidos Mexicanos a sociedades subsidiarias, afiliadas o relacionadas con Alter Brain Solutions, S.A. de C.V., sus Distribuidores Autorizados y/o sus terceros proveedores de servicios con quienes tiene una relación jurídica, así como a autoridades competentes.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView020"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No será necesario el consentimiento de los clientes, clientes potenciales o antiguos clientes de Alter Brain Solutions, S.A. de C.V. cuando las transferencias se realicen a sociedades del mismo grupo de Alter Brain Solutions, S.A. de C.V. toda vez que operan bajo los mismos procesos y políticas internas; o bien cuando dicha transferencia sea necesaria para ofrecerle un bien o servicio, mantener actualizados nuestros registros, para responder a sus consultas, hacer válida la garantía de su bien y/o servicio, hacerle llamados para revisión de su bien o servicio derivado de la relación comercial."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView021"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\nRespecto a la transferencia de los datos personales de clientes potenciales a terceros prestadores de servicios, le informamos que si Usted no manifiesta su negativa, mediante el envío de solicitud firmada por el Titular, dirigida al correo electrónico: info@alterbrain.com.mx, o bien presentada en días hábiles en horario de 10:00 a 17:00 hrs; en el domicilio de Alter Brain Solutions, S.A. de C.V. señalado al inicio de este Aviso de Privacidad, en un plazo de cinco días naturales contados a partir de la puesta a disposición del presente Aviso de Privacidad, entenderemos que nos ha otorgado su consentimiento para  dicha transferencia.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SOLICITUD DE ACCESO, RECTIFICACIÓN, CANCELACIÓN U OPOSICIÓN DE DATOS PERSONALES Y REVOCACIÓN DEL CONSENTIMIENTO (SOLICITUD ARCO)"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView023"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Todos sus datos personales son tratados de acuerdo a la legislación aplicable y vigente en el país (Estados Unidos Mexicanos), por ello le informamos que usted tiene en todo momento el derecho de acceder a los datos personales que posee Alter Brain Solutions, S.A. de C.V. y a los detalles del tratamiento de los mismos, así como de rectificarlos en caso de ser inexactos o incompletos; cancelarlos cuando resulten ser excesivos o innecesarios para las finalidades que justificaron su obtención; y oponerse a su tratamiento para los fines previstos en este Aviso de Privacidad, a través del Comité de Protección de Datos Personales de Alter Brain Solutions, S.A. de C.V. y/u Oficina de Asuntos Legales, mediante el envío de solicitud firmada por el Titular, dirigida
+al correo electrónico: info@alterbrain.com.mx; o bien presentada en días hábiles en horario de 10:00 a 17:00 hrs; en el domicilio de Alter Brain Solutions, S.A. de C.V. señalado al inicio de este Aviso de Privacidad que contenga cuando menos la siguiente información:"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView024"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="·	Nombre completo del titular de los datos.\n
+·	Domicilio del titular de los datos y/o dirección de correo electrónico para comunicar respuesta a solicitud.\n
+·	Documentos oficiales que acrediten identidad y/o autorización para representarlo en la solicitud (Credencial de Elector vigente otorgada por el Instituto Nacional Electoral “INE” o Pasaporte vigente).\n
+·	Descripción de los datos personales sobre los que se pretende ejercer algún derecho ARCO.\n
+·	Cualquier otro elemento que permita la localización de los datos personales y la atención a su solicitud."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView025"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\nA través de estos canales, en su solicitud usted podrá especificar el medio por el cual desea recibir respuesta a la misma, ya que en caso de no contar con esta especificación de su parte, Alter Brain Solutions, S.A. de C.V. establecerá el canal que considere pertinente para hacerle llegar la contestación a su requerimiento.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView026"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MECANISMOS Y PROCEDIMIENTOS PARA LA REVOCACIÓN DE CONSENTIMIENTO"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView027"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En cualquier momento, los clientes o clientes potenciales podrán solicitar la revocación del consentimiento que han otorgado para el tratamiento de sus datos personales, comunicando dicha solicitud al Comité de Protección de Datos Personales de Alter Brain Solutions, S.A. de C.V. y/u Oficina de Asuntos Legales mediante el envío de solicitud firmada por el Titular, dirigida al correo electrónico info@alterbrain.com.mx, o bien, presentada en días hábiles en horario de 10:00 a 17:00 hrs. en el domicilio de Alter Brain Solutions, S.A. de C.V. señalado al inicio de este Aviso de Privacidad. En cualquier caso, dicha solicitud deberá detallar claramente los datos respecto de los cuales se revoca su consentimiento.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView028"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OPCIONES Y MEDIOS PARA LIMITAR EL USO O DIVULGACIÓN DE SUS DATOS PERSONALES"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView029"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nuestros clientes, clientes potenciales y antiguos clientes tienen la posibilidad de limitar el uso o divulgación de sus datos personales o negarse a la transferencia de los mismos, a través del Comité de Protección de Datos Personales de Alter Brain Solutions, S.A. de C.V. y/u Oficina de Asuntos Legales, mediante el envío de solicitud firmada por el Titular, dirigida al correo electrónico: info@alterbrain.com.mx o bien, presentada en días hábiles en horario de 10:00 a 17:00 hrs. en el domicilio de Alter Brain Solutions, S.A. de C.V. señalado al inicio de este Aviso de Privacidad, precisando fehacientemente la limitación deseada al uso de sus datos personales."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView030"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\nSi usted desea dejar de recibir mensajes promocionales, puede solicitarlo a través del Comité de Protección de Datos Personales de Alter Brain Solutions, S.A. de C.V. y/u Oficina de Asuntos Legales, mediante el envío de solicitud firmada por el Titular, dirigida al correo electrónico: info@alterbrain.com.mx, o bien, presentada en días hábiles en horario de 10:00 a 17:00 hrs. en el domicilio de Alter Brain Solutions, S.A. de C.V. señalado al inicio de este Aviso de Privacidad.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView031"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MECANISMOS PARA RECABAR DATOS PERSONALES DE MANERA AUTOMÁTICA EN MEDIOS REMOTOS O LOCALES DE COMUNICACIÓN ELECTRÓNICA"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView032"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="La página de internet de Alter Brain Solutions, S.A. de C.V. (http://www.alterbrain.com.mx/), al igual que otros sitios y micro sitios propiedad de Alter Brain Solutions, S.A. de C.V., utilizan “cookies” para su funcionamiento, lo que a su vez nos permite obtener datos personales del Titular que nos contacta por dicho medio.  Los clientes, clientes potenciales y antiguos clientes que naveguen por nuestros sitios de internet pueden optar por desactivar la funcionalidad de las “cookies” dentro de su buscador, tomando en consideración que posiblemente no podrá visualizar todo el contenido de dichas páginas de internet. Para obtener más información acerca de la forma en que se pueden desactivar las “cookies” por favor diríjase a la Política de Privacidad de Alter Brain Solutions, S.A. de C.V.\n"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView033"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MODIFICACIONES AL AVISO DE PRIVACIDAD"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView034"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Este Aviso de Privacidad podrá ser modificado de tiempo en tiempo por Alter Brain Solutions, S.A. de C.V.; Dichas modificaciones le serán oportunamente informadas a través de su página en internet http://www.alterbrain.com.mx/, o cualquier otro medio de comunicación oral, impreso, electrónico o mediante el uso de cualquier otra tecnología, que Alter Brain Solutions, S.A. de C.V. determine para tal efecto."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView035"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\nFecha de última actualización: 31 de enero de 2020."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonAceptar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/button_rounded"
+        android:text="Aceptar"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="alterbrain.com">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".app.MyApp"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".ui.VeRecibo7Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" ></activity>
+        <activity
+            android:name=".ui.VeRecibo6Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.VeRecibo5Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.VeRecibo4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.VeRecibo3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.VeRecibo2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.VeRecibo1Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaD7Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Transparencia7Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaD6Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Transparencia6Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaD5Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Transparencia5Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.AcpAcceso4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.AcoAcceso3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.AcpAcceso2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.DeudaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.CorrienteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.DetalleAdeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.AcpAcesoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".CrearAccesoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".AccesosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ConsultaServActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".CodigoAccActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Transparencia4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Transparencia3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Transparencia2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.AutorizadosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.DetalleSrvActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaD4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaD3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaDActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".DescripTranspActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".CrearNoticiaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".VeDoc2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".VeDocActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Documentos2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Noticias2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Votacion4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Votacion3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Votacion2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".Votacion1Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".EncuestasActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".DescripNoticia3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".DescripNoticia2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".AdeudosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".PagosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".TransparenciaD2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".BuzonActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ServiciosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ReservaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".AnuncioActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".AgendaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".VeDocumentoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".DocumentosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".DescripNoticiaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".AvisoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".NoticiasActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity android:name=".ui.AbswebActivity" />
+        <activity
+            android:name=".RegistrarseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity5"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".MainActivity3"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".MainActivity1"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+    </application>
+
+</manifest>

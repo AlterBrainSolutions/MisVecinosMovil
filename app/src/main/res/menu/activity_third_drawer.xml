@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/vigilanteFragment2"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Vigilante" />
+        <item
+            android:id="@+id/galleryFragment"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Configuración" />
+        <item
+            android:id="@+id/slideshowFragment"
+            android:icon="@drawable/ic_baseline_import_contacts_24"
+            android:title="Aviso legal" />
+        <item
+            android:id="@+id/salirFragment"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
+            android:title="Cerrar sesión" />
+
+    </group>
+</menu>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_pragh_srv"
+    app:startDestination="@id/vigilanteFragment2">
+
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="alterbrain.com.ui.gallery.GalleryFragment"
+        android:label="ACTUALIZAR DATOS"
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/slideshowFragment"
+        android:name="alterbrain.com.ui.slideshow.SlideshowFragment"
+        android:label="AVISO DE PRIVACIDAD"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/salirFragment"
+        android:name="alterbrain.com.ui.SalirFragment"
+        android:label="SALIR"
+        tools:layout="@layout/salir_fragment" />
+    <fragment
+        android:id="@+id/vigilanteFragment2"
+        android:name="alterbrain.com.ui.VigilanteFragment"
+        android:label="MIS VECINOS_VIGILANTE"
+        tools:layout="@layout/fragment_vigilante" />
+</navigation>

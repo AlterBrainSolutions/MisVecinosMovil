@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "453851715809",
+    "project_id": "misvecinos-8fc9b",
+    "storage_bucket": "misvecinos-8fc9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453851715809:android:5d109bf6a6fd1814d33fa0",
+        "android_client_info": {
+          "package_name": "alterbrain.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453851715809-mv3k94qadpplrpf90ad6q9r3j2o8is4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Z7aFfv0xtjrQoUllHowKkPyhynl6BAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453851715809-mv3k94qadpplrpf90ad6q9r3j2o8is4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
