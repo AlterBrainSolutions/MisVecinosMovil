@@ -38,7 +38,7 @@ public class MainActivity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Bundle extras = getIntent().getExtras();
-        userId = extras.getString(Constantes.EXTRA_USER_ID);
+        //userId = extras.getString(Constantes.EXTRA_USER_ID);
         casaNum = "Casa 0";
         //casaNum = "Casa 1";
 

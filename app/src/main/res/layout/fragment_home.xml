@@ -17,8 +17,8 @@
             android:id="@+id/ImageV_fondolog"
             android:layout_width="match_parent"
             android:layout_height="159dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/monic" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/inadem" />
 
         <!--<LinearLayout
             android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                 android:layout_width="107dp"
                 android:layout_height="102dp"
                 android:layout_marginStart="8dp"
-                android:src="@drawable/monic"
+                android:src="@drawable/inadem"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -87,8 +87,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="48dp"
                 android:text="Fraccionamiento Santa Monica Casa 20"
-                android:textColor="@color/white"
+                android:textColor="@color/purple_700"
                 app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
                 app:layout_constraintStart_toEndOf="@+id/imageView_face"
                 app:layout_constraintTop_toTopOf="@+id/imageView_face" />
@@ -97,8 +98,8 @@
                 android:id="@+id/textViewDescFrac"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Fracc. Santa Mónica"
-                android:textColor="@color/white"
+                android:text="INADEM"
+                android:textColor="@color/purple_700"
                 app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
                 app:layout_constraintStart_toStartOf="@+id/textViewDescripcion"
                 app:layout_constraintTop_toBottomOf="@+id/textViewDescripcion" />
@@ -140,13 +141,13 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/ic_agn"
-                app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewConversacion"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageViewNoticias"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageViewConversacion"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center_horizontal"

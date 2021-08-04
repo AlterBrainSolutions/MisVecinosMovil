@@ -16,17 +16,17 @@ import alterbrain.com.ui.AcpAcesoActivity;
 public class AccesosActivity extends AppCompatActivity {
 
     ImageView ivAgregarAcc;
-    TextView tvNombre3, tvNombre1, tvNombre2, tvNombre4;
+    //TextView tvNombre3, tvNombre1, tvNombre2, tvNombre4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accesos);
 
         ivAgregarAcc = findViewById(R.id.imageViewAgregarAcc);
-        tvNombre3 = findViewById(R.id.textViewNombreAcc3);
+        /*tvNombre3 = findViewById(R.id.textViewNombreAcc3);
         tvNombre1 = findViewById(R.id.textViewNombreAcc1);
         tvNombre2 = findViewById(R.id.textViewNombreAcc2);
-        tvNombre4 = findViewById(R.id.textViewNombreAcc4);
+        tvNombre4 = findViewById(R.id.textViewNombreAcc4);*/
 
         ivAgregarAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +35,7 @@ public class AccesosActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        tvNombre3.setOnClickListener(new View.OnClickListener() {
+        /*tvNombre3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AccesosActivity.this, AcpAcesoActivity.class);
@@ -62,6 +62,6 @@ public class AccesosActivity extends AppCompatActivity {
                 Intent i = new Intent(AccesosActivity.this, AcpAcceso4Activity.class);
                 startActivity(i);
             }
-        });
+        });*/
     }
 }

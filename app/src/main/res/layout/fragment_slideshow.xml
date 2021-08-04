@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/grismv"
     tools:context=".ui.slideshow.SlideshowFragment">
-    <TextView
+    <!--<TextView
         android:id="@+id/textViewTituloAtr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:text="AVISO DE PRIVACIDAD"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:textSize="24sp" />-->
 
     <ScrollView
         android:id="@+id/scrollView2"

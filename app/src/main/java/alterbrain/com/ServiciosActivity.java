@@ -80,7 +80,7 @@ public class ServiciosActivity extends AppCompatActivity implements AdapterView.
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
             ivAgregaImagen.setImageURI(imageUri);
-            uploadPicture();
+            //uploadPicture();
         }
     }
 

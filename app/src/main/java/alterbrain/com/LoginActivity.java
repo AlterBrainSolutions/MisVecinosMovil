@@ -50,6 +50,10 @@ public class LoginActivity extends AppCompatActivity {
         btnaviso = findViewById(R.id.buttonAviso);
         btnregistrar = findViewById(R.id.buttonRegistrar);
         ibAbsweb = findViewById(R.id.imageButtonAbs);
+
+        Intent intent  = new Intent(LoginActivity.this, LoginActivity2.class);
+        startActivity(intent);
+        finish();
         /*btnmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

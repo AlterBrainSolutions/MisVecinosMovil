@@ -1,5 +1,5 @@
 key store pass: 112437ab
-Key alias: MisVecinos
+Key alias: MisVecinosKey
 key pass:          112437ab
 Destination folder
-C:\Users\DELL\Documents\mis vecinos prueba\MisVecinos\app\release
+C:\Users\DELL\Documents\mis vecinos copia\MisVecinos\app\release

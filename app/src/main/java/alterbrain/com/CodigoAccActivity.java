@@ -32,17 +32,19 @@ public class CodigoAccActivity extends AppCompatActivity {
                 codigo = editTextCodigo.getText().toString();
                 if(codigo.isEmpty()){
                     editTextCodigo.setError("El código es obligatorio");
-                }else{
+                }else if (codigo.compareTo("o8tKVk4WA0EgtJ3") ==0){
                     finish();
-                    Intent i = new Intent(CodigoAccActivity.this, RegistrarseActivity.class);
+                    Intent i = new Intent(CodigoAccActivity.this, RegistrarseActivity2.class);
                     startActivity(i);
+                }else {
+                    editTextCodigo.setError("El código no es valido");
                 }
             }
         });
         btnRegresaLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CodigoAccActivity.this, LoginActivity.class);
+                Intent i = new Intent(CodigoAccActivity.this, LoginActivity2.class);
                 startActivity(i);
             }
         });

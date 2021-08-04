@@ -2,9 +2,9 @@
 <resources>
     <string-array name="servicios">
         <item>Carpintero</item>
-        <item>Plomero</item>
+        <!--<item>Plomero</item>
         <item>Electricista</item>
-        <item>Cerrajero</item>
+        <item>Cerrajero</item>-->
     </string-array>
     <string-array name="areas">
         <item>Cancha deportiva</item>

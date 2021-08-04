@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/monic" />
 
         <TextView
-            android:id="@+id/textViewNombrefrac"
+            android:id="@+id/textViewTituloNtc"
             android:layout_width="0dp"
             android:layout_height="58dp"
             android:layout_marginStart="12dp"
@@ -42,7 +42,7 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@color/azulmv"
-            app:layout_constraintStart_toStartOf="@+id/textViewNombrefrac"
-            app:layout_constraintTop_toBottomOf="@+id/textViewNombrefrac" />
+            app:layout_constraintStart_toStartOf="@+id/textViewTituloNtc"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTituloNtc" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

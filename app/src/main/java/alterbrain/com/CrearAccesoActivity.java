@@ -1,5 +1,6 @@
 package alterbrain.com;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -13,8 +14,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import alterbrain.com.app.Constantes;
 import alterbrain.com.ui.AcpAccesoDialogFragment;
@@ -23,13 +35,13 @@ import alterbrain.com.ui.BrrAccesoDialogFragment;
 public class CrearAccesoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Spinner spnTipo;
-    String tipo;
+    String tipo = "Habitual";
     ImageView ivFecha;
     TextView tvFecha;
     String fecha;
     Button btnAceptar, btnBorrar;
     EditText etComentario, etNombre;
-    String nombre, comentario;
+    String nombre, comentario, casa, URL = "https://missvecinos.com.mx/android/crearacceso.php";
 
 
     @Override
@@ -53,16 +65,54 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nombre = etNombre.getText().toString();
-                comentario = etComentario.getText().toString();
+                casa = Constantes.NOM_USR;
+                nombre = etNombre.getText().toString().trim();
+                comentario = etComentario.getText().toString().trim();
 
-                if (!nombre.isEmpty()){
+                if (!casa.equals("") && !tipo.equals("") && !nombre.isEmpty()){
                     Constantes.NOMBRE_ACCE = nombre;
                     Constantes.FECHA_ACCE = fecha;
                     Constantes.COMENTARIO_ACCE = comentario;
                     Constantes.TIPO_ACCE = tipo;
-                    AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
-                    dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
+                    //AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
+                    //dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
+
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            /*si el texto de respuesta es correcto, crearemos
+                             * un objeto de intenciony lanzar una actividad de éxito con esa intencion*/
+                            if (response.equals("success")) {
+                                Toast.makeText(CrearAccesoActivity.this, "¡Registrado exitosamente!", Toast.LENGTH_SHORT).show();
+                                btnAceptar.setClickable(false);
+                                finish();
+                            } else if (response.equals("failure")) {
+                                Toast.makeText(CrearAccesoActivity.this, "¡Ocurrió un error!", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            //crear un detector de errores para manejar los errores de manera adecuada
+                            Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_SHORT).show();
+                        }
+                    }){
+                        @Nullable
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> data = new HashMap<>();
+                            data.put("usuario", casa);
+                            data.put("nombre", nombre);
+                            data.put("fecha", fecha);
+                            data.put("tipo", tipo);
+                            data.put("comentarios", comentario);
+                            return data;
+                        }
+                    };
+                    //crear instancia de RQ (cola de solicitudes)
+                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                    requestQueue.add(stringRequest);
                 }else{
                     etNombre.setError("Complete los campos");
                     etNombre.requestFocus();

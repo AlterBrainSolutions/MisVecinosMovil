@@ -70,7 +70,7 @@
                 android:id="@+id/textViewDescFrac"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Carpintero, Fracc. Santa Mónica"
+                android:text="Carpintero"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
                 app:layout_constraintStart_toStartOf="@+id/textViewDescripcion"
