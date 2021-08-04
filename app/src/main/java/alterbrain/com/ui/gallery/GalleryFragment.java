@@ -35,6 +35,7 @@ import com.google.firebase.storage.UploadTask;
 
 import alterbrain.com.MainActivity1;
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 import alterbrain.com.model.User;
 
 import static android.app.Activity.RESULT_OK;
@@ -75,12 +76,24 @@ public class GalleryFragment extends Fragment {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        eventos();
+        //eventos();
 
-        getPlayerNames();
+        //getPlayerNames();
         //Toast.makeText(getActivity(), MainActivity1.userId, Toast.LENGTH_SHORT).show();
 
+        //Get
+        getDatosUser();
+
         return root;
+    }
+
+    private void getDatosUser() {
+        nameU = Constantes.NOM_USR;
+        emailU = Constantes.EMAIL_USR;
+        passU = Constantes.PAS_USR;
+        etName.setText(nameU);
+        etEmail.setText(emailU);
+        etPass.setText(passU);
     }
 
     private void eventos() {
@@ -184,7 +197,7 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        datosUserListener();
+        //datosUserListener();
     }
     private void datosUserListener(){
         listenerUser = db.collection("users")
@@ -251,9 +264,9 @@ public class GalleryFragment extends Fragment {
     }
     @Override
     public void onStop() {
-        if(listenerUser != null) {
+        /*if(listenerUser != null) {
             listenerUser.remove();
-        }
+        }*/
         super.onStop();
     }
 }

@@ -27,6 +27,7 @@ import com.google.firebase.storage.StorageReference;
 
 import alterbrain.com.MainActivity1;
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 
 public class SalirFragment extends Fragment {
 
@@ -51,7 +52,8 @@ public class SalirFragment extends Fragment {
         View root = inflater.inflate(R.layout.salir_fragment, container, false);
         btnCierraSesion = root.findViewById(R.id.buttonCerrarSesion);
 
-        profilePic = root.findViewById(R.id.imageView_faceSa);
+        tvDescrip = root.findViewById(R.id.textViewDescripcionExit);
+        profilePic = root.findViewById(R.id.imageView_faceExit);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
@@ -63,11 +65,17 @@ public class SalirFragment extends Fragment {
             }
         });
 
-        tvDescrip = root.findViewById(R.id.textViewDescripcionExit);
+
         db = FirebaseFirestore.getInstance();
 
-        getPlayerNames();
+        //getPlayerNames();
+        getNameUsu();
         return root;
+    }
+
+    private void getNameUsu() {
+        descri = Constantes.NOM_USR;
+        tvDescrip.setText(descri);
     }
 
     private void getPlayerNames() {

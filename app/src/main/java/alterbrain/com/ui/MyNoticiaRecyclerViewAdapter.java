@@ -10,15 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import alterbrain.com.AbrirNoticia;
-import alterbrain.com.DescripNoticia2Activity;
-import alterbrain.com.DescripNoticia3Activity;
-import alterbrain.com.DescripNoticiaActivity;
-import alterbrain.com.LoginActivity;
 import alterbrain.com.R;
-import alterbrain.com.RegistrarseActivity;
 import alterbrain.com.model.Noticia2;
 
 import java.util.List;
@@ -105,7 +98,7 @@ public class MyNoticiaRecyclerViewAdapter extends RecyclerView.Adapter<MyNoticia
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            textViewNombreFrac = (TextView) view.findViewById(R.id.textViewNombrefrac);
+            textViewNombreFrac = (TextView) view.findViewById(R.id.textViewTituloNtc);
             textViewFecha = (TextView) view.findViewById(R.id.textViewFecha);
             imageViewPhotoFrac = view.findViewById(R.id.imageViewPhoto);
         }

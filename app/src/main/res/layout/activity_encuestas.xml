@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Disponible hasta: vie. 30 de abril de 2021"
+                android:text="Disponible hasta: lun. 30 de agosto de 2021"
                 android:textColor="@color/verdemv"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textViewDescEnc"

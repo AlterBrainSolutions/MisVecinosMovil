@@ -27,20 +27,26 @@ import alterbrain.com.AccesosActivity;
 import alterbrain.com.AdeudosActivity;
 import alterbrain.com.AgendaActivity;
 import alterbrain.com.AnuncioActivity;
+import alterbrain.com.ConversacionActivity;
 import alterbrain.com.Documentos2Activity;
 import alterbrain.com.EncuestasActivity;
 import alterbrain.com.MainActivity1;
+import alterbrain.com.Noticias3Activity;
 import alterbrain.com.NoticiasActivity;
 import alterbrain.com.PagosActivity;
 import alterbrain.com.R;
 import alterbrain.com.ReservaActivity;
 import alterbrain.com.ServiciosActivity;
+import alterbrain.com.ServiciosActivity2;
+import alterbrain.com.ServiciosActivity3;
 import alterbrain.com.Transparencia2Activity;
 import alterbrain.com.Transparencia6Activity;
+import alterbrain.com.Transparencia7Activity;
+import alterbrain.com.app.Constantes;
 
 public class HomeFragment extends Fragment {
     TextView tvDescrip;
-    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas;
+    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion;
     ImageView btnMas,btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
     RelativeLayout rlHome;
@@ -68,6 +74,7 @@ public class HomeFragment extends Fragment {
         ivPagos = root.findViewById(R.id.imageViewPagosh);
         ivAdeudos = root.findViewById(R.id.imageViewAdeudosh);
         ivEncuestas = root.findViewById(R.id.imageViewEncuestas);
+        ivConversacion = root.findViewById(R.id.imageViewConversacion);
         btnCerrar = root.findViewById(R.id.imageViewCerrarPop);
         btnAnuncio = root.findViewById(R.id.imageViewAnuncios);
         btnReserva = root.findViewById(R.id.imageViewReserva);
@@ -81,7 +88,7 @@ public class HomeFragment extends Fragment {
         ivNoticias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent noticia = new Intent(getActivity(), NoticiasActivity.class);
+                Intent noticia = new Intent(getActivity(), Noticias3Activity.class);
                 getActivity().startActivity(noticia);
             }
         });
@@ -96,6 +103,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), AgendaActivity.class);
+                startActivity(i);
+            }
+        });
+        ivConversacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ConversacionActivity.class);
                 startActivity(i);
             }
         });
@@ -115,7 +129,7 @@ public class HomeFragment extends Fragment {
         ivTransparency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), Transparencia6Activity.class);
+                Intent i = new Intent(getActivity(), Transparencia7Activity.class);
                 startActivity(i);
             }
         });
@@ -164,7 +178,7 @@ public class HomeFragment extends Fragment {
         btnServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ServiciosActivity.class);
+                Intent i = new Intent(getActivity(), ServiciosActivity3.class);
                 startActivity(i);
             }
         });
@@ -172,11 +186,20 @@ public class HomeFragment extends Fragment {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        getPlayerNames();
+        //getPlayerNames();
         //MainActivity1.userId = "";
+
+        //Nombre usu
+        getUsuName();
 
         return root;
     }
+
+    private void getUsuName() {
+        descri = Constantes.NOM_USR;
+        tvDescrip.setText(descri);
+    }
+
     private void getPlayerNames() {
         // Obtener el nombre del player 1
         db.collection("users")

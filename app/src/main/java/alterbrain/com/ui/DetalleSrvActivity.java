@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import alterbrain.com.MapsActivity;
 import alterbrain.com.R;
 import alterbrain.com.app.Constantes;
@@ -51,10 +53,10 @@ public class DetalleSrvActivity extends AppCompatActivity {
         tvDescrip.setText("Descripción: "+descripcion);
         tvPresupuesto.setText("Presupuesto estimado: "+presupuesto);
 
-        /*Glide.with(this)
-                .load(imagen)
+        Glide.with(this)
+                .load("https://missvecinos.com.mx/ejemploBDRemota/imagenes/"+imagen+".jpg")
                 .centerCrop()
-                .into(imageViewServi);*/
+                .into(imageViewServi);
         btnUbicacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import alterbrain.com.ui.DetalleAdeActivity;
+import alterbrain.com.ui.DetalleAdeActivity2;
 
 public class AdeudosActivity extends AppCompatActivity {
 
@@ -22,7 +23,9 @@ public class AdeudosActivity extends AppCompatActivity {
         btnDetalleAde.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AdeudosActivity.this, DetalleAdeActivity.class);
+                /*Intent i = new Intent(AdeudosActivity.this, DetalleAdeActivity.class);
+                startActivity(i);*/
+                Intent i = new Intent(AdeudosActivity.this, DetalleAdeActivity2.class);
                 startActivity(i);
             }
         });

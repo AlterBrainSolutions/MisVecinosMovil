@@ -32,7 +32,7 @@ import alterbrain.com.R;
 
 public class ServicioFragment extends Fragment {
 
-    private static final String URL_players = "https://missvecinos.com.mx/android/servicios.php";
+    private static final String URL_players = "https://missvecinos.com.mx/android/servicios2.php";
     RecyclerView recyclerView;
     MyServicioRecyclerViewAdapter servicioRecyclerViewAdapter;
     List<Servicios> serviciosList;

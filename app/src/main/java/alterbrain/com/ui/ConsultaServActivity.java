@@ -41,7 +41,7 @@ public class ConsultaServActivity extends AppCompatActivity implements Response.
     }
 
     private void consultaSrv() {
-        String url ="https://missvecinos.com.mx/android/consultasrv.php?idsrv="+idServicio;
+        String url ="https://missvecinos.com.mx/android/consultasrv2.php?idsrv="+idServicio;
 
         //String url ="https://192.168.0.32/login/sesion.php?user="+cajaUser.getText().toString()+
         //"&pwd="+cajaPawd.getText().toString();

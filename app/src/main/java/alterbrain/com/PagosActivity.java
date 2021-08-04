@@ -23,15 +23,15 @@ public class PagosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagos);
 
-        tvcEnero = findViewById(R.id.textViewCEnerop);
+        /*tvcEnero = findViewById(R.id.textViewCEnerop);
         tvcFebrero = findViewById(R.id.textViewCFebrerop);
         tvC3 = findViewById(R.id.textViewCMarzoP);
         tvC4 = findViewById(R.id.textViewCAbrilp);
         tvC5 = findViewById(R.id.textViewCMayop);
-        tvC6 = findViewById(R.id.textViewCJuniop);
+        tvC6 = findViewById(R.id.textViewCJuniop);*/
         tvC7 = findViewById(R.id.textViewCJuliop);
 
-        tvcEnero.setOnClickListener(new View.OnClickListener() {
+        /*tvcEnero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent detail = new Intent(PagosActivity.this, VeRecibo1Activity.class);
@@ -72,7 +72,7 @@ public class PagosActivity extends AppCompatActivity {
                 Intent detail = new Intent(PagosActivity.this, VeRecibo6Activity.class);
                 startActivity(detail);
             }
-        });
+        });*/
         tvC7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
