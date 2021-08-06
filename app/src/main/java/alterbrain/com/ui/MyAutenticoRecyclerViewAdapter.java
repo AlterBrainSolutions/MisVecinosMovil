@@ -18,10 +18,12 @@ public class MyAutenticoRecyclerViewAdapter extends RecyclerView.Adapter<MyAuten
 
     private Context ctx;
     private final List<Autentico> mValues;
+    AbrirAutentico abrirAutentico;
 
     public MyAutenticoRecyclerViewAdapter(Context contexto, List<Autentico> items) {
         ctx = contexto;
         mValues = items;
+        abrirAutentico = new AbrirAutentico();
     }
 
     @Override
@@ -35,6 +37,13 @@ public class MyAutenticoRecyclerViewAdapter extends RecyclerView.Adapter<MyAuten
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.textViewNombre.setText(holder.mItem.getNombre());
+
+        holder.textViewNombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirAutentico.open(ctx, holder.mItem.getIdAcceso());
+            }
+        });
     }
 
     @Override
