@@ -2,12 +2,14 @@ package alterbrain.com.ui;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import net.glxn.qrgen.android.QRCode;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +25,7 @@ public class AcpAccesoDialogFragment extends DialogFragment {
     TextView tvDatos;
 
     ImageView ivCerrar;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +51,17 @@ public class AcpAccesoDialogFragment extends DialogFragment {
 
         eventos();
 
+        String texto = Constantes.COD_ACCE;
+        Bitmap bitmap = QRCode.from(texto).bitmap();
+        // Suponiendo que tienes un ImageView con el id ivCodigoGenerado
+        ImageView imagenCodigo = view.findViewById(R.id.imageViewQR);
+        imagenCodigo.setImageBitmap(bitmap);
+
         return view;
 
     }
 
     private void eventos() {
-
-
         ivCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -24,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.security.SecureRandom;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +35,8 @@ import alterbrain.com.ui.BrrAccesoDialogFragment;
 
 public class CrearAccesoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+    private static SecureRandom random = new SecureRandom();
+    private static final String CHARACTER_SET="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private Spinner spnTipo;
     String tipo = "Habitual";
     ImageView ivFecha;
@@ -41,8 +44,17 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
     String fecha;
     Button btnAceptar, btnBorrar;
     EditText etComentario, etNombre;
-    String nombre, comentario, casa, URL = "https://missvecinos.com.mx/android/crearacceso.php";
+    String nombre, comentario, casa, URL = "https://missvecinos.com.mx/android/crearacceso.php", codAcce;
 
+    // Create a random alphanumeric string
+    private static String getRandomString(int len) {
+        StringBuffer buff = new StringBuffer(len);
+        for(int i=0;i<len;i++) {
+            int offset = random.nextInt(CHARACTER_SET.length());
+            buff.append(CHARACTER_SET.substring(offset,offset+1));
+        }
+        return buff.toString();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +86,10 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                     Constantes.FECHA_ACCE = fecha;
                     Constantes.COMENTARIO_ACCE = comentario;
                     Constantes.TIPO_ACCE = tipo;
-                    //AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
-                    //dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
+                    codAcce = getRandomString(16);
+                    Constantes.COD_ACCE = codAcce;
+                    AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
+                    dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
 
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
@@ -85,7 +99,7 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                             if (response.equals("success")) {
                                 Toast.makeText(CrearAccesoActivity.this, "¡Registrado exitosamente!", Toast.LENGTH_SHORT).show();
                                 btnAceptar.setClickable(false);
-                                finish();
+                                //finish();
                             } else if (response.equals("failure")) {
                                 Toast.makeText(CrearAccesoActivity.this, "¡Ocurrió un error!", Toast.LENGTH_SHORT).show();
 
@@ -107,6 +121,7 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                             data.put("fecha", fecha);
                             data.put("tipo", tipo);
                             data.put("comentarios", comentario);
+                            data.put("codigo", codAcce);
                             return data;
                         }
                     };
@@ -149,6 +164,7 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
 
         SpinnerComponentes();
     }
+
     public void abrirCalendario(View view){
         Calendar cal = Calendar.getInstance();
 
@@ -184,7 +200,7 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
         switch (parent.getId()){
             case R.id.spinnerTipoAcc:
                 //if (position !=0){
-                    tipo = parent.getItemAtPosition(position).toString();
+                tipo = parent.getItemAtPosition(position).toString();
                 /*}else{
                     tipo = "";
                 }*/
