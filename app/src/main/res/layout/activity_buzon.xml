@@ -45,7 +45,7 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/editTextTituloAnn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -67,8 +67,8 @@
                 android:text="Fecha"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+                app:layout_constraintStart_toStartOf="@+id/editTextTituloAnn"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTituloAnn" />
 
             <ImageView
                 android:id="@+id/imageViewFechaBzn"
@@ -76,8 +76,8 @@
                 android:layout_height="35dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_rounded_border_blue"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTituloAnn"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTituloAnn"
                 app:srcCompat="@drawable/ic_baseline_calendar_today_24" />
 
             <EditText
@@ -95,10 +95,10 @@
                 android:textSize="19sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextTituloAnn" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/buttonAceptarAnn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"

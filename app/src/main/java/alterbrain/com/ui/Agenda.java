@@ -1,16 +1,26 @@
 package alterbrain.com.ui;
 
 public class Agenda {
+    private  int idEvento;
     private String tipo;
     private String asunto;
     private String responsable;
     private String fecha;
 
-    public Agenda(String tipo, String asunto, String responsable, String fecha) {
+    public Agenda(int idEvento, String tipo, String asunto, String responsable, String fecha) {
+        this.idEvento = idEvento;
         this.tipo = tipo;
         this.asunto = asunto;
         this.responsable = responsable;
         this.fecha = fecha;
+    }
+
+    public int getIdEvento() {
+        return idEvento;
+    }
+
+    public void setIdEvento(int idEvento) {
+        this.idEvento = idEvento;
     }
 
     public String getTipo() {
