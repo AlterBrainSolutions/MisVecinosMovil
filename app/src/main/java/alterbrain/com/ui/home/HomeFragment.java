@@ -35,6 +35,7 @@ import alterbrain.com.Noticias3Activity;
 import alterbrain.com.NoticiasActivity;
 import alterbrain.com.PagosActivity;
 import alterbrain.com.R;
+import alterbrain.com.ReciclajeActivity;
 import alterbrain.com.ReservaActivity;
 import alterbrain.com.ServiciosActivity;
 import alterbrain.com.ServiciosActivity2;
@@ -46,7 +47,7 @@ import alterbrain.com.app.Constantes;
 
 public class HomeFragment extends Fragment {
     TextView tvDescrip;
-    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion;
+    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje;
     ImageView btnMas,btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
     RelativeLayout rlHome;
@@ -69,6 +70,7 @@ public class HomeFragment extends Fragment {
         ivNoticias = root.findViewById(R.id.imageViewNoticias);
         ivAgenda = root.findViewById(R.id.imageViewAgenda);
         ivDocumentos = root.findViewById(R.id.imageViewDocumentosh);
+        ivReciclaje = root.findViewById(R.id.imageViewReciclaje);
         ivManita = root.findViewById(R.id.imageView_mas);
         ivTransparency = root.findViewById(R.id.imageViewTransparenciah);
         ivPagos = root.findViewById(R.id.imageViewPagosh);
@@ -96,6 +98,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent detail = new Intent(getActivity(), Documentos2Activity.class);
+                getActivity().startActivity(detail);
+            }
+        });
+        ivReciclaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent detail = new Intent(getActivity(), ReciclajeActivity.class);
                 getActivity().startActivity(detail);
             }
         });
