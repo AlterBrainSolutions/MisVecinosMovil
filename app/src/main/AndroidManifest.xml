@@ -26,20 +26,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".DetalleReciclajeActivity"></activity>
+        <activity android:name=".ReciclajeActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="alterbrain.com.fileprovider"
-            android:grantUriPermissions="true"
-            android:exported="false">
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
 
-        <activity android:name=".ui.ConsultaAutnActivity"
+        <activity
+            android:name=".ui.ConsultaAutnActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MisVecinos.NoActionBar"></activity>
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
         <activity
             android:name=".ServiciosActivity3"
             android:screenOrientation="portrait"

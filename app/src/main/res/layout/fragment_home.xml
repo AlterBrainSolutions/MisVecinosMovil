@@ -225,6 +225,19 @@
                 app:layout_constraintStart_toEndOf="@+id/imageViewPagosh"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/imageViewReciclaje"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/ic_recycler2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewAdeudosh"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
