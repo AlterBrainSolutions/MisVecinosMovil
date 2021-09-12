@@ -97,7 +97,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/spinnerReserva" />
 
             <Button
-                android:id="@+id/buttonEnciarResr"
+                android:id="@+id/buttonEnviarResr"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"

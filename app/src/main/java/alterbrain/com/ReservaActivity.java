@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -50,7 +49,7 @@ public class ReservaActivity extends AppCompatActivity implements AdapterView.On
         tvFecha = findViewById(R.id.textViewFechaReserva);
         etDescripcion = findViewById(R.id.editTextDescripResr);
 
-        btnAceptar = findViewById(R.id.buttonEnciarResr);
+        btnAceptar = findViewById(R.id.buttonEnviarResr);
 
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
