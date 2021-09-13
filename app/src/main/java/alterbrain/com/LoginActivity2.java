@@ -71,6 +71,12 @@ public class LoginActivity2 extends AppCompatActivity {
                     i.putExtra(Constantes.EXTRA_USER_ID, "");
                     startActivity(i);
                     finish();
+                }else if (usuario.compareTo("usuario.logistica1") ==0 && password.compareTo("Abcde123") ==0){
+                    Intent i = new Intent(LoginActivity2.this, MainActivity7.class);
+                    i.putExtra("servicio", "logistica");
+                    i.putExtra(Constantes.EXTRA_USER_ID, "");
+                    startActivity(i);
+                    finish();
                 }else if(!usuario.equals("") && !password.equals("")){
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override

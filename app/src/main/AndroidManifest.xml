@@ -26,7 +26,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".DetalleReciclajeActivity"></activity>
+        <activity
+            android:name=".ui.DetalleLogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.UbicaLogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity android:name=".DetalleReciclajeActivity" />
         <activity android:name=".ReciclajeActivity" />
 
         <provider
@@ -360,6 +368,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity5"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".MainActivity7"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar" />
