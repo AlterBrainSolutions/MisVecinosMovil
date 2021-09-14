@@ -11,22 +11,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/imageView17"
             android:layout_width="wrap_content"
             android:layout_height="159dp"
+            android:background="@color/azulmv"
             android:scaleType="fitXY"
-            android:src="@drawable/inadem" />
+            android:src="@drawable/inadem" />-->
+
+
+        <TextView
+            android:id="@+id/textView87"
+            android:layout_width="match_parent"
+            android:layout_height="159dp"
+            android:background="@color/azulmv"
+            android:gravity="center"
+            android:text="ARMANDO REYES\nVEHÍCULO 001"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView88"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="159dp"
+            android:text="LA RECOGIDA DEBE REALIZARSE EN EL ORDEN ESTABLECIDO"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <fragment
             android:id="@+id/fragment7"
             android:name="alterbrain.com.ui.LogsFraccionamientoFragment"
             android:layout_width="match_parent"
             android:layout_height="450dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="220dp"
+            android:layout_marginEnd="8dp"
             tools:layout="@layout/fragment_logsfraccionamiento_list" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="110dp">
@@ -63,6 +88,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView75"
                 app:layout_constraintTop_toBottomOf="@+id/textView75" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
     </RelativeLayout>
 </ScrollView>
