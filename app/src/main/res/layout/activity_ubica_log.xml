@@ -45,14 +45,16 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
-                app:uiZoomControls="true"
+                android:layout_marginTop="8dp"
 
+                app:uiZoomControls="true"
                 tools:context=".MapsActivity" />
 
             <Button
                 android:id="@+id/buttonDetalleLogReci"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/button_rounded"
                 android:text="Detalle" />
         </LinearLayout>
