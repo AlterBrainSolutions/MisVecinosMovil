@@ -145,20 +145,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD8" />
 
-            <ImageView
-                android:id="@+id/imageViewRD1"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pcCircular1"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                android:backgroundTint="#00FFFFFF"
-                android:src="@drawable/cil_red"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="500dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/textViewRD10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,23 +164,24 @@
                 android:text="CONTENEDOR PET AL 60%"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@id/imageViewRD1"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
+                app:layout_constraintStart_toEndOf="@id/pcCircular1"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />-->
 
-            <ImageView
-                android:id="@+id/imageViewRD2"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="150dp"
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pcCircular2"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="#00FFFFFF"
                 android:backgroundTint="#00FFFFFF"
                 android:src="@drawable/cil_nar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pcCircular1" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/textViewRD11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -192,8 +190,8 @@
                 android:text="CONTENEDOR PET AL 60%"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@id/imageViewRD2"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
+                app:layout_constraintStart_toEndOf="@id/pcCircular2"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
