@@ -61,26 +61,51 @@
                 android:id="@+id/textViewRD3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="100dp"
+                android:layout_marginEnd="140dp"
                 android:text="ENVASES PET: "
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD2" />
+
+            <TextView
+                android:id="@+id/textViewcontPET"
+                android:layout_width="180dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="43dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@+id/textViewRD3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD2"/>
 
             <TextView
                 android:id="@+id/textViewRD4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
                 android:text="ENVASES DE ALUMINIO: "
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD3"/>
+
+            <TextView
+                android:id="@+id/textViewcontAL"
+                android:layout_width="110dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="43dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@+id/textViewRD4"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD3"/>
 
             <TextView
@@ -101,12 +126,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="100dp"
+                android:layout_marginStart="43dp"
                 android:text="ENVASES PET: "
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD5" />
+
+            <TextView
+                android:id="@+id/textViewcontPETmes"
+                android:layout_width="180dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="43dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@+id/textViewRD6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD5"/>
 
             <TextView
                 android:id="@+id/textViewRD7"
@@ -114,11 +152,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
+                android:layout_marginStart="43dp"
                 android:text="ENVASES DE ALUMINIO: "
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD6"/>
+
+            <TextView
+                android:id="@+id/textViewcontALmes"
+                android:layout_width="110dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="43dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@+id/textViewRD7"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD6"/>
 
             <TextView
@@ -134,6 +185,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD7" />
 
             <TextView
+                android:id="@+id/textViewcontAnio"
+                android:layout_width="180dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="43dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD8" />
+
+            <TextView
                 android:id="@+id/textViewRD9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -143,22 +207,32 @@
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRD8" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewcontAnio" />
 
-            <ImageView
-                android:id="@+id/imageViewRD1"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                android:backgroundTint="#00FFFFFF"
-                android:src="@drawable/cil_red"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <TextView
+                android:id="@+id/textViewcontFracc"
+                android:layout_width="180dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="43dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
 
-            <TextView
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pcCircular1"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="500dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewcontFracc" />
+
+            <!--<TextView
                 android:id="@+id/textViewRD10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,23 +241,24 @@
                 android:text="CONTENEDOR PET AL 60%"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@id/imageViewRD1"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
+                app:layout_constraintStart_toEndOf="@id/pcCircular1"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />-->
 
-            <ImageView
-                android:id="@+id/imageViewRD2"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="150dp"
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pcCircular2"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="#00FFFFFF"
                 android:backgroundTint="#00FFFFFF"
                 android:src="@drawable/cil_nar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pcCircular1" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/textViewRD11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -192,8 +267,8 @@
                 android:text="CONTENEDOR PET AL 60%"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@id/imageViewRD2"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
+                app:layout_constraintStart_toEndOf="@id/pcCircular2"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
