@@ -35,11 +35,13 @@
             android:id="@+id/textView88"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="159dp"
+            android:layout_marginTop="174dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:text="LA RECOGIDA DEBE REALIZARSE EN EL ORDEN ESTABLECIDO"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="19sp" />
 
         <fragment
             android:id="@+id/fragment7"
@@ -47,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="235dp"
             android:layout_marginEnd="8dp"
             tools:layout="@layout/fragment_logsfraccionamiento_list" />
 

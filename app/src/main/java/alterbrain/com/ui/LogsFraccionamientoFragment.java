@@ -68,6 +68,7 @@ public class LogsFraccionamientoFragment extends Fragment {
             }
             fraccionamientoList = new ArrayList<>();
             fraccionamientoList.add(new Fraccionamiento(1,"link vacio", "FRACCIONAMIENTO INADEM", 1,15,35));
+            fraccionamientoList.add(new Fraccionamiento(2,"link vacio", "FRACCIONAMIENTO SANTA MONICA", 1,15,35));
             myLogsFraccionamientoRecyclerViewAdapter = new MyLogsFraccionamientoRecyclerViewAdapter(getActivity(), fraccionamientoList);
             recyclerView.setAdapter(myLogsFraccionamientoRecyclerViewAdapter);
         }
