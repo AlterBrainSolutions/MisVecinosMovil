@@ -2,8 +2,10 @@ package alterbrain.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,12 +40,16 @@ import alterbrain.com.ui.MyNoticiaRecyclerViewAdapter3;
 
 public class DetalleReciclajeActivity extends AppCompatActivity {
 
-    private static final int usuario = Constantes.ID_USR;
-    private static final String URL_detalles = "https://missvecinos.com.mx/android/detallereciclaje.php?nm=" + usuario;
+    private static final int PET = 3000, ALUM = 5000;
+    private int usuario = Constantes.ID_USR;
+    private String URL_detalles = "https://missvecinos.com.mx/android/detallereciclaje.php?nm=" + usuario;/* = "https://missvecinos.com.mx/android/detallereciclaje.php?nm=" + usuario*/
     private RequestQueue mQueue;
     private PieChart pcCircular1, pcCircular2;
     TextView tvcontPet, tvcontAl, tvcontPetmes, tvcontAlmes, tvcontAnio, tvcontFracc;
-    private int contPetDia = 0, contAlumDia = 0, contPetMes = 0, contAlumMes = 0, contAnio = 0, contFracc = 0;
+    private int contPetDia = 0, contAlumDia = 0, contPetMes = 0, contAlumMes = 0, contAnio = 0
+            ,contFracc1 = 0, contFracc2 = 0;
+    static int graficaPet = 0, graficaAl = 0;
+    static float porcPet = 0, porcAl = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,43 +67,15 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
 
         mQueue = Volley.newRequestQueue(this);
 
+        /*ProgressDialog progress = new ProgressDialog(DetalleReciclajeActivity.this);
+        progress.show();*/
+
         /*jsonParse();*/
         jsonParse2();
-
-        ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
-        entries.add(new PieEntry(60.0f, "Usado"));
-
-        PieDataSet pieDataSet = new PieDataSet(entries, "");
-        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        pieDataSet.setValueTextColor(Color.BLACK);
-        pieDataSet.setValueTextSize(16f);
-
-        PieData pieData = new PieData(pieDataSet);
-
-        pcCircular1.setData(pieData);
-        pcCircular1.getDescription().setEnabled(false);
-        pcCircular1.setCenterText("CONTENEDOR PET");
-        pcCircular1.animate();
-        /* -----------------------------------COMIENZA LA SEGUNDA GRAFICA---------------------------------*/
-        ArrayList<PieEntry> entries2 = new ArrayList<PieEntry>();
-        entries2.add(new PieEntry(80.0f, "Usado"));
-
-        PieDataSet pieDataSet2 = new PieDataSet(entries2, "");
-        pieDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
-        pieDataSet2.setValueTextColor(Color.BLACK);
-        pieDataSet2.setValueTextSize(16f);
-
-        PieData pieData2 = new PieData(pieDataSet2);
-
-        pcCircular2.setData(pieData2);
-        pcCircular2.getDescription().setEnabled(false);
-        pcCircular2.setCenterText("CONTENEDOR AL");
-        pcCircular2.animate();
-
-        /*Toast.makeText(DetalleReciclajeActivity.this, String.valueOf(Constantes.ID_USR), Toast.LENGTH_SHORT).show();*/
     }
 
     private void jsonParse2() {
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_detalles, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -168,15 +146,60 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
                             for (int i = 0; i < tamFracc; i++) {
                                 JSONObject jsonObject = new JSONObject(porFracc.get(i).toString());
                                 String numeroCasa = jsonObject.getString("numeroCasa");
-                                contFracc += jsonObject.getInt("cantidadPet");
-                                contFracc += jsonObject.getInt("cantidadAlum");
+                                contFracc1 += jsonObject.getInt("cantidadPet");
+                                contFracc2 += jsonObject.getInt("cantidadAlum");
 
-                                tvcontFracc.setText(String.valueOf(contFracc));
+                                graficaPet = contFracc1;
+                                graficaAl = contFracc2;
+
+                                /*Toast.makeText(DetalleReciclajeActivity.this, String.valueOf(graficaPet)+ "y "+
+                                        String.valueOf(graficaAl), Toast.LENGTH_SHORT).show();*/
+
+                                tvcontFracc.setText(String.valueOf(contFracc1 + contFracc2));
 
                                 /*Toast.makeText(DetalleReciclajeActivity.this, String.valueOf(contFracc)+ "y "+
                                         numeroCasa, Toast.LENGTH_SHORT).show();*/
-
                             }
+
+                            porcPet = (float)((graficaPet * 100)/PET);
+                            porcAl = (float)((graficaAl*100)/ALUM);
+                            float resto1 = (float)100 - porcPet;
+                            float resto2 = (float)100 - porcAl;
+
+                            ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+                            entries.add(new PieEntry(porcPet, "Usado"));
+                            entries.add(new PieEntry(resto1, "Libre"));
+
+                            PieDataSet pieDataSet = new PieDataSet(entries, "");
+                            pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+                            pieDataSet.setValueTextColor(Color.BLACK);
+                            pieDataSet.setValueTextSize(16f);
+
+                            PieData pieData = new PieData(pieDataSet);
+
+                            pcCircular1.getDescription().setEnabled(false);
+                            pcCircular1.setCenterText("CONTENEDOR PET");
+                            pcCircular1.setData(pieData);
+                            pcCircular1.invalidate();
+                            pcCircular1.notifyDataSetChanged();
+
+                            /* -----------------------------------COMIENZA LA SEGUNDA GRAFICA---------------------------------*/
+                            ArrayList<PieEntry> entries2 = new ArrayList<PieEntry>();
+                            entries2.add(new PieEntry(porcAl, "Usado"));
+                            entries2.add(new PieEntry(resto2, "Libre"));
+
+                            PieDataSet pieDataSet2 = new PieDataSet(entries2, "");
+                            pieDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
+                            pieDataSet2.setValueTextColor(Color.BLACK);
+                            pieDataSet2.setValueTextSize(16f);
+
+                            PieData pieData2 = new PieData(pieDataSet2);
+
+                            pcCircular2.getDescription().setEnabled(false);
+                            pcCircular2.setCenterText("CONTENEDOR AL");
+                            pcCircular2.setData(pieData2);
+                            pcCircular2.invalidate();
+                            pcCircular2.notifyDataSetChanged();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
