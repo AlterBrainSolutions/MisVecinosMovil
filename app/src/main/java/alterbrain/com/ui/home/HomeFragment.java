@@ -24,6 +24,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import alterbrain.com.AccesosActivity;
+import alterbrain.com.ActivityDetalleAyuda;
 import alterbrain.com.AdeudosActivity;
 import alterbrain.com.AgendaActivity;
 import alterbrain.com.AnuncioActivity;
@@ -48,11 +49,12 @@ import alterbrain.com.app.Constantes;
 public class HomeFragment extends Fragment {
     TextView tvDescrip;
     ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje;
-    ImageView btnMas,btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
+    ImageView btnMas, btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
     RelativeLayout rlHome;
     String descri;
     FirebaseFirestore db;
+    boolean yaloVioXD = false;
 
     private ImageView profilePic;
     private FirebaseStorage storage;
@@ -104,8 +106,13 @@ public class HomeFragment extends Fragment {
         ivReciclaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detail = new Intent(getActivity(), ReciclajeActivity.class);
-                getActivity().startActivity(detail);
+                if (yaloVioXD == true) {
+                    Intent detail = new Intent(getActivity(), ReciclajeActivity.class);
+                    getActivity().startActivity(detail);
+                } else {
+                    Intent detail = new Intent(getActivity(), ActivityDetalleAyuda.class);
+                    getActivity().startActivity(detail);
+                }
             }
         });
         ivAgenda.setOnClickListener(new View.OnClickListener() {
@@ -229,7 +236,7 @@ public class HomeFragment extends Fragment {
         imageRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 profilePic.setImageBitmap(bitmap);
             }
         }).addOnFailureListener(new OnFailureListener() {

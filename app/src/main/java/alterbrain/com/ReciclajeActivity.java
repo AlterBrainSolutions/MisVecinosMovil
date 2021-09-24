@@ -3,6 +3,11 @@ package alterbrain.com;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +28,9 @@ import com.android.volley.toolbox.Volley;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import alterbrain.com.app.Constantes;
@@ -32,12 +39,9 @@ import alterbrain.com.ui.DetalleAdeActivity2;
 
 
 public class ReciclajeActivity extends AppCompatActivity {
-    int numPET = 0;
-    int numAL = 0;
-    Button btningresaReciclaje, btndetalleReciclaje, btnConfirmar;
+    int numPET = 0, numAL = 0, usuario;
+    Button btningresaReciclaje, btndetalleReciclaje, btnConfirmar, sigSlider, btnCerrar;
     TextView tvalertPET, tvalertAL;
-    ImageView ivCerrar;
-    int usuario;
     String URL = "https://missvecinos.com.mx/android/insertareciclaje.php";
 
     @Override
@@ -73,6 +77,7 @@ public class ReciclajeActivity extends AppCompatActivity {
                 startActivity(i);*/
                 /*Toast.makeText( ReciclajeActivity.this,
                 "Los numeros son: "+ numPET + " y "+ numAL, Toast.LENGTH_SHORT).show();*/
+
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(ReciclajeActivity.this);
                 View mView = getLayoutInflater().inflate(R.layout.dialog_conf_rec, null);
 
@@ -83,7 +88,7 @@ public class ReciclajeActivity extends AppCompatActivity {
                 tvalertAL = mView.findViewById(R.id.textViewAlertAL);
                 tvalertPET = mView.findViewById(R.id.textViewAlertPET);
                 btnConfirmar = mView.findViewById(R.id.buttonAlertConf);
-                ivCerrar = mView.findViewById(R.id.ivCerrarAlert);
+                btnCerrar = mView.findViewById(R.id.buttonAlertCerrar);
 
                 tvalertPET.setText(String.valueOf(numPET));
                 tvalertAL.setText(String.valueOf(numAL));
@@ -107,7 +112,7 @@ public class ReciclajeActivity extends AppCompatActivity {
                     }*/
                 });
 
-                ivCerrar.setOnClickListener(new View.OnClickListener() {
+                btnCerrar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
@@ -131,7 +136,6 @@ public class ReciclajeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
 
     @Override
@@ -142,9 +146,9 @@ public class ReciclajeActivity extends AppCompatActivity {
         if (result != null) {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Lectura cancelada", Toast.LENGTH_LONG).show();
-            } else {
+            } else if (result.getContents().equals("abcdefg12345")) {
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
-                Toast.makeText(this, numAL +" "+ numPET, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, numAL + " " + numPET, Toast.LENGTH_LONG).show();
                 /*txtResultado.setText(result.getContents());*/
                 usuario = Constantes.ID_USR;
 
@@ -186,6 +190,8 @@ public class ReciclajeActivity extends AppCompatActivity {
                 requestQueue.add(stringRequest);
 
                 finish();
+            } else {
+                Toast.makeText(ReciclajeActivity.this, "¡El codigo no es correcto!", Toast.LENGTH_SHORT).show();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

@@ -26,6 +26,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".ActivityDetalleAyuda"></activity>
         <activity
             android:name=".ui.DetalleLogActivity"
             android:screenOrientation="portrait"
