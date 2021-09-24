@@ -3,13 +3,18 @@ package alterbrain.com;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
+
+import alterbrain.com.app.Constantes;
 
 public class ActivityDetalleAyuda extends AppCompatActivity {
 
@@ -43,6 +48,7 @@ public class ActivityDetalleAyuda extends AppCompatActivity {
                     pager.setCurrentItem(positionPager);
                 }
                 if (positionPager == 4) {
+                    savePreferences();
                     Intent i = new Intent(ActivityDetalleAyuda.this, ReciclajeActivity.class);
                     startActivity(i);
                     finish();
@@ -78,5 +84,12 @@ public class ActivityDetalleAyuda extends AppCompatActivity {
                 super.onPageScrollStateChanged(state);
             }
         });
+    }
+
+    public void savePreferences(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ActivityDetalleAyuda.this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("isOpenedfor"+ Constantes.ID_USR, true);
+        editor.commit();
     }
 }

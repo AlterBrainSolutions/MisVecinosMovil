@@ -1,15 +1,19 @@
 package alterbrain.com.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -33,16 +37,11 @@ import alterbrain.com.Documentos2Activity;
 import alterbrain.com.EncuestasActivity;
 import alterbrain.com.MainActivity1;
 import alterbrain.com.Noticias3Activity;
-import alterbrain.com.NoticiasActivity;
 import alterbrain.com.PagosActivity;
 import alterbrain.com.R;
 import alterbrain.com.ReciclajeActivity;
 import alterbrain.com.ReservaActivity;
-import alterbrain.com.ServiciosActivity;
-import alterbrain.com.ServiciosActivity2;
 import alterbrain.com.ServiciosActivity3;
-import alterbrain.com.Transparencia2Activity;
-import alterbrain.com.Transparencia6Activity;
 import alterbrain.com.Transparencia7Activity;
 import alterbrain.com.app.Constantes;
 
@@ -106,7 +105,9 @@ public class HomeFragment extends Fragment {
         ivReciclaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (yaloVioXD == true) {
+                /*Toast.makeText( HomeFragment.this.getActivity(),
+                        "Booleasno "+Boolean.toString(getSavedPreferences()), Toast.LENGTH_SHORT).show();*/
+                if (getSavedPreferences() == true) {
                     Intent detail = new Intent(getActivity(), ReciclajeActivity.class);
                     getActivity().startActivity(detail);
                 } else {
@@ -209,6 +210,18 @@ public class HomeFragment extends Fragment {
         getUsuName();
 
         return root;
+    }
+
+    /*public void savePreferences(){
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("usrPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("isOpenedfor"+ Constantes.ID_USR, true);
+        editor.commit();
+    }*/
+
+    public boolean getSavedPreferences(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(HomeFragment.this.getActivity());
+        return preferences.getBoolean("isOpenedfor"+ Constantes.ID_USR, false);
     }
 
     private void getUsuName() {

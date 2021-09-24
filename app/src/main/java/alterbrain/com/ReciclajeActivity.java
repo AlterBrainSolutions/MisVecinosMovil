@@ -219,8 +219,8 @@ public class ReciclajeActivity extends AppCompatActivity {
             new NumberPicker.OnValueChangeListener() {
                 @Override
                 public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                    //Toast.makeText( ReciclajeActivity.this,
-                    //"selected number "+numberPicker.getValue(), Toast.LENGTH_SHORT).show();
+                    /*Toast.makeText( ReciclajeActivity.this,
+                    "selected number "+numberPicker.getValue(), Toast.LENGTH_SHORT).show();*/
                     numAL = numberPicker.getValue();
 
                     if (numberPicker.getValue() == 0 && numPET == 0) {
