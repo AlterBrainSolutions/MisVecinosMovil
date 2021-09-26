@@ -99,8 +99,7 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
                                         String.valueOf(contAlumDia) + " y " +
                                         numeroCasa, Toast.LENGTH_SHORT).show();*/
                             }
-
-
+                            
                             JSONArray porMes = response.getJSONArray("por mes");
 
                             int tamMes = porMes.length();
