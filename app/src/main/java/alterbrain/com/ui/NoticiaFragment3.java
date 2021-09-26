@@ -34,6 +34,7 @@ import alterbrain.com.model.Noticia3;
  */
 public class NoticiaFragment3 extends Fragment {
 
+    //TODO Modificar la consulta para que no consulte la descripcion de la noticia, y esta se pueda saber por separado con ConsultaNtcActivity
     private static final String URL_noticias = "https://missvecinos.com.mx/android/noticias.php";
     List<Noticia3> noticiasList;
     RecyclerView recyclerView;

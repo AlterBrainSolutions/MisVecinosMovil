@@ -37,7 +37,7 @@ public class MyLogsFraccionamientoRecyclerViewAdapter extends RecyclerView.Adapt
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.textViewNomFracc.setText(holder.mItem.getNombreFracc());
+        holder.textViewNomFracc.setText("FRACCIONAMIENTO "+holder.mItem.getNombreFracc());
 
         holder.textViewNomFracc.setOnClickListener(new View.OnClickListener() {
             @Override

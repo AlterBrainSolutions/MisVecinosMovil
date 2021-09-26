@@ -9,9 +9,10 @@ public class AbrirFracc {
     public AbrirFracc() {
     }
 
-    public void open(Context ctx, int idC, String casa){
-        Intent detail = new Intent(ctx, UbicaLogActivity.class);
-        detail.putExtra("valorFracc", idC);
+    public void open(Context ctx, int idFracc, String nomFracc){
+        Intent detail = new Intent(ctx, ConsultaFraccLogsActivity.class);
+        detail.putExtra("valorFraccL", idFracc);
+        detail.putExtra("nomFracc", nomFracc);
         //detail.putExtra("casaId", casa);
         ctx.startActivity(detail);
     }

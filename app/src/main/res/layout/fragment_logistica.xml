@@ -21,7 +21,7 @@
 
 
         <TextView
-            android:id="@+id/textView87"
+            android:id="@+id/textViewDatosUsuLogs"
             android:layout_width="match_parent"
             android:layout_height="159dp"
             android:background="@color/azulmv"

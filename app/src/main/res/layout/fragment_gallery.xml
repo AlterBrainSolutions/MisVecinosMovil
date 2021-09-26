@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/editTextEmailCo"
@@ -22,6 +22,7 @@
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
+            android:minHeight="48dp"
             android:textColor="@color/black"
             android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +41,7 @@
             android:ems="10"
             android:hint="Contraseña actual"
             android:inputType="textPassword"
+            android:minHeight="48dp"
             android:textColor="@color/black"
             android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +60,7 @@
             android:ems="10"
             android:hint="Nombre"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             android:textColor="@color/black"
             android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -116,19 +119,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPasswordCo" />
 
-    <Button
-        android:id="@+id/buttonRegresarCo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button_rounded"
-        android:text="Modificar contraseña"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGuardarCo" />
+        <Button
+            android:id="@+id/buttonRegresarCo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/button_rounded"
+            android:text="Modificar contraseña"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonGuardarCo" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profilePic"

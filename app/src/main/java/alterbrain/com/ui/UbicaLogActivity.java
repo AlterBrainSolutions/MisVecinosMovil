@@ -17,11 +17,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import alterbrain.com.AvisoActivity;
 import alterbrain.com.LoginActivity;
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 
 public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     Button btnDetalleLog;
     private GoogleMap mMap;
+    LatLng sydney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,12 @@ public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCal
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(19.354330782621, -99.18486166745);
+
+        if (Constantes.LAT_FRACC == 0){
+            sydney = new LatLng(19.354330782621, -99.18486166745);
+        }else{
+            sydney = new LatLng(Constantes.LAT_FRACC, Constantes.LONG_FRACC);
+        }
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Santa Monica"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 

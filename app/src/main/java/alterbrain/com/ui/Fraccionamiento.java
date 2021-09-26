@@ -4,17 +4,75 @@ public class Fraccionamiento {
     private int idFraccionamiento;
     private String linkFracc;
     private String nombreFracc;
+    private String direccion;
+    private double latitud;
+    private double longitud;
     private int noCasas;
+    private String nombreRecolector;
     private int contPet;
     private int contAlum;
+    private String codigoContenedor;
 
-    public Fraccionamiento(int idFraccionamiento, String linkFracc, String nombreFracc, int noCasas, int contPet, int contAlum) {
+    public Fraccionamiento(int idFraccionamiento, String linkFracc, String nombreFracc, String direccion, double latitud, double longitud, int noCasas, String nombreRecolector, int contPet, int contAlum, String codigoContenedor) {
         this.idFraccionamiento = idFraccionamiento;
         this.linkFracc = linkFracc;
         this.nombreFracc = nombreFracc;
+        this.direccion = direccion;
+        this.latitud = latitud;
+        this.longitud = longitud;
         this.noCasas = noCasas;
+        this.nombreRecolector = nombreRecolector;
         this.contPet = contPet;
         this.contAlum = contAlum;
+        this.codigoContenedor = codigoContenedor;
+    }
+
+    public Fraccionamiento() {
+    }
+
+    public Fraccionamiento(int idFraccionamiento, String nombreFracc) {
+        this.idFraccionamiento = idFraccionamiento;
+        this.nombreFracc = nombreFracc;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+
+    public String getNombreRecolector() {
+        return nombreRecolector;
+    }
+
+    public void setNombreRecolector(String nombreRecolector) {
+        this.nombreRecolector = nombreRecolector;
+    }
+
+    public String getCodigoContenedor() {
+        return codigoContenedor;
+    }
+
+    public void setCodigoContenedor(String codigoContenedor) {
+        this.codigoContenedor = codigoContenedor;
     }
 
     public int getIdFraccionamiento() {

@@ -11,16 +11,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import alterbrain.com.MainActivity1;
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 import alterbrain.com.ui.placeholder.PlaceholderContent;
 
 
 public class LogsFraccionamientoFragment extends Fragment {
 
+    private static String URL_fraccs = "https://missvecinos.com.mx/android/fraccs.php?nombreRecolector="+ Constantes.USU_USULOGIS.toString();
     RecyclerView recyclerView;
     MyLogsFraccionamientoRecyclerViewAdapter myLogsFraccionamientoRecyclerViewAdapter;
     List<Fraccionamiento> fraccionamientoList;
@@ -50,6 +64,9 @@ public class LogsFraccionamientoFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+        URL_fraccs = "https://missvecinos.com.mx/android/fraccs.php?nombreRecolector="+ Constantes.USU_USULOGIS.toString();
+        Toast.makeText(getContext(), ""+URL_fraccs, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -67,11 +84,45 @@ public class LogsFraccionamientoFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             fraccionamientoList = new ArrayList<>();
-            fraccionamientoList.add(new Fraccionamiento(1,"link vacio", "FRACCIONAMIENTO INADEM", 1,15,35));
+
+            /*fraccionamientoList.add(new Fraccionamiento(1,"link vacio", "FRACCIONAMIENTO INADEM", 1,15,35));
             fraccionamientoList.add(new Fraccionamiento(2,"link vacio", "FRACCIONAMIENTO SANTA MONICA", 1,15,35));
             myLogsFraccionamientoRecyclerViewAdapter = new MyLogsFraccionamientoRecyclerViewAdapter(getActivity(), fraccionamientoList);
-            recyclerView.setAdapter(myLogsFraccionamientoRecyclerViewAdapter);
+            recyclerView.setAdapter(myLogsFraccionamientoRecyclerViewAdapter);*/
+
+            loadFraccs();
         }
         return view;
+    }
+
+    private void loadFraccs() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_fraccs,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray array = new JSONArray(response);
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject fracc = array.getJSONObject(i);
+
+                                fraccionamientoList.add(new Fraccionamiento(
+                                        fracc.getInt("IDFraccionamiento"),
+                                        fracc.getString("nombreFracc")
+                                ));
+                            }
+                            recyclerView.setAdapter(new MyLogsFraccionamientoRecyclerViewAdapter(getContext(), fraccionamientoList));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+        Volley.newRequestQueue(getContext()).add(stringRequest);
     }
 }
