@@ -53,7 +53,6 @@ public class HomeFragment extends Fragment {
     RelativeLayout rlHome;
     String descri;
     FirebaseFirestore db;
-    boolean yaloVioXD = false;
 
     private ImageView profilePic;
     private FirebaseStorage storage;
