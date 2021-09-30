@@ -37,7 +37,7 @@ public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCal
         btnDetalleLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(UbicaLogActivity.this, DetalleLogActivity.class);
+                Intent i = new Intent(UbicaLogActivity.this, DetalleLogActivity2.class);
                 startActivity(i);
             }
         });
