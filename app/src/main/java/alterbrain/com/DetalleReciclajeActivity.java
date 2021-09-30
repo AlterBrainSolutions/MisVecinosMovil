@@ -144,7 +144,7 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
 
                             for (int i = 0; i < tamFracc; i++) {
                                 JSONObject jsonObject = new JSONObject(porFracc.get(i).toString());
-                                String numeroCasa = jsonObject.getString("numeroCasa");
+                                /*String numeroCasa = jsonObject.getString("numeroCasa");*/
                                 contFracc1 += jsonObject.getInt("cantidadPet");
                                 contFracc2 += jsonObject.getInt("cantidadAlum");
 
