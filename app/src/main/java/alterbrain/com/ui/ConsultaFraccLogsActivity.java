@@ -54,7 +54,7 @@ public class ConsultaFraccLogsActivity extends AppCompatActivity implements Resp
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(this, "No se encontró la noticia " +error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "No se encontró al fraccionamiento " +error.toString(), Toast.LENGTH_LONG).show();
     }
 
     @Override
