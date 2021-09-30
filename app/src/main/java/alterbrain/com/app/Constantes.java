@@ -19,4 +19,23 @@ public class Constantes {
     public static String EMAIL_USR;
     public static String PAS_USR;
     public static String COD_USR;
+
+    public static int ID_USULOGIS;
+    public static String NOM_USULOGIS;
+    public static String APELL_USULOGIS;
+    public static String USU_USULOGIS;
+    public static String PAS_USULOGIS;
+    public static String TIPO_USULOGIS;
+    public static int UNIDAD_USULOGIS;
+
+    public  static  int ID_FRACC;
+    public static String NOM_FRACC;
+    public static String DIREC_FRACC;
+    public static double LAT_FRACC=0;
+    public static double LONG_FRACC=0;
+    public static int NUMCASAS_FRACC;
+    public static int CONTPET_FRACC;
+    public static  int CONTALUMN_FRACC;
+    public static String CODCONTEN_FRACC;
+
 }

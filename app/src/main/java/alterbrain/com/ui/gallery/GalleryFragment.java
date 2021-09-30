@@ -94,6 +94,14 @@ public class GalleryFragment extends Fragment {
         etName.setText(nameU);
         etEmail.setText(emailU);
         etPass.setText(passU);
+
+        //TODO Comentar el siguiente codigo y agregar un nuevo fragment
+        if (nameU == null){
+            nameU = Constantes.NOM_USULOGIS;
+            etName.setText(nameU);
+            passU= Constantes.PAS_USULOGIS;
+            etPass.setText(passU);
+        }
     }
 
     private void eventos() {

@@ -44,21 +44,19 @@ public class MainActivity1 extends AppCompatActivity {
 
         setContentView(R.layout.activity_main1);
         Toolbar toolbar = findViewById(R.id.toolbar1);
-        setSupportActionBar(toolbar);/*
-        //TODO =======> CODIGO COMENTADO BOTON FLOTANTE
-        FloatingActionButton fab = findViewById(R.id.fab1);*/
+        setSupportActionBar(toolbar);
+        /*FloatingActionButton fab = findViewById(R.id.fab1);
         //final FirebaseAuth[] firebaseAuth = new FirebaseAuth[1];
-        /*fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                *//*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*//*
+                //*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                   //*     .setAction("Action", null).show();
                 //firebaseAuth[0] = FirebaseAuth.getInstance();
                 FirebaseAuth.getInstance().signOut();
                 finishAffinity();
             }
         });*/
-        //TODO <=====
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         NavigationView navigationView = findViewById(R.id.nav_view1);
 

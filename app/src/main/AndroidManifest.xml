@@ -28,6 +28,14 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".ActivityDetalleAyuda"></activity>
         <activity
+            android:name=".ui.ConsultaFraccLogsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ConsultaUsrLogsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
             android:name=".ui.DetalleLogActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar" />
