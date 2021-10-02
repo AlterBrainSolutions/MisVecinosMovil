@@ -224,8 +224,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void getUsuName() {
-        descri = Constantes.NOM_USR;
-        tvDescrip.setText(descri);
+        descri = Constantes.NUM_CSA;
+        tvDescrip.setText("CASA " + descri);
     }
 
     private void getPlayerNames() {

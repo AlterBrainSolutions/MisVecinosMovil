@@ -45,7 +45,7 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
     private String URL_detalles = "https://missvecinos.com.mx/android/detallereciclaje.php?nm=" + usuario;/* = "https://missvecinos.com.mx/android/detallereciclaje.php?nm=" + usuario*/
     private RequestQueue mQueue;
     private PieChart pcCircular1, pcCircular2;
-    TextView tvcontPet, tvcontAl, tvcontPetmes, tvcontAlmes, tvcontAnio, tvcontFracc;
+    TextView tvcontPet, tvcontAl, tvcontPetmes, tvcontAlmes, tvcontAnio, tvcontFracc, tvCasa;
     private int contPetDia = 0, contAlumDia = 0, contPetMes = 0, contAlumMes = 0, contAnio = 0
             ,contFracc1 = 0, contFracc2 = 0;
     static int graficaPet = 0, graficaAl = 0;
@@ -64,6 +64,9 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
         tvcontAlmes = findViewById(R.id.textViewcontALmes);
         tvcontAnio = findViewById(R.id.textViewcontAnio);
         tvcontFracc = findViewById(R.id.textViewcontFracc);
+        tvCasa = findViewById(R.id.textViewRD1);
+
+        tvCasa.setText("VECINO CASA " + Constantes.NUM_CSA);
 
         mQueue = Volley.newRequestQueue(this);
 
@@ -132,6 +135,7 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
                                 contAnio += jsonObject.getInt("cantidadAlum");
 
                                 tvcontAnio.setText(String.valueOf(contAnio));
+                                /*tvCasa.setText("VECINO CASA "+ numeroCasa);*/
 
                                 /*Toast.makeText(DetalleReciclajeActivity.this, String.valueOf(contAnio)+ "y "+
                                         " y " + numeroCasa, Toast.LENGTH_SHORT).show();*/

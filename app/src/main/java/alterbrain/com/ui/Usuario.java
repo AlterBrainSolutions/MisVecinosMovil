@@ -6,16 +6,18 @@ public class Usuario {
     private String email;
     private String contra;
     private String codigo;
+    private String numCasa;
 
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String email, String contra, String codigo) {
+    public Usuario(int id, String nombre, String email, String contra, String codigo, String numCasa) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.contra = contra;
         this.codigo = codigo;
+        this.numCasa = numCasa;
     }
 
     public int getId() {
@@ -57,4 +59,8 @@ public class Usuario {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+    public String getNumCasa() { return numCasa; }
+
+    public void setNumCasa(String numCasa) { this.numCasa = numCasa; }
 }

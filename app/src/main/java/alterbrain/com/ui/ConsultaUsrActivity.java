@@ -48,7 +48,7 @@ public class ConsultaUsrActivity extends AppCompatActivity implements Response.L
     }
 
     private void consultaUsr() {
-        String url ="https://missvecinos.com.mx/android/consultausr2.php?nm="+nombreUsr+"&ps="+passUsr;
+        String url ="https://missvecinos.com.mx/android/consultausrPrueba.php?nm="+nombreUsr+"&ps="+passUsr;
 
         jr = new JsonObjectRequest(Request.Method.GET,url,null, this, this);
         rq.add(jr);
@@ -74,6 +74,7 @@ public class ConsultaUsrActivity extends AppCompatActivity implements Response.L
             usuario.setId(jsonObject.optInt("idUsuario"));
             usuario.setEmail(jsonObject.optString("mailUsuario"));
             usuario.setCodigo(jsonObject.optString("codigoAcceso"));
+            usuario.setNumCasa(jsonObject.optString("numeroCasa"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -84,6 +85,9 @@ public class ConsultaUsrActivity extends AppCompatActivity implements Response.L
         Constantes.EMAIL_USR = usuario.getEmail();
         Constantes.PAS_USR = passUsr;
         Constantes.COD_USR = usuario.getCodigo();
+        Constantes.NUM_CSA = usuario.getNumCasa();
+        /*Toast.makeText(this, "El usuario tiene el numero de casa" +
+                " " +Constantes.NUM_CSA, Toast.LENGTH_SHORT).show();*/
         startActivity(i);
         finish();
     }

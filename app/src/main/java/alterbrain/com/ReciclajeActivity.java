@@ -41,13 +41,15 @@ import alterbrain.com.ui.DetalleAdeActivity2;
 public class ReciclajeActivity extends AppCompatActivity {
     int numPET = 0, numAL = 0, usuario;
     Button btningresaReciclaje, btndetalleReciclaje, btnConfirmar, sigSlider, btnCerrar;
-    TextView tvalertPET, tvalertAL;
+    TextView tvalertPET, tvalertAL, tvCasa;
     String URL = "https://missvecinos.com.mx/android/insertareciclaje.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reciclaje);
+        tvCasa = findViewById(R.id.textViewAR4);
+        tvCasa.setText("VECINO CASA " + Constantes.NUM_CSA);
 
         NumberPicker np = findViewById(R.id.numberPickerPET);
         NumberPicker np2 = findViewById(R.id.numberPickerAL);
@@ -146,7 +148,7 @@ public class ReciclajeActivity extends AppCompatActivity {
         if (result != null) {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Lectura cancelada", Toast.LENGTH_LONG).show();
-            } else if (result.getContents().equals("abcdefg12345")) {
+            } else /*if (result.getContents().equals("JA0JWxippm")) */{
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
                 Toast.makeText(this, numAL + " " + numPET, Toast.LENGTH_LONG).show();
                 /*txtResultado.setText(result.getContents());*/
@@ -165,7 +167,6 @@ public class ReciclajeActivity extends AppCompatActivity {
                             //finish();
                         } else if (response.equals("failure")) {
                             Toast.makeText(ReciclajeActivity.this, "¡Ocurrió un error!", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -182,6 +183,7 @@ public class ReciclajeActivity extends AppCompatActivity {
                         data.put("usuario", String.valueOf(usuario));
                         data.put("cantidadPet", String.valueOf(numPET));
                         data.put("cantidadAlum", String.valueOf(numAL));
+                        data.put("codigoLeido", result.getContents());
                         return data;
                     }
                 };
@@ -190,9 +192,10 @@ public class ReciclajeActivity extends AppCompatActivity {
                 requestQueue.add(stringRequest);
 
                 finish();
-            } else {
+                //TODO
+            } /*else {
                 Toast.makeText(ReciclajeActivity.this, "¡El codigo no es correcto!", Toast.LENGTH_SHORT).show();
-            }
+            }*/
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

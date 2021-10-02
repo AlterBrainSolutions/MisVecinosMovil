@@ -19,6 +19,7 @@ public class Constantes {
     public static String EMAIL_USR;
     public static String PAS_USR;
     public static String COD_USR;
+    public static String NUM_CSA;
 
     public static int ID_USULOGIS;
     public static String NOM_USULOGIS;
