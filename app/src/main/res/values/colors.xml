@@ -10,4 +10,5 @@
     <color name="azulmv">#1d75bd</color>
     <color name="grismv">#e6edec</color>
     <color name="verdemv">#4f7173</color>
+    <color name="transparent">#00000000 </color>
 </resources>

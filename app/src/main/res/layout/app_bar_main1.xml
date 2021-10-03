@@ -22,36 +22,32 @@
 
     <include layout="@layout/content_main1" />
 
-    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bmbMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fabCradleRoundedCornerRadius="2dp"
+        app:fabCradleMargin="10dp"
+        android:backgroundTint="@color/azulmv"
+        android:layout_gravity="bottom"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_baseline_power" />-->
+        app:maxImageSize="150dp"
+        app:layout_anchor="@id/bmbMenu"
+        android:scaleType="fitCenter"
+        app:backgroundTint="@color/transparent"
+        app:tint="@null"
+        app:srcCompat="@drawable/ic_menu_alerta"/>
 
-    <RelativeLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnvMenu2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <fragment
-            android:id="@+id/fragContent"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/bnvMenu"
-            app:navGraph="@navigation/mobile_navigation"
-            app:defaultNavHost="true"/>
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/azulmv"
-            app:menu="@menu/bnv_menu" />
-
-    </RelativeLayout>
-
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:menu="@menu/bnv_menu"
+        android:layout_gravity="bottom" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

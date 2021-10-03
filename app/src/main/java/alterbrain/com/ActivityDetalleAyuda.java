@@ -48,6 +48,7 @@ public class ActivityDetalleAyuda extends AppCompatActivity {
                     pager.setCurrentItem(positionPager);
                 }
                 if (positionPager == 4) {
+                    //TODO en este caso se pone en la pagina 4 que es la ultima, y es la que manda a llamar al activity siguiente
                     savePreferences();
                     Intent i = new Intent(ActivityDetalleAyuda.this, ReciclajeActivity.class);
                     startActivity(i);
@@ -86,6 +87,7 @@ public class ActivityDetalleAyuda extends AppCompatActivity {
         });
     }
 
+    //TODO metodo para guardar la variable booleana para la ayuda
     public void savePreferences(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ActivityDetalleAyuda.this);
         SharedPreferences.Editor editor = preferences.edit();

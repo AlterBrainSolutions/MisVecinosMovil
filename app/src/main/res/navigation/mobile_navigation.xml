@@ -27,4 +27,14 @@
         android:name="alterbrain.com.ui.SalirFragment"
         android:label="SALIR"
         tools:layout="@layout/salir_fragment" />
+    <fragment
+        android:id="@+id/nav_mensajeFragment"
+        android:name="alterbrain.com.ui.MensajeFragment"
+        android:label="fragment_mensaje"
+        tools:layout="@layout/fragment_mensaje" />
+    <fragment
+        android:id="@+id/nav_contactosFragment"
+        android:name="alterbrain.com.ui.ContactosFragment"
+        android:label="fragment_contactos"
+        tools:layout="@layout/fragment_contactos" />
 </navigation>
