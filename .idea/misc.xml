@@ -13,8 +13,9 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_consulta_usr_logs.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_detalle_ade.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_detalle_ade2.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_detalle_ayuda.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_detalle_log.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_detalle_log2.xml" value="0.29921875" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_detalle_log2.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_detalle_reciclaje.xml" value="0.2" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_login.xml" value="0.29921875" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_login2.xml" value="0.33" />
@@ -28,16 +29,17 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_scan.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_servicios3.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/activity_ubica_log.xml" value="0.25" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/app_bar_main1.xml" value="0.33" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/app_bar_main1.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/app_bar_main2.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/app_bar_main3.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/app_bar_main4.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/content_main3.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/content_main4.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/dialog_conf_rec.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_autentico.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_autorizado.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_gallery.xml" value="0.25" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_logistica.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_logsfraccionamiento.xml" value="0.42063492063492064" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/fragment_logsfraccionamiento_list.xml" value="0.25" />
@@ -47,6 +49,7 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/layout/nav_header_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/menu/activity_four_drawer.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/menu/activity_third_drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/menu/bnv_menu.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/DELL/Documents/GitHub/MisVecinos/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.215625" />
       </map>
     </option>
