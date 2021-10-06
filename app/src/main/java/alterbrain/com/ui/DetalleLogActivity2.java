@@ -27,6 +27,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class DetalleLogActivity2 extends AppCompatActivity {
     TextView tvTituloDet;
     Button btnreiniciarPet, btnreiniciarAl, btnSal;
     String URL = "https://missvecinos.com.mx/android/updateconts.php";
+    String URL_historial = "https://missvecinos.com.mx/android/histrecoleccion.php";
+    String fecharecol= "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,13 @@ public class DetalleLogActivity2 extends AppCompatActivity {
         btnSal = findViewById(R.id.buttonSalirDetLog);
 
         cargaDatos();
+
+        Calendar cal = Calendar.getInstance();
+
+        int anio = cal.get(Calendar.YEAR);
+        int mes = cal.get(Calendar.MONTH);
+        int dia = cal.get(Calendar.DAY_OF_MONTH);
+        fecharecol = anio + "-" + (mes+1) + "-"+ dia;
 
         btnSal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +104,8 @@ public class DetalleLogActivity2 extends AppCompatActivity {
             if (result.getContents() == null){
                 Toast.makeText(this, "Lectura cancelada", Toast.LENGTH_LONG).show();
             }else {
+                //Metodo para agregar los datos a la tabla recoleccion
+                agregaHist();
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
                 //txtResultado.setText(result.getContents());
                 //TODO comparar el codigo leido con el de Constantes, si coinciden, actualizar los datos, e ir al menu inicio
@@ -141,6 +153,51 @@ public class DetalleLogActivity2 extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
         }
 
+    }
+
+    private void agregaHist() {
+        if (Constantes.CONTALUMN_FRACC > 0 || Constantes.CONTPET_FRACC > 0){
+            //Toast.makeText(this, "iguales", Toast.LENGTH_LONG).show();
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_historial, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    /*si el texto de respuesta es correcto, crearemos
+                     * un objeto de intencion y lanzar una actividad de éxito con esa intencion*/
+                    if (response.equals("success")) {
+                        Toast.makeText(DetalleLogActivity2.this, "¡Registro historial exitoso!", Toast.LENGTH_SHORT).show();
+
+                        /*Intent i = new Intent(DetalleLogActivity2.this, MainActivity7.class);
+                        startActivity(i);
+                        finish();*/
+                    } else if (response.equals("failure")) {
+                        Toast.makeText(DetalleLogActivity2.this, "Ocurrió un error!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //crear un detector de errores para manejar los errores de manera adecuada
+                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_LONG).show();
+                }
+            }){
+                @Nullable
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> data = new HashMap<>();
+                    data.put("idRecolFracc", ""+Constantes.ID_FRACC);
+                    data.put("cantidadPet", ""+Constantes.CONTPET_FRACC);
+                    data.put("cantidadAlum", ""+Constantes.CONTALUMN_FRACC);
+                    data.put("fechaReco", ""+fecharecol);
+                    data.put("codigoRecoleccion", ""+Constantes.CODCONTEN_FRACC);
+                    return data;
+                }
+            };
+            //crear instancia de RQ (cola de solicitudes)
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            requestQueue.add(stringRequest);
+        }else{
+            Toast.makeText(this, "Contenedores vacios", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void cargaDatos() {

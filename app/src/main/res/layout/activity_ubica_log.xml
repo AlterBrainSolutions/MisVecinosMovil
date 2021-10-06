@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="FRACCIONAMIENTO INADEM"
+        android:text="UBICACIÓN DE FRACCIONAMIENTO"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
