@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.MaterialComponents"
+    android:background="@color/grismv"
+    tools:context=".SeguridadCounterActivity">
+
+    <TextView
+        android:id="@+id/textViewTituloAtr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azulmv"
+        android:text="MENSAJE DE ALERTA"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--<TextView
+        android:id="@+id/circuloExternoSeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/circuloInternoSeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<include
+        android:id="@+id/include"
+        layout="@layout/fragment_seguridad_counter" />-->
+
+    <LinearLayout
+        android:id="@+id/llSeguridadCounter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtrSeg">
+
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"-->
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView87"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity= "center|top"
+        android:layout_marginTop="60dp"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:text="El mensaje se enviara en:" />
+
+    <TextView
+        android:id="@+id/tvSegUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity= "center|bottom"
+        android:layout_marginBottom="150dp"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:text="52305 Tenango de Arista, Edomex, Mexico." />
+
+    <!--<ProgressBar
+        android:layout_width="159dp"
+        android:layout_height="151dp"
+        android:layout_gravity="center"
+        android:indeterminateOnly="false"
+        android:progress="90"
+        android:progressDrawable="@drawable/progress_bar_seguridad"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="280dp"
+        >
+
+        <ProgressBar
+            android:id="@+id/progressBarSeg"
+            android:layout_width="159dp"
+            android:layout_height="151dp"
+            android:layout_gravity="center"
+            android:indeterminateOnly="false"
+            android:progress="90"
+            android:progressDrawable="@drawable/progress_bar_seguridad"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvProgressBarTextInside"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:text="9"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBarSeg"
+            app:layout_constraintEnd_toEndOf="@+id/progressBarSeg"
+            app:layout_constraintStart_toStartOf="@+id/progressBarSeg"
+            app:layout_constraintTop_toTopOf="@+id/progressBarSeg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/buttonLlamarEmergencias"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_buttons_seg"
+        android:text="Llamar a emergencias" />
+
+    <Button
+        android:id="@+id/buttonSegCancelarAlerta"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_buttons_seg"
+        android:text="Cancelar" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bmbMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/azulmv"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="2dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            app:backgroundTint="@color/transparent"
+            app:layout_anchor="@id/bmbMenu"
+            app:maxImageSize="150dp"
+            app:srcCompat="@drawable/ic_menu_alerta"
+            app:tint="@null" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvMenu2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
+            app:menu="@menu/bnv_menu" />
+
+        <!--<com.ebanx.swipebtn.SwipeButton
+            android:id="@+id/swipeButtonSeg"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/swipe_button_design"
+            app:button_background="@drawable/button_design"
+            app:button_bottom_padding="20dp"
+            app:button_image_disabled="@drawable/ic_flecha_swipe"
+            app:button_left_padding="20dp"
+            app:button_right_padding="20dp"
+            app:button_top_padding="20dp"
+            app:inner_text="Activar SOS"
+            app:inner_text_background="@drawable/swipe_button_design"
+            app:inner_text_bottom_padding="20dp"
+            app:inner_text_size="22sp"
+            app:inner_text_top_padding="20dp" />-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

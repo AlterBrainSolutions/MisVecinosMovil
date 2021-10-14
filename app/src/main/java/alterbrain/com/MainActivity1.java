@@ -22,6 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import alterbrain.com.app.Constantes;
+import alterbrain.com.ui.SeguridadMapActivity;
 import alterbrain.com.ui.home.HomeFragment;
 
 public class MainActivity1 extends AppCompatActivity {
@@ -124,11 +125,11 @@ public class MainActivity1 extends AppCompatActivity {
                 //TODO si ya lo ha visto, manda directo al activity
                 //TODO es necesario crear otras ayudas ya que las que uso son las de detalle reciclaje
                 if (getSavedPreferences() == true) {
-                    Intent detail = new Intent(MainActivity1.this, ReciclajeActivity.class);
+                    Intent detail = new Intent(MainActivity1.this, SeguridadMapActivity.class);
                     startActivity(detail);
                     //TODO si no lo ha visto manda la ayuda
                 } else {
-                    Intent detail = new Intent(MainActivity1.this, ActivityDetalleAyuda.class);
+                    Intent detail = new Intent(MainActivity1.this, AyudaSeguridadActivity.class);
                     startActivity(detail);
                 }
             }
@@ -140,7 +141,7 @@ public class MainActivity1 extends AppCompatActivity {
     //TODO debe de buscarse la variable que guardamos en el metodo SavePreferences, o no va a funcionar
     public boolean getSavedPreferences(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity1.this);
-        return preferences.getBoolean("isOpenedfor"+ Constantes.ID_USR, false);
+        return preferences.getBoolean("SeguridadAisOpenedfor"+ Constantes.ID_USR, false);
     }
 
     //TODO el metodo para guardar en SharedPreferences (

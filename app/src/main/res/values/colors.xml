@@ -11,4 +11,8 @@
     <color name="grismv">#e6edec</color>
     <color name="verdemv">#4f7173</color>
     <color name="transparent">#00000000 </color>
+    <color name="segAyuda">#F7E4DE</color>
+    <color name="segSwipe">#FB5656</color>
+    <color name="segProgressEnd">#FF0B00</color>
+    <color name="segProgressStart">#EF1A10</color>
 </resources>

@@ -90,5 +90,4 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
             textDesc = itemView.findViewById(R.id.tvAyudaR2);
         }
     }
-
 }
