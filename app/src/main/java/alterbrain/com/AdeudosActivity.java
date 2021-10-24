@@ -23,10 +23,10 @@ public class AdeudosActivity extends AppCompatActivity {
         btnDetalleAde.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(AdeudosActivity.this, DetalleAdeActivity.class);
-                startActivity(i);*/
-                Intent i = new Intent(AdeudosActivity.this, DetalleAdeActivity2.class);
+                Intent i = new Intent(AdeudosActivity.this, DetalleAdeActivity.class);
                 startActivity(i);
+                /*Intent i = new Intent(AdeudosActivity.this, DetalleAdeActivity2.class);
+                startActivity(i);*/
             }
         });
     }
