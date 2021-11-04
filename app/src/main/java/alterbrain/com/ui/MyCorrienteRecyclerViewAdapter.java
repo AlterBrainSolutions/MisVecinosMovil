@@ -12,14 +12,15 @@ import android.widget.TextView;
 import java.util.List;
 
 import alterbrain.com.R;
+import alterbrain.com.model.Adeudos;
 
 
 public class MyCorrienteRecyclerViewAdapter extends RecyclerView.Adapter<MyCorrienteRecyclerViewAdapter.ViewHolder> {
 
     private Context ctx;
-    private final List<Deuda> mValues;
+    private final List<Adeudos> mValues;
 
-    public MyCorrienteRecyclerViewAdapter(Context context, List<Deuda> items) {
+    public MyCorrienteRecyclerViewAdapter(Context context, List<Adeudos> items) {
         ctx = context;
         mValues = items;
     }
@@ -34,7 +35,7 @@ public class MyCorrienteRecyclerViewAdapter extends RecyclerView.Adapter<MyCorri
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.textViewCasaNum.setText(holder.mItem.getCasa());
+        holder.textViewCasaNum.setText("Casa "+ holder.mItem.getNumeroCasa());
     }
 
     @Override
@@ -45,7 +46,7 @@ public class MyCorrienteRecyclerViewAdapter extends RecyclerView.Adapter<MyCorri
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView textViewCasaNum;
-        public Deuda mItem;
+        public Adeudos mItem;
 
         public ViewHolder(View view) {
             super(view);

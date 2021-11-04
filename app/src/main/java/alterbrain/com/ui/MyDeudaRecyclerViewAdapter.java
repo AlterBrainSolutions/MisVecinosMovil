@@ -12,14 +12,15 @@ import android.widget.TextView;
 import java.util.List;
 
 import alterbrain.com.R;
+import alterbrain.com.model.Adeudos;
 
 public class MyDeudaRecyclerViewAdapter extends RecyclerView.Adapter<MyDeudaRecyclerViewAdapter.ViewHolder> {
 
     private int mes=0;
     private Context ctx;
-    private final List<Deuda> mValues;
+    private final List<Adeudos> mValues;
 
-    public MyDeudaRecyclerViewAdapter(Context context, List<Deuda> items) {
+    public MyDeudaRecyclerViewAdapter(Context context, List<Adeudos> items) {
         ctx = context;
         mValues = items;
     }
@@ -33,13 +34,10 @@ public class MyDeudaRecyclerViewAdapter extends RecyclerView.Adapter<MyDeudaRecy
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
-
         holder.mItem = mValues.get(position);
-        mes = holder.mItem.getMesesdeuda();
-        holder.textViewCasa.setText(holder.mItem.getCasa());
+        mes = holder.mItem.getMesesDeDeuda();
+        holder.textViewCasa.setText("Casa: " + holder.mItem.getNumeroCasa());
         holder.textViewNumMesAde.setText(""+mes);
-        holder.textViewFecha.setText(holder.mItem.getFecha());
     }
 
     @Override
@@ -51,15 +49,13 @@ public class MyDeudaRecyclerViewAdapter extends RecyclerView.Adapter<MyDeudaRecy
         public final View mView;
         public final TextView textViewCasa;
         public final TextView textViewNumMesAde;
-        public final TextView textViewFecha;
-        public Deuda mItem;
+        public Adeudos mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             textViewCasa = (TextView) view.findViewById(R.id.textViewCasaDeu);
             textViewNumMesAde = (TextView) view.findViewById(R.id.textViewNumMesDeu);
-            textViewFecha = view.findViewById(R.id.textViewFechaDeu);
         }
 
         @Override

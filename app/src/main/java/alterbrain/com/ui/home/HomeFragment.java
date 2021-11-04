@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +17,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 import alterbrain.com.AccesosActivity;
 import alterbrain.com.ActivityDetalleAyuda;
@@ -44,6 +59,8 @@ import alterbrain.com.ReservaActivity;
 import alterbrain.com.ServiciosActivity3;
 import alterbrain.com.Transparencia7Activity;
 import alterbrain.com.app.Constantes;
+import alterbrain.com.model.Adeudos;
+import alterbrain.com.ui.MyDeudaRecyclerViewAdapter;
 
 public class HomeFragment extends Fragment {
     TextView tvDescrip;
@@ -53,12 +70,21 @@ public class HomeFragment extends Fragment {
     RelativeLayout rlHome;
     String descri;
     FirebaseFirestore db;
+    private int usuario = Constantes.ID_USR, conAdeudo = 0, alCorriente = 0;
+    private String URL_corriente = "https://missvecinos.com.mx/android/adeudosConsulta.php?usuario=" + usuario;
+    private RequestQueue mQueue;
 
     private ImageView profilePic;
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
     private HomeViewModel homeViewModel;
+
+   /* @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }*/
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -208,6 +234,10 @@ public class HomeFragment extends Fragment {
         //Nombre usu
         getUsuName();
 
+        mQueue = Volley.newRequestQueue(getActivity());
+
+        jsonParse2();
+
         return root;
     }
 
@@ -258,5 +288,108 @@ public class HomeFragment extends Fragment {
             }
         });
 
+    }
+
+    private void jsonParse2() {
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_corriente, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray resultados = response.getJSONArray("al corriente");
+
+                            int tamRes = resultados.length();
+
+                            Constantes.AL_CORRIENTE = tamRes;
+
+                            JSONArray resultados2 = response.getJSONArray("resultados");
+
+                            int tamRes2 = resultados2.length();
+                            int numero = 0, masDedos = 0, contadorAux = 0;
+
+                            for (int i = 0; i < tamRes2; i++) {
+
+                                JSONObject jsonObject = new JSONObject(resultados2.get(i).toString());
+
+                                if (i > 0) {
+                                    JSONObject jsonObject2 = new JSONObject(resultados2.get(i - 1).toString());
+                                    if (Integer.valueOf(jsonObject.getString("numeroCasa"))
+                                            != Integer.valueOf(jsonObject2.getString("numeroCasa"))) {
+
+                                        masDedos += contadorAux;
+                                        contadorAux = 0;
+                                        numero++;
+                                    } else {
+                                        contadorAux++;
+                                    }
+                                }
+                                Constantes.UN_MES = numero;
+                                Constantes.DOS_MESES = masDedos;
+                                /*Toast.makeText(AdeudosActivity.this,
+                                        "Un mes: " + numero + "dos meses: " +
+                                                masDedos, Toast.LENGTH_SHORT).show();*/
+                            }
+
+                            JSONArray resultados3 = response.getJSONArray("resultados");
+
+                            ArrayList<Integer> listdata = new ArrayList<Integer>();
+
+                            int tamRes3 = resultados3.length();
+
+                            for (int i = 0; i < tamRes3; i++) {
+
+                                JSONObject jsonObject = new JSONObject(resultados3.get(i).toString());
+
+                                listdata.add(Integer.valueOf(jsonObject.getString("numeroCasa")));
+
+                                /*if (i > 0) {
+                                    JSONObject jsonObject2 = new JSONObject(resultados.get(i - 1).toString());
+
+                                    if (Integer.valueOf(jsonObject.getString("numeroCasa"))
+                                            != Integer.valueOf(jsonObject2.getString("numeroCasa"))) {
+
+                                        masDedos += contadorAux;
+                                        contadorAux = 0;
+                                        numero++;
+                                    } else {
+                                        contadorAux++;
+                                    }
+                                }*/
+                            }
+
+                            JSONArray resultados4 = response.getJSONArray("con adeudo");
+
+                            int tamRes4 = resultados4.length(), occurrences = 0;
+
+                            for (int i = 0; i < tamRes4; i++) {
+
+                                JSONObject jsonObject = new JSONObject(resultados4.get(i).toString());
+
+                                String casa = jsonObject.getString("numeroCasa");
+
+                                occurrences = Collections.frequency(listdata, Integer.valueOf(casa));
+
+                                if(casa.equals(Constantes.NUM_CSA)){
+                                    /*Toast.makeText(getActivity(),
+                                            "Ocurrencia: " + occurrences +"casa: "+ casa, Toast.LENGTH_SHORT).show();*/
+                                    Constantes.DEUDA_MESES_USR = occurrences;
+                                }
+
+                                /*System.out.println(occurrences);*/
+                                Log.d(String.valueOf(i), String.valueOf(occurrences));
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        mQueue.add(request);
     }
 }

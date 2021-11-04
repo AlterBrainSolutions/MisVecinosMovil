@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismv"
-    tools:context=".ui.DetalleAdeActivity">
+    tools:context=".AdeudosActivity">
 
     <TextView
         android:id="@+id/textViewTituloAde"
@@ -51,7 +51,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView82"
+                android:id="@+id/tvAlCorriente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -97,7 +97,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView83"
+                android:id="@+id/tvConAdeudo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

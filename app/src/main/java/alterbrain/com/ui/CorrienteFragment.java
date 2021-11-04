@@ -1,6 +1,7 @@
 package alterbrain.com.ui;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,22 +12,45 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
+import alterbrain.com.model.Adeudos;
+import alterbrain.com.model.Noticia3;
 
 
 public class CorrienteFragment extends Fragment {
 
     RecyclerView recyclerView;
     MyCorrienteRecyclerViewAdapter adapterDeuda;
-    List<Deuda> deudaList;
+    List<Adeudos> deudaList;
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
+    private int usuario = Constantes.ID_USR;
+    private String URL_corriente = "https://missvecinos.com.mx/android/adeudosConsulta.php?usuario=" + usuario;
+    private RequestQueue mQueue;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -69,49 +93,57 @@ public class CorrienteFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             deudaList = new ArrayList<>();
-            deudaList.add(new Deuda(1, "Sta_Monica", "Casa 1", 0, ""));
-            deudaList.add(new Deuda(2, "Sta_Monica", "Casa 2", 0, ""));
-            deudaList.add(new Deuda(3, "Sta_Monica", "Casa 3", 0, ""));
-            deudaList.add(new Deuda(4, "Sta_Monica", "Casa 4", 0, ""));
-            deudaList.add(new Deuda(6, "Sta_Monica", "Casa 6", 0, ""));
-            deudaList.add(new Deuda(7, "Sta_Monica", "Casa 7", 0, ""));
-            deudaList.add(new Deuda(8, "Sta_Monica", "Casa 8", 0, ""));
-            deudaList.add(new Deuda(9, "Sta_Monica", "Casa 9", 0, ""));
-            deudaList.add(new Deuda(11, "Sta_Monica", "Casa 11", 0, ""));
-            deudaList.add(new Deuda(12, "Sta_Monica", "Casa 12", 0, ""));
-            deudaList.add(new Deuda(13, "Sta_Monica", "Casa 13", 0, ""));
-            deudaList.add(new Deuda(14, "Sta_Monica", "Casa 14", 0, ""));
-            deudaList.add(new Deuda(15, "Sta_Monica", "Casa 15", 0, ""));
-            deudaList.add(new Deuda(16, "Sta_Monica", "Casa 16", 0, ""));
-            deudaList.add(new Deuda(18, "Sta_Monica", "Casa 18", 0, ""));
-            deudaList.add(new Deuda(19, "Sta_Monica", "Casa 19", 0, ""));
-            deudaList.add(new Deuda(20, "Sta_Monica", "Casa 20", 0, ""));
-            deudaList.add(new Deuda(21, "Sta_Monica", "Casa 21", 0, ""));
-            deudaList.add(new Deuda(22, "Sta_Monica", "Casa 22", 0, ""));
-            deudaList.add(new Deuda(23, "Sta_Monica", "Casa 23", 0, ""));
-            deudaList.add(new Deuda(24, "Sta_Monica", "Casa 24", 0, ""));
-            deudaList.add(new Deuda(26, "Sta_Monica", "Casa 26", 0, ""));
-            deudaList.add(new Deuda(30, "Sta_Monica", "Casa 30", 0, ""));
-            deudaList.add(new Deuda(31, "Sta_Monica", "Casa 31", 0, ""));
-            deudaList.add(new Deuda(32, "Sta_Monica", "Casa 32", 0, ""));
-            deudaList.add(new Deuda(33, "Sta_Monica", "Casa 33", 0, ""));
-            deudaList.add(new Deuda(34, "Sta_Monica", "Casa 34", 0, ""));
-            deudaList.add(new Deuda(35, "Sta_Monica", "Casa 35", 0, ""));
-            deudaList.add(new Deuda(36, "Sta_Monica", "Casa 36", 0, ""));
-            deudaList.add(new Deuda(37, "Sta_Monica", "Casa 37", 0, ""));
-            deudaList.add(new Deuda(38, "Sta_Monica", "Casa 38", 0, ""));
-            deudaList.add(new Deuda(40, "Sta_Monica", "Casa 40", 0, ""));
-            deudaList.add(new Deuda(42, "Sta_Monica", "Casa 42", 0, ""));
-            deudaList.add(new Deuda(43, "Sta_Monica", "Casa 43", 0, ""));
-            deudaList.add(new Deuda(44, "Sta_Monica", "Casa 44", 0, ""));
-            deudaList.add(new Deuda(45, "Sta_Monica", "Casa 45", 0, ""));
-            deudaList.add(new Deuda(46, "Sta_Monica", "Casa 46", 0, ""));
-            deudaList.add(new Deuda(47, "Sta_Monica", "Casa 47", 0, ""));
 
+            mQueue = Volley.newRequestQueue(getActivity());
+
+            jsonParse2();
             //recyclerView.setAdapter(new MyCorrienteRecyclerViewAdapter(DummyContent.ITEMS));
-            adapterDeuda = new MyCorrienteRecyclerViewAdapter(getActivity(), deudaList);
-            recyclerView.setAdapter(adapterDeuda);
+            /*adapterDeuda = new MyCorrienteRecyclerViewAdapter(getActivity(), deudaList);
+            recyclerView.setAdapter(adapterDeuda);*/
         }
         return view;
     }
+
+    private void jsonParse2() {
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL_corriente, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray resultados = response.getJSONArray("al corriente");
+
+                            int tamRes = resultados.length();
+
+                            for (int i = 0; i < tamRes; i++) {
+
+                                JSONObject jsonObject = new JSONObject(resultados.get(i).toString());
+
+                                int idUsuario = jsonObject.getInt("idAbonoRecibo");
+                                int estatus = jsonObject.getInt("idAbonoEstatus");
+                                String casa = jsonObject.getString("numeroCasa");
+                                int fraccionamiento = jsonObject.getInt("idFraccionamientoUsuarios");
+
+                                deudaList.add(new Adeudos(idUsuario, estatus, casa, fraccionamiento));
+
+                               /* Toast.makeText(CorrienteFragment.this,
+                                        "Un mes: " + casa, Toast.LENGTH_SHORT).show();*/
+                            }
+                            recyclerView.setAdapter(new MyCorrienteRecyclerViewAdapter(getContext(), deudaList));
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        mQueue.add(request);
+    }
+
 }
