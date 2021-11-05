@@ -18,34 +18,33 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import alterbrain.com.MainActivity1;
+import alterbrain.com.MainActivity5;
+import alterbrain.com.MainActivity7;
 import alterbrain.com.R;
 import alterbrain.com.app.Constantes;
-import alterbrain.com.model.Noticia3;
 
-public class ConsultaUsrActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
+public class ConsultaUsrVigActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
-    String emailUsr,passUsr, nombreUsr;
+    String passUsr, nombreUsr;
     RequestQueue rq;
     JsonRequest jr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_usr);
+        setContentView(R.layout.activity_consulta_usr_vig);
 
-        nombreUsr = emailUsr = passUsr = "";
+        nombreUsr = passUsr = "";
         Bundle extras = getIntent().getExtras();
-        //emailUsr = extras.getString("emailUsr");
         nombreUsr = extras.getString("nombreUsr");
         passUsr = extras.getString("passUsr");
 
         rq = Volley.newRequestQueue(this);
 
-        consultaUsr();
+        consultaUsrVig();
     }
 
-    private void consultaUsr() {
-        String url ="https://missvecinos.com.mx/android/consultausrPrueba.php?nm="+nombreUsr+"&ps="+passUsr;
+    private void consultaUsrVig() {
+        String url ="https://missvecinos.com.mx/android/consultausrvig.php?user="+nombreUsr+"&ps="+passUsr;
 
         jr = new JsonObjectRequest(Request.Method.GET,url,null, this, this);
         rq.add(jr);
@@ -58,8 +57,7 @@ public class ConsultaUsrActivity extends AppCompatActivity implements Response.L
 
     @Override
     public void onResponse(JSONObject response) {
-        //Noticia3 noticia3 = new Noticia3();
-        Usuario usuario = new Usuario();
+        UsuVig usuVig = new UsuVig();
         Toast.makeText(this, "Se ha encontrado al usuario " +nombreUsr, Toast.LENGTH_SHORT).show();
 
         JSONArray jsonArray = response.optJSONArray("datos");
@@ -67,24 +65,23 @@ public class ConsultaUsrActivity extends AppCompatActivity implements Response.L
 
         try {
             jsonObject = jsonArray.getJSONObject(0);
-            //noticia3.setTitulo(jsonObject.optString("tituloNoticia"));
-            usuario.setId(jsonObject.optInt("idUsuario"));
-            usuario.setIdFraccUsu(jsonObject.optInt("idFraccionamientoUsuarios"));
-            usuario.setEmail(jsonObject.optString("mailUsuario"));
-            usuario.setCodigo(jsonObject.optString("codigoAcceso"));
-            usuario.setNumCasa(jsonObject.optString("numeroCasa"));
+
+            usuVig.setIdVigilante(jsonObject.optInt("idVigilante"));
+            usuVig.setIdFraccDVig(jsonObject.optInt("idVigilanteFracc"));
+            usuVig.setNombre(jsonObject.optString("nombre"));
+            usuVig.setTelefono(jsonObject.optDouble("telefono"));
+            usuVig.setHorario(jsonObject.optString("horario"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        Intent i = new Intent(this, ConsultaImgFrUsuActivity.class);
-        Constantes.ID_USR = usuario.getId();
-        Constantes.IDFRACC_USR = usuario.getIdFraccUsu();
-        Constantes.NOM_USR = nombreUsr;
-        Constantes.EMAIL_USR = usuario.getEmail();
-        Constantes.PAS_USR = passUsr;
-        Constantes.COD_USR = usuario.getCodigo();
-        Constantes.NUM_CSA = usuario.getNumCasa();
+        Intent i = new Intent(this, ConsultaImgFActivity.class);
+        Constantes.ID_VIG = usuVig.getIdVigilante();
+        Constantes.ID_VIGFRACC = usuVig.getIdFraccDVig();
+        Constantes.NOM_VIG = usuVig.getNombre();
+        Constantes.TEL_VIG = usuVig.getTelefono();
+        Constantes.HORAR_VIG = usuVig.getHorario();
+        Constantes.USU_VIG = nombreUsr;
+        Constantes.PAS_VIG = passUsr;
 
         startActivity(i);
         finish();

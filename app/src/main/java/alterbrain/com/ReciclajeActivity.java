@@ -42,6 +42,7 @@ public class ReciclajeActivity extends AppCompatActivity {
     int numPET = 0, numAL = 0, usuario;
     Button btningresaReciclaje, btndetalleReciclaje, btnConfirmar, sigSlider, btnCerrar;
     TextView tvalertPET, tvalertAL, tvCasa;
+    ImageView casaAdeudo;
     String URL = "https://missvecinos.com.mx/android/insertareciclaje.php";
 
     @Override
@@ -49,7 +50,16 @@ public class ReciclajeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reciclaje);
         tvCasa = findViewById(R.id.textViewAR4);
+        casaAdeudo = findViewById(R.id.ivCasaAdeudo);
         tvCasa.setText("VECINO CASA " + Constantes.NUM_CSA);
+
+        if(Constantes.DEUDA_MESES_USR == 0){
+            casaAdeudo.setImageResource(R.drawable.ic_baseline_house_24_green);
+        }else if(Constantes.DEUDA_MESES_USR == 1){
+            casaAdeudo.setImageResource(R.drawable.ic_baseline_house_24_yellow);
+        }else if(Constantes.DEUDA_MESES_USR >= 2){
+            casaAdeudo.setImageResource(R.drawable.ic_baseline_house_24_red);
+        }
 
         NumberPicker np = findViewById(R.id.numberPickerPET);
         NumberPicker np2 = findViewById(R.id.numberPickerAL);

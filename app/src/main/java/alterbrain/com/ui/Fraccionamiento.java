@@ -12,8 +12,10 @@ public class Fraccionamiento {
     private int contPet;
     private int contAlum;
     private String codigoContenedor;
+    private String imagenFrc;
 
-    public Fraccionamiento(int idFraccionamiento, String linkFracc, String nombreFracc, String direccion, double latitud, double longitud, int noCasas, String nombreRecolector, int contPet, int contAlum, String codigoContenedor) {
+
+    public Fraccionamiento(int idFraccionamiento, String linkFracc, String nombreFracc, String direccion, double latitud, double longitud, int noCasas, String nombreRecolector, int contPet, int contAlum, String codigoContenedor, String imagenFrc) {
         this.idFraccionamiento = idFraccionamiento;
         this.linkFracc = linkFracc;
         this.nombreFracc = nombreFracc;
@@ -25,6 +27,7 @@ public class Fraccionamiento {
         this.contPet = contPet;
         this.contAlum = contAlum;
         this.codigoContenedor = codigoContenedor;
+        this.imagenFrc = imagenFrc;
     }
 
     public Fraccionamiento() {
@@ -121,5 +124,13 @@ public class Fraccionamiento {
 
     public void setContAlum(int contAlum) {
         this.contAlum = contAlum;
+    }
+
+    public String getImagenFrc() {
+        return imagenFrc;
+    }
+
+    public void setImagenFrc(String imagenFrc) {
+        this.imagenFrc = imagenFrc;
     }
 }

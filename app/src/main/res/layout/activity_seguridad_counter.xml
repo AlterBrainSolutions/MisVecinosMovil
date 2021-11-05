@@ -149,7 +149,7 @@
         android:text="Cancelar" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bmbMenu"
+            android:id="@+id/bmbMenuSeg2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -158,18 +158,18 @@
             app:fabCradleRoundedCornerRadius="2dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab1"
+            android:id="@+id/fabSeg2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter"
             app:backgroundTint="@color/transparent"
-            app:layout_anchor="@id/bmbMenu"
+            app:layout_anchor="@id/bmbMenuSeg2"
             app:maxImageSize="150dp"
             app:srcCompat="@drawable/ic_menu_alerta"
             app:tint="@null" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvMenu2"
+            android:id="@+id/bnvMenuSeg2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

@@ -13,8 +13,14 @@ public class Constantes {
     public static String COMENTARIO_ACCE;
     //Para el CODIGO QR
     public static String COD_ACCE;
+    //para adeudos
+    public  static  int AL_CORRIENTE;
+    public  static  int DOS_MESES;
+    public  static  int UN_MES;
+    public  static  int DEUDA_MESES_USR = 0;
 
     public static int ID_USR;
+    public static int IDFRACC_USR;
     public static String NOM_USR;
     public static String EMAIL_USR;
     public static String PAS_USR;
@@ -38,5 +44,18 @@ public class Constantes {
     public static int CONTPET_FRACC;
     public static  int CONTALUMN_FRACC;
     public static String CODCONTEN_FRACC;
+    public static String IMG_FRACC;
+
+    public static int ID_VIG;
+    public static int ID_VIGFRACC;
+    public static String NOM_VIG;
+    public static String DIR_VIG = "";
+    public static double TEL_VIG;
+    public static String HORAR_VIG;
+    public static String USU_VIG;
+    public static String PAS_VIG;
+
+    public static int ID_SEGR;
+    public static String NUMCASA_SEGR;
 
 }

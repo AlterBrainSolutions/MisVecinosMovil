@@ -75,6 +75,8 @@ public class MainActivity1 extends AppCompatActivity {
 
         configNav();
 
+        bnvMenuSeg.setBackground(null);
+
         /*navHostFragment = findViewById(R.id.nav_host_fragment2);
         navHostFragment.setVisibility(View.GONE);
         navHostFragment2 = findViewById(R.id.nav_host_fragment3);

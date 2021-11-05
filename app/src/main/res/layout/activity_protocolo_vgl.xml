@@ -8,7 +8,7 @@
     tools:context=".ui.ProtocoloVglActivity">
 
     <TextView
-        android:id="@+id/textView72"
+        android:id="@+id/textViewNumCasaPrto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
@@ -33,7 +33,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView72" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumCasaPrto" />
 
     <Button
         android:id="@+id/buttonListoProto"

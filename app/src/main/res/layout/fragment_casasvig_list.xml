@@ -11,5 +11,5 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.VisitanteFragment"
-    tools:listitem="@layout/fragment_visitante" />
+    tools:context=".ui.CasasVigFragment"
+    tools:listitem="@layout/fragment_casasvig" />

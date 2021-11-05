@@ -28,9 +28,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-<<<<<<< Updated upstream
-=======
 <<<<<<< HEAD
+            android:name=".ui.ConsultaImgFrUsuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ListCasasVigSegActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ConsultaImgFActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ConsultaUsrVigActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
             android:name=".ui.MessageVglActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar" />
@@ -38,8 +52,9 @@
             android:name=".ui.ProtocoloVglActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
 =======
->>>>>>> Stashed changes
+>>>>>>> 617f8b45391eb2827ebafa1850830523fd113d60
             android:name=".SeguridadCounterActivity"
             android:exported="true" />
         <!--
@@ -66,10 +81,6 @@
         <activity
             android:name=".AyudaSeguridadActivity"
             android:exported="true" />
-<<<<<<< Updated upstream
-=======
->>>>>>> 9d245868c63102330a408e2177a992da0da58a68
->>>>>>> Stashed changes
         <activity
             android:name=".ui.DetalleLogActivity2"
             android:screenOrientation="portrait"

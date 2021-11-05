@@ -12,8 +12,8 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView17"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageViewHomVig"
+            android:layout_width="match_parent"
             android:layout_height="159dp"
             android:scaleType="fitXY"
             android:src="@drawable/inadem" />
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:text="1 ALERTA"
+                android:text="0 ALERTAS"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView21"
@@ -49,11 +49,11 @@
 
         <fragment
             android:id="@+id/fragment7"
-            android:name="alterbrain.com.ui.VisitanteFragment"
+            android:name="alterbrain.com.ui.CasasVigFragment"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_marginTop="288dp"
-            tools:layout="@layout/fragment_visitante_list" />
+            tools:layout="@layout/fragment_casasvig_list" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,7 +73,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView75"
+                android:id="@+id/textViewNomVig"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -91,8 +91,8 @@
                 android:text="Vigilante"
                 android:textColor="@color/purple_700"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView75"
-                app:layout_constraintTop_toBottomOf="@+id/textView75" />
+                app:layout_constraintStart_toStartOf="@+id/textViewNomVig"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNomVig" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </ScrollView>

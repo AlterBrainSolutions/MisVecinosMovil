@@ -18,8 +18,12 @@
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.MisVecinos.PopupOverlay" />
+            app:title="MENSAJE DE ALERTA"
+            app:titleMarginStart="100dp"
+            android:background="@color/azulmv"
+            app:popupTheme="@style/Theme.MaterialComponents"
+
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -53,7 +57,7 @@
     </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bmbMenu"
+        android:id="@+id/bmbMenuSeg1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:fabCradleRoundedCornerRadius="2dp"
@@ -63,22 +67,23 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab1"
+        android:id="@+id/fabSeg1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:maxImageSize="150dp"
-        app:layout_anchor="@id/bmbMenu"
+        app:layout_anchor="@id/bmbMenuSeg1"
         android:scaleType="fitCenter"
         app:backgroundTint="@color/transparent"
         app:tint="@null"
         app:srcCompat="@drawable/ic_menu_alerta"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnvMenu2"
+        android:id="@+id/bnvMenuSeg1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         app:menu="@menu/bnv_menu"
+        app:itemIconTint="@color/white"
         android:layout_gravity="bottom" />
 
     <com.ebanx.swipebtn.SwipeButton
