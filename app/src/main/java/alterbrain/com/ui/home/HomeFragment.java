@@ -22,16 +22,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-<<<<<<< HEAD
+
 import com.bumptech.glide.Glide;
-=======
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
->>>>>>> 617f8b45391eb2827ebafa1850830523fd113d60
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -242,6 +240,10 @@ public class HomeFragment extends Fragment {
                 .load(Constantes.IMG_FRACC)
                 .centerCrop()
                 .into(ivFondoFraccUsr);
+
+        mQueue = Volley.newRequestQueue(getActivity());
+
+        jsonParse2();
 
         mQueue = Volley.newRequestQueue(getActivity());
 

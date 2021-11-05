@@ -28,7 +28,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-<<<<<<< HEAD
             android:name=".ui.ConsultaImgFrUsuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar" />
@@ -53,8 +52,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar" />
         <activity
-=======
->>>>>>> 617f8b45391eb2827ebafa1850830523fd113d60
+
             android:name=".SeguridadCounterActivity"
             android:exported="true" />
         <!--
