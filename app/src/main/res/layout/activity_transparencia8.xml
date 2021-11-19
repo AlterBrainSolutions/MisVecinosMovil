@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismv"
-    tools:context=".Transparencia5Activity">
+    tools:context=".Transparencia8Activity">
 
     <TextView
         android:id="@+id/textViewTituloAtr"
@@ -42,14 +42,14 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
-                android:text="INGRESOS EN EL MES DE MAYO POR CUOTAS DE MANTENIMIENTO"
+                android:text="INGRESOS EN EL MES DE AGOSTO POR CUOTAS DE MANTENIMIENTO"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvTotalIngresos5"
+                android:id="@+id/tvTotalIngresos8"
                 android:layout_width="130dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="16dp"
@@ -82,7 +82,7 @@
                 tools:layout="@layout/fragment_conceptotr_list" />-->
 
             <LinearLayout
-                android:id="@+id/layout_list5"
+                android:id="@+id/layout_list8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -99,7 +99,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngresoNeto5"
+                app:layout_constraintTop_toBottomOf="@+id/tvIngresoNeto8"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/egresosjulio" />
 
@@ -112,10 +112,10 @@
                 android:text="SALDO"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_list5" />
+                app:layout_constraintTop_toBottomOf="@+id/layout_list8" />
 
             <TextView
-                android:id="@+id/tvIngresoNeto5"
+                android:id="@+id/tvIngresoNeto8"
                 android:layout_width="130dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="16dp"
@@ -128,7 +128,7 @@
                 app:layout_constraintTop_toTopOf="@+id/textView37" />
 
             <Button
-                android:id="@+id/button5Back"
+                android:id="@+id/button8Back"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
@@ -137,7 +137,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button5Forw"
+                android:id="@+id/button8Forw"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="16dp"

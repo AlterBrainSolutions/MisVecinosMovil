@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+    <EditText
+        android:id="@+id/etEgresoMonto"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        >
+    </EditText>
+
+    <EditText
+        android:id="@+id/etEgresoNombre"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:text="holaaa"
+        android:paddingLeft="15dp"
+        android:textSize="15sp"
+        android:background="@color/grismv"
+        android:textColor="@color/black"
+        >
+
+    </EditText>
+
+    <ImageView
+        android:id="@+id/ivEgresoPDF"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_round_picture_as_pdf_24"
+        android:layout_marginRight="10dp"
+        >
+    </ImageView>
+
+</LinearLayout>

@@ -28,6 +28,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".Transparencia12Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Transparencia11Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Transparencia10Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Transparencia9Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Transparencia8Activity"
+            android:exported="true" />
+        <activity
             android:name=".SeguridadCounterActivity"
             android:exported="true" />
         <!--
