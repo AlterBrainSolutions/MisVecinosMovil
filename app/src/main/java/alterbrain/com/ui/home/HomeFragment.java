@@ -23,6 +23,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+
+import com.bumptech.glide.Glide;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -77,6 +79,8 @@ import alterbrain.com.ui.MyDeudaRecyclerViewAdapter;
 public class HomeFragment extends Fragment {
     TextView tvDescrip, tvFraccName;
     ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje;
+    TextView tvDescrip;
+    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje, ivFondoFraccUsr;
     ImageView btnMas, btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
     RelativeLayout rlHome;
@@ -104,6 +108,7 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        ivFondoFraccUsr = root.findViewById(R.id.ImageV_fondolog);
         tvDescrip = root.findViewById(R.id.textViewDescripcion);
         ivNoticias = root.findViewById(R.id.imageViewNoticias);
         ivAgenda = root.findViewById(R.id.imageViewAgenda);
@@ -301,6 +306,14 @@ public class HomeFragment extends Fragment {
 
         //Nombre usu
         getUsuName();
+        Glide.with(this)
+                .load(Constantes.IMG_FRACC)
+                .centerCrop()
+                .into(ivFondoFraccUsr);
+
+        mQueue = Volley.newRequestQueue(getActivity());
+
+        jsonParse2();
 
         return root;
     }

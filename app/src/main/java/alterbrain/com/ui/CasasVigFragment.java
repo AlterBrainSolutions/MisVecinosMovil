@@ -27,27 +27,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 
 
-public class VisitanteFragment extends Fragment {
+public class CasasVigFragment extends Fragment {
 
-    private static final String URL_players = "https://missvecinos.com.mx/android/casas.php";
+    private static final String URL_players = "https://missvecinos.com.mx/android/casasvig.php?idVigFracc="+ Constantes.ID_VIGFRACC;
 
     RecyclerView recyclerView;
-    MyVisitanteRecyclerViewAdapter visitanteRecyclerViewAdapter;
-    List<Visitante> visitanteList;
+    MyCasasVigRecyclerViewAdapter casasvigRecyclerViewAdapter;
+    List<CasasVig> casasVigList;
+
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
 
-    public VisitanteFragment() {
+    public CasasVigFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static VisitanteFragment newInstance(int columnCount) {
-        VisitanteFragment fragment = new VisitanteFragment();
+    public static CasasVigFragment newInstance(int columnCount) {
+        CasasVigFragment fragment = new CasasVigFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -66,7 +68,7 @@ public class VisitanteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_visitante_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_casasvig_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -77,15 +79,16 @@ public class VisitanteFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
+            casasVigList = new ArrayList<>();
             // Lista de elementos (Restaurantes)
-            visitanteList = new ArrayList<>();
+            //visitanteList = new ArrayList<>();
             //visitanteList.add(new Visitante("https://png.pngtree.com/element_origin_min_pic/00/00/06/12575cb97a22f0f.jpg", "011", "Casa 38"));
             //TODO COMENTAR DESDE AQUI
-            visitanteList.add(new Visitante(1, "INADEM", "Casa 1", "https://png.pngtree.com/element_origin_min_pic/00/00/06/12575cb97a22f0f.jpg"));
-            visitanteRecyclerViewAdapter = new MyVisitanteRecyclerViewAdapter(getActivity(), visitanteList);
-            recyclerView.setAdapter(visitanteRecyclerViewAdapter);
+            //visitanteList.add(new Visitante(1, "INADEM", "Casa 1", "https://png.pngtree.com/element_origin_min_pic/00/00/06/12575cb97a22f0f.jpg"));
+            //casasvigRecyclerViewAdapter = new MyCasasVigRecyclerViewAdapter(getActivity(), visitanteList);
+            //recyclerView.setAdapter(casasvigRecyclerViewAdapter);
 
-            //loadCasas();
+            loadCasas();
         }
         return view;
     }
@@ -101,14 +104,12 @@ public class VisitanteFragment extends Fragment {
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject casa = array.getJSONObject(i);
 
-                                visitanteList.add(new Visitante(
-                                        casa.getInt("idcasa"),
-                                        casa.getString("fraccionamientoid"),
-                                        casa.getString("casa"),
-                                        casa.getString("imagen")
+                                casasVigList.add(new CasasVig(
+                                        casa.getInt("idUsuario"),
+                                        casa.getString("numeroCasa")
                                 ));
                             }
-                            recyclerView.setAdapter(new MyVisitanteRecyclerViewAdapter(getContext(), visitanteList));
+                            recyclerView.setAdapter(new MyCasasVigRecyclerViewAdapter(getContext(), casasVigList));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

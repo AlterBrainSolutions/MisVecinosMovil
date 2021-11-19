@@ -43,6 +43,31 @@
             android:name=".Transparencia8Activity"
             android:exported="true" />
         <activity
+            android:name=".ui.ConsultaImgFrUsuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ListCasasVigSegActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ConsultaImgFActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ConsultaUsrVigActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.MessageVglActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ProtocoloVglActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+
             android:name=".SeguridadCounterActivity"
             android:exported="true" />
         <!--

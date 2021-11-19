@@ -24,13 +24,15 @@ import java.util.Map;
 import alterbrain.com.app.Constantes;
 import alterbrain.com.ui.ConsultaUsrActivity;
 import alterbrain.com.ui.ConsultaUsrLogsActivity;
+import alterbrain.com.ui.ConsultaUsrVigActivity;
 
 public class LoginActivity2 extends AppCompatActivity {
 
     private EditText etEmail, etPassword, etUsuario;
-    private String email, password, usuario, usuarioLogis, contraseniaLogis;
+    private String email, password, usuario, usuarioLogis, contraseniaLogis, usuarioVig, contraseniaVig;
     private String URL = "https://missvecinos.com.mx/android/login3.php";
     private String URLlogs = "https://missvecinos.com.mx/android/login4.php";
+    private String URLViglt = "https://missvecinos.com.mx/android/loginVig.php";
     private Button btnLogin;
 
     Button btnaviso, btnregistrar;
@@ -39,7 +41,7 @@ public class LoginActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
-        usuario = email = password = usuarioLogis = contraseniaLogis= "";
+        usuario = email = password = usuarioLogis = contraseniaLogis= usuarioVig = contraseniaVig = "";
         //etEmail = findViewById(R.id.editTextEmail);
         etUsuario = findViewById(R.id.editTextUsuario);
         etPassword = findViewById(R.id.editTextPassword);
@@ -58,8 +60,10 @@ public class LoginActivity2 extends AppCompatActivity {
                 //email = etEmail.getText().toString().trim();
                 usuario = etUsuario.getText().toString().trim();
                 usuarioLogis = usuario;
+                usuarioVig = usuarioLogis;
                 password = etPassword.getText().toString().trim();
                 contraseniaLogis = password;
+                contraseniaVig = contraseniaLogis;
                 /*si ambos campos no estan vacios, enviaremos una solicitud de publicacion usando
                  *   volley*/
 
@@ -69,7 +73,7 @@ public class LoginActivity2 extends AppCompatActivity {
                     i.putExtra(Constantes.EXTRA_USER_ID, "");
                     startActivity(i);
                     finish();
-                }else if (usuario.compareTo("usuario.vigilante1") ==0 && password.compareTo("Abcde123") ==0){
+                }/*else if (usuario.compareTo("usuario.vigilante1") ==0 && password.compareTo("Abcde123") ==0){
                     Intent i = new Intent(LoginActivity2.this, MainActivity5.class);
                     i.putExtra("servicio", "guardia");
                     i.putExtra(Constantes.EXTRA_USER_ID, "");
@@ -81,7 +85,8 @@ public class LoginActivity2 extends AppCompatActivity {
                     i.putExtra(Constantes.EXTRA_USER_ID, "");
                     startActivity(i);
                     finish();
-                }else if(!usuario.equals("") && !password.equals("")){
+                }*/
+                else if(!usuario.equals("") && !password.equals("")){
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -167,7 +172,8 @@ public class LoginActivity2 extends AppCompatActivity {
                         finish();
                         //Toast.makeText(LoginActivity2.this, "yes i do", Toast.LENGTH_SHORT).show();
                     } else if (response.equals("failure")) {
-                        Toast.makeText(LoginActivity2.this, "Datos incorrectos Id/Password --2", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(LoginActivity2.this, "Datos incorrectos Id/Password --2", Toast.LENGTH_SHORT).show();
+                        validaUsuVig();
                     }
                 }
             }, new Response.ErrorListener() {
@@ -188,6 +194,56 @@ public class LoginActivity2 extends AppCompatActivity {
                     //data.put("email", email);
                     data.put("usuarioLogis", usuarioLogis);
                     data.put("contraseniaLogis", contraseniaLogis);
+                    return data;
+                }
+            };
+            //crear instancia de la RQ (cola de solicitudes)
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            requestQueue.add(stringRequest);
+        }else {
+            Toast.makeText(LoginActivity2.this, "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void validaUsuVig() {
+        //METODO PARA VALIDAR QUE SI NO ES USUARIO DE LOGIS, ENTONCES ES UNO DE VIGIL
+        if(!usuarioVig.equals("") && !contraseniaVig.equals("")){
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URLViglt, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    /*si el texto de respuesta es correcto, crearemos
+                     * un objeto de intenciony lanzar una actividad de éxito con esa intencion*/
+                    //TODO cifrar contrasenia y agregar imagen de usuario, tipo de usuario
+                    if (response.equals("success")) {
+                        Intent intent = new Intent(LoginActivity2.this, ConsultaUsrVigActivity.class);
+
+                        intent.putExtra("nombreUsr", usuario);
+                        intent.putExtra("passUsr", password);
+                        startActivity(intent);
+                        finish();
+                        //Toast.makeText(LoginActivity2.this, "yes i do", Toast.LENGTH_SHORT).show();
+                    } else if (response.equals("failure")) {
+                        Toast.makeText(LoginActivity2.this, "Datos incorrectos Id/Password --3", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //crear un detector de errores para manejar los errores de manera adecuada
+                    Toast.makeText(LoginActivity2.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
+                }
+            }){
+                /*para una solicitud de publicacion para agregat parámetros de formulario
+                 * o valores, el metodo de los parametros de la puerta debe sobreescribirsse
+                 * y se debe devolver un mapa, en el mapa necesitamos poner nuestros parametros
+                 * */
+                @Nullable
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> data = new HashMap<>();
+                    //data.put("email", email);
+                    data.put("usuarioVig", usuarioVig);
+                    data.put("contraseniaVig", contraseniaVig);
                     return data;
                 }
             };

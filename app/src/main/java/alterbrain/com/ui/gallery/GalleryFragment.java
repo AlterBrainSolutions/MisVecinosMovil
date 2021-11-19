@@ -95,7 +95,7 @@ public class GalleryFragment extends Fragment {
         etEmail.setText(emailU);
         etPass.setText(passU);
 
-        //TODO Comentar el siguiente codigo y agregar un nuevo fragment
+        //TODO Comentar el siguiente codigo y agregar un nuevo fragment --un nuevo gallery para cada usuario. pa q editen sus datos
         if (nameU == null){
             nameU = Constantes.NOM_USULOGIS;
             etName.setText(nameU);

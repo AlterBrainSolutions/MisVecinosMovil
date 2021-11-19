@@ -44,9 +44,9 @@ public class MainActivity5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Bundle extras = getIntent().getExtras();
-        userId = extras.getString(Constantes.EXTRA_USER_ID);
-        servicios = extras.getString("servicio");
+        /*Bundle extras = getIntent().getExtras();
+        //userId = extras.getString(Constantes.EXTRA_USER_ID);
+        srvicios = extras.getString("servicio");*/
         /*Toast.makeText(this, "-"+userId+"-", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, servicios, Toast.LENGTH_SHORT).show();*/
 
