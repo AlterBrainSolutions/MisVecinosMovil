@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -50,11 +51,25 @@ import alterbrain.com.R;
 import alterbrain.com.ReciclajeActivity;
 import alterbrain.com.ReservaActivity;
 import alterbrain.com.ServiciosActivity3;
+import alterbrain.com.Transparencia10Activity;
+import alterbrain.com.Transparencia11Activity;
+import alterbrain.com.Transparencia12Activity;
+import alterbrain.com.Transparencia2Activity;
+import alterbrain.com.Transparencia3Activity;
+import alterbrain.com.Transparencia4Activity;
+import alterbrain.com.Transparencia5Activity;
+import alterbrain.com.Transparencia6Activity;
 import alterbrain.com.Transparencia7Activity;
+import alterbrain.com.Transparencia8Activity;
+import alterbrain.com.Transparencia9Activity;
+import alterbrain.com.TransparenciaActivity;
 import alterbrain.com.app.Constantes;
 
 public class HomeFragment extends Fragment {
     TextView tvDescrip, tvNomFrc;
+    TextView tvDescrip, tvFraccName;
+    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje;
+    TextView tvDescrip;
     ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje, ivFondoFraccUsr;
     ImageView btnMas, btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
@@ -103,8 +118,13 @@ public class HomeFragment extends Fragment {
         btnServicio = root.findViewById(R.id.imageViewServicios);
         constraintMenuPop = root.findViewById(R.id.constraintMenuPop);
         rlHome = root.findViewById(R.id.relativeLayoutHomeServ);
+        tvFraccName = root.findViewById(R.id.textViewDescFrac);
 
         db = FirebaseFirestore.getInstance();
+
+        mQueue = Volley.newRequestQueue(getActivity());
+
+        jsonParse2();
 
         ivNoticias.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,8 +184,59 @@ public class HomeFragment extends Fragment {
         ivTransparency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), Transparencia7Activity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getActivity(), Transparencia7Activity.class);
+                startActivity(i);*/
+
+                switch(Constantes.MES_ACT){
+                    case 1:
+                        Intent i = new Intent(getActivity(), TransparenciaActivity.class);
+                        startActivity(i);
+                        break;
+                    case 2:
+                        Intent i2 = new Intent(getActivity(), Transparencia2Activity.class);
+                        startActivity(i2);
+                        break;
+                    case 3:
+                        Intent i3 = new Intent(getActivity(), Transparencia3Activity.class);
+                        startActivity(i3);
+                        break;
+                    case 4:
+                        Intent i4 = new Intent(getActivity(), Transparencia4Activity.class);
+                        startActivity(i4);
+                        break;
+                    case 5:
+                        Intent i5 = new Intent(getActivity(), Transparencia5Activity.class);
+                        startActivity(i5);
+                        break;
+                    case 6:
+                        Intent i6 = new Intent(getActivity(), Transparencia6Activity.class);
+                        startActivity(i6);
+                        break;
+                    case 7:
+                        Intent i7 = new Intent(getActivity(), Transparencia7Activity.class);
+                        startActivity(i7);
+                        break;
+                    case 8:
+                        Intent i8 = new Intent(getActivity(), Transparencia8Activity.class);
+                        startActivity(i8);
+                        break;
+                    case 9:
+                        Intent i9= new Intent(getActivity(), Transparencia9Activity.class);
+                        startActivity(i9);
+                        break;
+                    case 10:
+                        Intent i10 = new Intent(getActivity(), Transparencia10Activity.class);
+                        startActivity(i10);
+                        break;
+                    case 11:
+                        Intent i11 = new Intent(getActivity(), Transparencia11Activity.class);
+                        startActivity(i11);
+                        break;
+                    case 12:
+                        Intent i12 = new Intent(getActivity(), Transparencia12Activity.class);
+                        startActivity(i12);
+                        break;
+                }
             }
         });
         ivPagos.setOnClickListener(new View.OnClickListener() {
@@ -235,10 +306,6 @@ public class HomeFragment extends Fragment {
 
         jsonParse2();
 
-        mQueue = Volley.newRequestQueue(getActivity());
-
-        jsonParse2();
-
         return root;
     }
 
@@ -300,39 +367,49 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray resultados = response.getJSONArray("al corriente");
 
-                            int tamRes = resultados.length();
+                            /*****************************************************************************/
 
-                            Constantes.AL_CORRIENTE = tamRes;
+                            JSONArray resultadosFracc = response.getJSONArray("fracc_name");
 
-                            JSONArray resultados2 = response.getJSONArray("resultados");
+                            JSONObject jsonObjectFracc = new JSONObject(resultadosFracc.get(0).toString());
 
-                            int tamRes2 = resultados2.length();
-                            int numero = 0, masDedos = 0, contadorAux = 0;
+                            /*Toast.makeText(getActivity(),
+                                    "Fraccionamiento: " + resultadosFracc.get(0).toString(),
+                                    Toast.LENGTH_SHORT).show();*/
+
+                            Constantes.NOMBRE_FRACC = jsonObjectFracc.getString("nombreFracc");
+                            tvFraccName.setText(Constantes.NOMBRE_FRACC);
+                            /***************************************************************************/
+
+                            JSONArray resultadosMes = response.getJSONArray("month_num");
+
+                            JSONObject jsonObjectMes = new JSONObject(resultadosMes.get(0).toString());
+
+                            Constantes.MES_ACT = jsonObjectMes.getInt("Mes");
+
+                            /*****************************************************************************/
+
+                            JSONArray resultados2 = response.getJSONArray("user_vis");
+
+                            int tamRes2 = resultados2.length(), visibilidad = 0, rol_usr = 0;
 
                             for (int i = 0; i < tamRes2; i++) {
 
                                 JSONObject jsonObject = new JSONObject(resultados2.get(i).toString());
 
-                                if (i > 0) {
-                                    JSONObject jsonObject2 = new JSONObject(resultados2.get(i - 1).toString());
-                                    if (Integer.valueOf(jsonObject.getString("numeroCasa"))
-                                            != Integer.valueOf(jsonObject2.getString("numeroCasa"))) {
+                                visibilidad = jsonObject.getInt("visibilidad");
+                                rol_usr = jsonObject.getInt("idUsuarioRol");
 
-                                        masDedos += contadorAux;
-                                        contadorAux = 0;
-                                        numero++;
-                                    } else {
-                                        contadorAux++;
-                                    }
-                                }
-                                Constantes.UN_MES = numero;
-                                Constantes.DOS_MESES = masDedos;
-                                /*Toast.makeText(AdeudosActivity.this,
-                                        "Un mes: " + numero + "dos meses: " +
-                                                masDedos, Toast.LENGTH_SHORT).show();*/
+                                /*Toast.makeText(getActivity(),
+                                        "Un mes: " + visibilidad + "dos meses: " +
+                                                rol_usr, Toast.LENGTH_SHORT).show();*/
                             }
+
+                            Constantes.DETAIL_USR_VISIBLE = visibilidad;
+                            Constantes.ROL_USR = rol_usr;
+
+                            /*****************************************************************************/
 
                             JSONArray resultados3 = response.getJSONArray("resultados");
 
@@ -345,24 +422,12 @@ public class HomeFragment extends Fragment {
                                 JSONObject jsonObject = new JSONObject(resultados3.get(i).toString());
 
                                 listdata.add(Integer.valueOf(jsonObject.getString("numeroCasa")));
-
-                                /*if (i > 0) {
-                                    JSONObject jsonObject2 = new JSONObject(resultados.get(i - 1).toString());
-
-                                    if (Integer.valueOf(jsonObject.getString("numeroCasa"))
-                                            != Integer.valueOf(jsonObject2.getString("numeroCasa"))) {
-
-                                        masDedos += contadorAux;
-                                        contadorAux = 0;
-                                        numero++;
-                                    } else {
-                                        contadorAux++;
-                                    }
-                                }*/
                             }
 
-                            JSONArray resultados4 = response.getJSONArray("con adeudo");
+                            /*****************************************************************************/
 
+                            ArrayList<Integer> dataCounter = new ArrayList<Integer>();
+                            JSONArray resultados4 = response.getJSONArray("con adeudo");
                             int tamRes4 = resultados4.length(), occurrences = 0;
 
                             for (int i = 0; i < tamRes4; i++) {
@@ -373,16 +438,51 @@ public class HomeFragment extends Fragment {
 
                                 occurrences = Collections.frequency(listdata, Integer.valueOf(casa));
 
+                                dataCounter.add(occurrences);
+
                                 if(casa.equals(Constantes.NUM_CSA)){
                                     /*Toast.makeText(getActivity(),
                                             "Ocurrencia: " + occurrences +"casa: "+ casa, Toast.LENGTH_SHORT).show();*/
                                     Constantes.DEUDA_MESES_USR = occurrences;
                                 }
-
                                 /*System.out.println(occurrences);*/
-                                Log.d(String.valueOf(i), String.valueOf(occurrences));
-
+                                /*Log.d(String.valueOf(i), String.valueOf(occurrences));*/
                             }
+
+                            int unMes = 0,masDosMeses = 0;
+
+                            for (int i = 0; i < dataCounter.size(); i++){
+
+                                if (dataCounter.get(i) == 1){
+                                    unMes++;
+                                }else if(dataCounter.get(i) >= 2){
+                                    masDosMeses++;
+                                }
+                                /*Log.d(String.valueOf(i), String.valueOf(dataCounter.get(i))+ " " +
+                                        String.valueOf(unMes)+ " " +
+                                        String.valueOf(masDosMeses));*/
+                            }
+                            Constantes.UN_MES = unMes;
+                            Constantes.DOS_MESES = masDosMeses;
+
+                            /*****************************************************************************/
+
+                            ArrayList<Integer> dataAlCorriente = new ArrayList<Integer>();
+                            JSONArray resultados = response.getJSONArray("al corriente");
+                            int tamRes = resultados.length();
+
+                            for (int i = 0; i < tamRes; i++) {
+
+                                JSONObject jsonObject = new JSONObject(resultados.get(i).toString());
+
+                                dataAlCorriente.add(Integer.valueOf(jsonObject.getString("numeroCasa")));
+                            }
+
+                            dataAlCorriente.removeAll(listdata);
+                            Constantes.AL_CORRIENTE = dataAlCorriente.size();
+
+                            /*****************************************************************************/
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -394,5 +494,11 @@ public class HomeFragment extends Fragment {
             }
         });
         mQueue.add(request);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        jsonParse2();
     }
 }

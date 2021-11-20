@@ -18,6 +18,12 @@ public class Constantes {
     public  static  int DOS_MESES;
     public  static  int UN_MES;
     public  static  int DEUDA_MESES_USR = 0;
+    //para la visibilidad
+    public  static  int ROL_USR = 0;
+    public  static  int DETAIL_USR_VISIBLE = 0;
+    //mes actual
+    public  static  int MES_ACT;
+
 
     public static int ID_USR;
     public static int IDFRACC_USR;
@@ -26,6 +32,8 @@ public class Constantes {
     public static String PAS_USR;
     public static String COD_USR;
     public static String NUM_CSA;
+    //nombre del fraccionamiento
+    public static String NOMBRE_FRACC;
 
     public static int ID_USULOGIS;
     public static String NOM_USULOGIS;

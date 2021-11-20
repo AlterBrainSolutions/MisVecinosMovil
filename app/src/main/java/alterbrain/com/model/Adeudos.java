@@ -20,6 +20,10 @@ public class Adeudos {
         this.mesesDeDeuda = mesesDeDeuda;
     }
 
+    public Adeudos(String numeroCasa) {
+        this.numeroCasa = numeroCasa;
+    }
+
     public Adeudos() {
     }
 

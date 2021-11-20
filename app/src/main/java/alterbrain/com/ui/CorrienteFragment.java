@@ -111,7 +111,37 @@ public class CorrienteFragment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            JSONArray resultados3 = response.getJSONArray("resultados");
+
+                            ArrayList<Integer> listdata = new ArrayList<Integer>();
+
+                            int tamRes3 = resultados3.length();
+
+                            for (int i = 0; i < tamRes3; i++) {
+
+                                JSONObject jsonObject = new JSONObject(resultados3.get(i).toString());
+
+                                listdata.add(Integer.valueOf(jsonObject.getString("numeroCasa")));
+                            }
+
+                            ArrayList<Integer> dataAlCorriente = new ArrayList<Integer>();
                             JSONArray resultados = response.getJSONArray("al corriente");
+                            int tamRes = resultados.length();
+
+                            for (int i = 0; i < tamRes; i++) {
+
+                                JSONObject jsonObject = new JSONObject(resultados.get(i).toString());
+
+                                dataAlCorriente.add(Integer.valueOf(jsonObject.getString("numeroCasa")));
+                            }
+
+                            dataAlCorriente.removeAll(listdata);
+
+                            for (int i = 0; i < dataAlCorriente.size(); i++){
+                                deudaList.add(new Adeudos(String.valueOf(dataAlCorriente.get(i))));
+                            }
+
+                            /*JSONArray resultados = response.getJSONArray("al corriente");
 
                             int tamRes = resultados.length();
 
@@ -124,11 +154,11 @@ public class CorrienteFragment extends Fragment {
                                 String casa = jsonObject.getString("numeroCasa");
                                 int fraccionamiento = jsonObject.getInt("idFraccionamientoUsuarios");
 
-                                deudaList.add(new Adeudos(idUsuario, estatus, casa, fraccionamiento));
+                                deudaList.add(new Adeudos(casa));
 
-                               /* Toast.makeText(CorrienteFragment.this,
-                                        "Un mes: " + casa, Toast.LENGTH_SHORT).show();*/
-                            }
+                                Toast.makeText(CorrienteFragment.this,
+                                        "Un mes: " + casa, Toast.LENGTH_SHORT).show();
+                            }*/
                             recyclerView.setAdapter(new MyCorrienteRecyclerViewAdapter(getContext(), deudaList));
 
 

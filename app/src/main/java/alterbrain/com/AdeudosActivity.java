@@ -29,9 +29,9 @@ import alterbrain.com.ui.MyCorrienteRecyclerViewAdapter;
 public class AdeudosActivity extends AppCompatActivity {
 
     Button btnDetalleAde;
-    TextView tvAdeudoUnMes,tvAdeudoMasDeUnMes, tvCorriente;
-    int alCorriente = Constantes.AL_CORRIENTE, dosMeses = Constantes.DOS_MESES, unMes = Constantes.UN_MES;
-    /*private int usuario = Constantes.ID_USR, conAdeudo = 0, alCorriente = 0;
+    TextView tvAdeudoUnMes,tvAdeudoMasDeUnMes, tvCorriente, tvNumeroCasas, tvNombreFracc;
+    int alCorriente = Constantes.AL_CORRIENTE, dosMeses = Constantes.DOS_MESES, unMes = Constantes.UN_MES, numViviendas = 0;
+    /*private int usuario = Constantes.ID_USR;*//* conAdeudo = 0, alCorriente = 0*//*;
     private String URL_corriente = "https://missvecinos.com.mx/android/adeudosConsulta.php?usuario=" + usuario;
     private RequestQueue mQueue;*/
 
@@ -43,6 +43,25 @@ public class AdeudosActivity extends AppCompatActivity {
         tvAdeudoMasDeUnMes = findViewById(R.id.tvMasDeUnoRet);
         tvAdeudoUnMes = findViewById(R.id.tvUnMesRet);
         tvCorriente = findViewById(R.id.tvCorrienteConteo);
+        tvNumeroCasas = findViewById(R.id.tvNumeroCasasAdeudos);
+        tvNombreFracc = findViewById(R.id.tvnombreFraccAdeudos);
+
+        tvCorriente.setText(String.valueOf(alCorriente));
+        tvAdeudoUnMes.setText(String.valueOf(unMes));
+        tvAdeudoMasDeUnMes.setText(String.valueOf(dosMeses));
+        tvNombreFracc.setText("Numero de viviendas en el fraccionamiento " + Constantes.NOMBRE_FRACC);
+        numViviendas = Constantes.AL_CORRIENTE+Constantes.DOS_MESES+Constantes.UN_MES;
+        tvNumeroCasas.setText(String.valueOf(numViviendas));
+
+        /*mQueue = Volley.newRequestQueue(AdeudosActivity.this);
+
+        jsonParse2();*/
+
+        if (Constantes.DETAIL_USR_VISIBLE == 2 && Constantes.ROL_USR == 2){
+            btnDetalleAde.setEnabled(false);
+        }else if(Constantes.ROL_USR == 1 || Constantes.ROL_USR == 3){
+            btnDetalleAde.setEnabled(true);
+        }
 
         btnDetalleAde.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,15 +73,6 @@ public class AdeudosActivity extends AppCompatActivity {
             }
         });
 
-        tvCorriente.setText(String.valueOf(alCorriente));
-        tvAdeudoUnMes.setText(String.valueOf(unMes));
-        tvAdeudoMasDeUnMes.setText(String.valueOf(dosMeses));
-
-       /* mQueue = Volley.newRequestQueue(AdeudosActivity.this);
-
-        jsonParse2();*/
-
-
     }
 
     /*private void jsonParse2() {
@@ -72,38 +82,21 @@ public class AdeudosActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray resultados = response.getJSONArray("al corriente");
 
-                            int tamRes = resultados.length();
+                            JSONArray resultados2 = response.getJSONArray("user_vis");
 
-                            tvCorriente.setText(String.valueOf(tamRes));
-
-                            JSONArray resultados2 = response.getJSONArray("resultados");
-
-                            int tamRes2 = resultados2.length();
-                            int numero = 0, masDedos = 0, contadorAux = 0;
+                            int tamRes2 = resultados2.length(), visibilidad, rol_usr;
 
                             for (int i = 0; i < tamRes2; i++) {
 
                                 JSONObject jsonObject = new JSONObject(resultados2.get(i).toString());
 
-                                if (i > 0) {
-                                    JSONObject jsonObject2 = new JSONObject(resultados2.get(i - 1).toString());
-                                    if (Integer.valueOf(jsonObject.getString("numeroCasa"))
-                                            != Integer.valueOf(jsonObject2.getString("numeroCasa"))) {
+                                visibilidad = jsonObject.getInt("visibilidad");
+                                rol_usr = jsonObject.getInt("idUsuarioRol");
 
-                                        masDedos += contadorAux;
-                                        contadorAux = 0;
-                                        numero++;
-                                    } else {
-                                        contadorAux++;
-                                    }
-                                }
-                                tvAdeudoUnMes.setText(String.valueOf(numero));
-                                tvAdeudoMasDeUnMes.setText(String.valueOf(masDedos));
-                                *//*Toast.makeText(AdeudosActivity.this,
-                                        "Un mes: " + numero + "dos meses: " +
-                                                masDedos, Toast.LENGTH_SHORT).show();*//*
+                                Toast.makeText(AdeudosActivity.this,
+                                        "Un mes: " + visibilidad + "dos meses: " +
+                                                rol_usr, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

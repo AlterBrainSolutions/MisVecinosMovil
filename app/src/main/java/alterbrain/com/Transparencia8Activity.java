@@ -24,12 +24,12 @@ import org.json.JSONObject;
 
 import alterbrain.com.app.Constantes;
 
-public class Transparencia3Activity extends AppCompatActivity {
+public class Transparencia8Activity extends AppCompatActivity {
 
     LinearLayout layoutList;
     Button btn1, btn2;
     TextView tvTotalIngresos, tvIngresoNeto;
-    int mes = 3;
+    int mes = 8;
     private int usuario = Constantes.ID_USR;
     private String URL_corriente = "https://missvecinos.com.mx/android/transparenciaConsulta.php?usuario=" + usuario + "&mes=" + mes;
     private RequestQueue mQueue;
@@ -37,32 +37,33 @@ public class Transparencia3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transparencia3);
-        btn1 = findViewById(R.id.button3Back);
-        btn2 = findViewById(R.id.button3Forw);
-        /*buttont = findViewById(R.id.buttonDetalleTrn3);*/
+        setContentView(R.layout.activity_transparencia8);
 
-        layoutList = findViewById(R.id.layout_list3);
-        tvTotalIngresos = findViewById(R.id.tvTotalIngresos3);
-        tvIngresoNeto = findViewById(R.id.tvIngresoNeto3);
+        btn1 = findViewById(R.id.button8Back);
+        btn2 = findViewById(R.id.button8Forw);
+        /*buttont = findViewById(R.id.buttonDetalleTrn8);*/
+        layoutList = findViewById(R.id.layout_list8);
+        tvTotalIngresos = findViewById(R.id.tvTotalIngresos8);
+        tvIngresoNeto = findViewById(R.id.tvIngresoNeto8);
 
-        mQueue = Volley.newRequestQueue(Transparencia3Activity.this);
+        mQueue = Volley.newRequestQueue(Transparencia8Activity.this);
         jsonParse2();
 
         /*buttont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Transparencia3Activity.this, TransparenciaD3Activity.class);
+                Intent i = new Intent(Transparencia7Activity.this, TransparenciaD7Activity.class);
                 startActivity(i);
             }
         });*/
         eventos();
     }
-    private void eventos(){
+
+    private void eventos() {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Transparencia3Activity.this, Transparencia2Activity.class);
+                Intent i = new Intent(Transparencia8Activity.this, Transparencia7Activity.class);
                 startActivity(i);
                 finish();
             }
@@ -70,7 +71,7 @@ public class Transparencia3Activity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Transparencia3Activity.this, Transparencia4Activity.class);
+                Intent i = new Intent(Transparencia8Activity.this, Transparencia9Activity.class);
                 startActivity(i);
                 finish();
             }
@@ -157,5 +158,4 @@ public class Transparencia3Activity extends AppCompatActivity {
         });
         mQueue.add(request);
     }
-
 }
