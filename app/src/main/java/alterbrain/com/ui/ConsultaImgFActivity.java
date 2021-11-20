@@ -26,7 +26,7 @@ public class ConsultaImgFActivity extends AppCompatActivity implements Response.
 
     RequestQueue rq;
     JsonRequest jr;
-    String nomimg ="";
+    String nomimg ="", nomFrac = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +60,13 @@ public class ConsultaImgFActivity extends AppCompatActivity implements Response.
             jsonObject = jsonArray.getJSONObject(0);
 
             nomimg = jsonObject.optString("imagen");
+            nomFrac = jsonObject.optString("nombreFracc");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         Intent i = new Intent(this, MainActivity5.class);
         Constantes.IMG_FRACC = nomimg;
+        Constantes.NOM_FRACC = nomFrac;
 
         startActivity(i);
         finish();

@@ -1,10 +1,7 @@
 package alterbrain.com.ui.home;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -14,10 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -30,9 +25,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -52,7 +44,6 @@ import alterbrain.com.AnuncioActivity;
 import alterbrain.com.ConversacionActivity;
 import alterbrain.com.Documentos2Activity;
 import alterbrain.com.EncuestasActivity;
-import alterbrain.com.MainActivity1;
 import alterbrain.com.Noticias3Activity;
 import alterbrain.com.PagosActivity;
 import alterbrain.com.R;
@@ -61,11 +52,9 @@ import alterbrain.com.ReservaActivity;
 import alterbrain.com.ServiciosActivity3;
 import alterbrain.com.Transparencia7Activity;
 import alterbrain.com.app.Constantes;
-import alterbrain.com.model.Adeudos;
-import alterbrain.com.ui.MyDeudaRecyclerViewAdapter;
 
 public class HomeFragment extends Fragment {
-    TextView tvDescrip;
+    TextView tvDescrip, tvNomFrc;
     ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje, ivFondoFraccUsr;
     ImageView btnMas, btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
@@ -95,7 +84,8 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         ivFondoFraccUsr = root.findViewById(R.id.ImageV_fondolog);
-        tvDescrip = root.findViewById(R.id.textViewDescripcion);
+        tvDescrip = root.findViewById(R.id.textViewNumCasa);
+        tvNomFrc = root.findViewById(R.id.textViewNomFracc);
         ivNoticias = root.findViewById(R.id.imageViewNoticias);
         ivAgenda = root.findViewById(R.id.imageViewAgenda);
         ivDocumentos = root.findViewById(R.id.imageViewDocumentosh);
@@ -227,7 +217,7 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
-        profilePic = root.findViewById(R.id.imageView_face);
+        //profilePic = root.findViewById(R.id.imageView_face);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
@@ -266,10 +256,12 @@ public class HomeFragment extends Fragment {
 
     private void getUsuName() {
         descri = Constantes.NUM_CSA;
-        tvDescrip.setText("CASA " + descri);
+        tvDescrip.setText("VECINO CASA " + descri);
+        tvNomFrc.setText("FRACCIONAMIENTO "+Constantes.NOM_FRACC);
+        //TODO cambiar el texto dependiendo del tipo de usuario
     }
 
-    private void getPlayerNames() {
+    /*private void getPlayerNames() {
         // Obtener el nombre del player 1
         db.collection("users")
                 .document(MainActivity1.userId.toString())
@@ -299,7 +291,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-    }
+    }*/
 
     private void jsonParse2() {
 
