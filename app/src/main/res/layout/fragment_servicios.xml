@@ -56,7 +56,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewDescripcion"
+                android:id="@+id/textViewNumCasa"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -67,14 +67,14 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView_face" />
 
             <TextView
-                android:id="@+id/textViewDescFrac"
+                android:id="@+id/textViewNomFracc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Carpintero"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
-                app:layout_constraintStart_toStartOf="@+id/textViewDescripcion"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescripcion" />
+                app:layout_constraintStart_toStartOf="@+id/textViewNumCasa"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNumCasa" />
 
             <ImageView
                 android:id="@+id/imageView_mas"

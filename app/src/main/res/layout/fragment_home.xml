@@ -20,95 +20,41 @@
             android:scaleType="centerCrop"
             android:src="@drawable/frac" />
 
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView_face"
-                android:layout_width="107dp"
-                android:layout_height="102dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher_round" />
-
-            <LinearLayout
-                android:layout_width="197dp"
-                android:layout_height="47dp"
-                android:layout_marginLeft="5dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textViewDescripcion"
-                    android:layout_width="197dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:text="Fraccionamiento Santa Monica Casa 20"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:id="@+id/textViewDescFrac"
-                    android:layout_width="197dp"
-                    android:layout_height="47dp"
-                    android:layout_weight="1"
-                    android:text="Fracc. Santa Mónica"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/imageView_mas"
-                android:layout_width="81dp"
-                android:layout_height="90dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/manitacent"
-                tools:visibility="visible" />
-        </LinearLayout>-->
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="110dp">
 
-            <ImageView
-                android:id="@+id/imageView_face"
-                android:layout_width="107dp"
-                android:layout_height="102dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/siluetas"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <TextView
+                android:id="@+id/textViewNumCasa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="48dp"
+                android:text="Fraccionamiento Santa Monica Casa 20"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewDescripcion"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="48dp"
-                android:text="Fraccionamiento Santa Monica Casa 20"
-                android:textColor="@color/purple_700"
-                app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
-                app:layout_constraintStart_toEndOf="@+id/imageView_face"
-                app:layout_constraintTop_toTopOf="@+id/imageView_face" />
-
-            <TextView
-                android:id="@+id/textViewDescFrac"
+                android:id="@+id/textViewNomFracc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="FRACCIONAMIENTO"
+                android:textAllCaps="false"
                 android:textColor="@color/purple_700"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/imageView_mas"
-                app:layout_constraintStart_toStartOf="@+id/textViewDescripcion"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescripcion" />
+                app:layout_constraintStart_toStartOf="@+id/textViewNumCasa"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNumCasa" />
 
             <ImageView
                 android:id="@+id/imageView_mas"
                 android:layout_width="81dp"
                 android:layout_height="90dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:src="@drawable/manitacent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -27,7 +27,7 @@ public class ConsultaImgFrUsuActivity extends AppCompatActivity implements Respo
 
     RequestQueue rq;
     JsonRequest jr;
-    String nomimg ="";
+    String nomimg ="", nomfrc = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,11 +61,13 @@ public class ConsultaImgFrUsuActivity extends AppCompatActivity implements Respo
             jsonObject = jsonArray.getJSONObject(0);
 
             nomimg = jsonObject.optString("imagen");
+            nomfrc = jsonObject.optString("nombreFracc");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         Intent i = new Intent(this, MainActivity1.class);
         Constantes.IMG_FRACC = nomimg;
+        Constantes.NOM_FRACC = nomfrc;
 
         startActivity(i);
         finish();

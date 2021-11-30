@@ -54,24 +54,18 @@ public class MainActivity5 extends AppCompatActivity {
         setContentView(R.layout.activity_main5);
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab3);
+        //FloatingActionButton fab = findViewById(R.id.fab3);
         //final FirebaseAuth[] firebaseAuth = new FirebaseAuth[1];
-        fab.setOnClickListener(new View.OnClickListener() {
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
+                        .setAction("Action", null).show();
                 //firebaseAuth[0] = FirebaseAuth.getInstance();
                 FirebaseAuth.getInstance().signOut();
                 finishAffinity();
             }
-        });
-
-
-        /*navHostFragment = findViewById(R.id.nav_host_fragment1);
-        navHostFragment.setVisibility(View.GONE);
-        navHostFragment2 = findViewById(R.id.nav_host_fragment2);
-        navHostFragment2.setVisibility(View.GONE);*/
+        });*/
 
         drawer = findViewById(R.id.drawer_layout3);
         navigationView = findViewById(R.id.nav_view3);

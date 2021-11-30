@@ -1,6 +1,5 @@
 package alterbrain.com.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,7 +17,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import alterbrain.com.AgendaActivity;
 import alterbrain.com.R;
 
 
@@ -46,7 +44,7 @@ public class ServiciosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_servicios, container, false);
-        tvDescrip = root.findViewById(R.id.textViewDescripcion);
+        tvDescrip = root.findViewById(R.id.textViewNumCasa);
         ivManita = root.findViewById(R.id.imageView_mas);
         btnCerrar = root.findViewById(R.id.imageViewCerrarPop);
         constraintMenuPop = root.findViewById(R.id.constraintMenuPop);
