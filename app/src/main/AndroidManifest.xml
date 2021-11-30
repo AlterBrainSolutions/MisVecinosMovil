@@ -29,18 +29,28 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".Transparencia12Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".Transparencia11Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".Transparencia10Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".Transparencia9Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".Transparencia8Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".ui.ConsultaImgFrUsuActivity"
@@ -115,8 +125,10 @@
             android:name=".ui.UbicaLogActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar" />
-        <activity android:name=".DetalleReciclajeActivity" />
-        <activity android:name=".ReciclajeActivity" />
+        <activity android:name=".DetalleReciclajeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ReciclajeActivity"
+            android:screenOrientation="portrait"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

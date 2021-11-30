@@ -78,8 +78,6 @@ import alterbrain.com.ui.MyDeudaRecyclerViewAdapter;
 
 public class HomeFragment extends Fragment {
     TextView tvDescrip, tvFraccName;
-    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje;
-    TextView tvDescrip;
     ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje, ivFondoFraccUsr;
     ImageView btnMas, btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
