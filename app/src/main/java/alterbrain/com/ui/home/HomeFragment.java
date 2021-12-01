@@ -376,7 +376,7 @@ public class HomeFragment extends Fragment {
                                     Toast.LENGTH_SHORT).show();*/
 
                             Constantes.NOMBRE_FRACC = jsonObjectFracc.getString("nombreFracc");
-                            tvFraccName.setText(Constantes.NOMBRE_FRACC);
+                            tvNomFrc.setText(Constantes.NOMBRE_FRACC);
                             /***************************************************************************/
 
                             JSONArray resultadosMes = response.getJSONArray("month_num");

@@ -3,6 +3,7 @@ package alterbrain.com;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,10 +18,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import alterbrain.com.app.Constantes;
 
@@ -33,6 +41,7 @@ public class TransparenciaActivity extends AppCompatActivity {
     private int usuario = Constantes.ID_USR;
     private String URL_corriente = "https://missvecinos.com.mx/android/transparenciaConsulta.php?usuario=" + usuario + "&mes=" + mes;
     private RequestQueue mQueue;
+    BarChart barChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +52,7 @@ public class TransparenciaActivity extends AppCompatActivity {
         btn2 = findViewById(R.id.button1Forw);
         /*buttont = findViewById(R.id.buttonDetalleTrn1);*/
         layoutList = findViewById(R.id.layout_list1);
+        barChart = findViewById(R.id.pcBar1Transex);
         tvTotalIngresos = findViewById(R.id.tvTotalIngresos1);
         tvIngresoNeto = findViewById(R.id.tvIngresoNeto1);
 
@@ -101,9 +111,10 @@ public class TransparenciaActivity extends AppCompatActivity {
 
                             JSONArray resultados2 = response.getJSONArray("egresos");
 
-                            int tamRes2 = resultados2.length();
+                            int tamRes2 = resultados2.length(), aux = 1;
                             String concepto, imagen, total;
                             Float auxTotal = 0f;
+                            ArrayList<BarEntry> barEgresos = new ArrayList<>();
 
                             for (int i = 0; i < tamRes2; i++) {
 
@@ -114,6 +125,8 @@ public class TransparenciaActivity extends AppCompatActivity {
                                 total = jsonObject.getString("total");
 
                                 auxTotal += Float.parseFloat(total);
+
+                                barEgresos.add(new BarEntry(aux, Float.parseFloat(total)));
 
                                 /*imagen = jsonObject.getString("imagen");*/
 
@@ -132,9 +145,23 @@ public class TransparenciaActivity extends AppCompatActivity {
                                 editText2.setFocusable(false);
 
                                 layoutList.addView(abonosView);
+
+                                aux++;
                             }
 
                             tvIngresoNeto.setText((cantidad - auxTotal) + " MN");
+
+                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Egresos");
+                            barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+                            barDataSet.setValueTextColor(Color.BLACK);
+                            barDataSet.setValueTextSize(16f);
+
+                            BarData barData = new BarData(barDataSet);
+
+                            barChart.setFitBars(true);
+                            barChart.setData(barData);
+                            barChart.getDescription().setText("EGRESOS");
+                            barChart.animateY(2000);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

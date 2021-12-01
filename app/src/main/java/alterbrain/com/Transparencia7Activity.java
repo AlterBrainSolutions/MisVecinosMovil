@@ -163,6 +163,7 @@ public class Transparencia7Activity extends AppCompatActivity {
                             }
 
                             tvIngresoNeto.setText((cantidad - auxTotal) + " MN");
+
                             BarDataSet barDataSet = new BarDataSet(barEgresos, "Egresos");
                             barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
                             barDataSet.setValueTextColor(Color.BLACK);
@@ -174,8 +175,6 @@ public class Transparencia7Activity extends AppCompatActivity {
                             barChart.setData(barData);
                             barChart.getDescription().setText("EGRESOS");
                             barChart.animateY(2000);
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
