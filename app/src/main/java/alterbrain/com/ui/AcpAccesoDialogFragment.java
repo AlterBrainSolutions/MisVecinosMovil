@@ -19,6 +19,10 @@ import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.DialogFragment;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -59,14 +63,25 @@ public class AcpAccesoDialogFragment extends DialogFragment {
         tx = nombre+"\n"+tipo+"\n"+fecha+"\n"+comentario;
         tvDatos = view.findViewById(R.id.textViewDatosAcc);
         tvDatos.setText(tx);
+        imagenCodigo = view.findViewById(R.id.imageViewQR);
 
         eventos();
 
-        String texto = Constantes.COD_ACCE;
+        /*String texto = Constantes.COD_ACCE;
         bitmap = QRCode.from(texto).bitmap();
         // Suponiendo que tienes un ImageView con el id ivCodigoGenerado
-        imagenCodigo = view.findViewById(R.id.imageViewQR);
-        imagenCodigo.setImageBitmap(bitmap);
+        imagenCodigo.setImageBitmap(bitmap);*/
+
+
+        try {
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            bitmap = barcodeEncoder.encodeBitmap(Constantes.COD_ACCE, BarcodeFormat.QR_CODE, 750,750);
+            imagenCodigo.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+
+
 
         return view;
 
@@ -121,10 +136,10 @@ public class AcpAccesoDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         // 2. Chain together various setter methods to set the dialog characteristics
-        builder.setMessage("¿Desea realmente eliminar los Datos? El QR se borrará")
-                .setTitle("Cancelar Acceso");
+        builder.setMessage("¿Desea realmente salir? El QR no se compartirá")
+                .setTitle("No compartir Acceso");
 
-        builder.setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Salir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
                 getDialog().dismiss();

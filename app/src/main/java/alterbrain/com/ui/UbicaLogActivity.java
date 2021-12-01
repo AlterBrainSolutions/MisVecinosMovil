@@ -54,10 +54,10 @@ public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCal
         }else{
             sydney = new LatLng(Constantes.LAT_FRACC, Constantes.LONG_FRACC);
         }
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Santa Monica"));
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Fraccionamiento"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        mMap.setMinZoomPreference(8.0f);
+        mMap.setMinZoomPreference(9.0f);
         mMap.setMaxZoomPreference(15.0f);
     }
 }

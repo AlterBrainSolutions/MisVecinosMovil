@@ -13,6 +13,7 @@ public class Constantes {
     public static String COMENTARIO_ACCE;
     //Para el CODIGO QR
     public static String COD_ACCE;
+
     //para adeudos
     public  static  int AL_CORRIENTE;
     public  static  int DOS_MESES;
@@ -23,7 +24,6 @@ public class Constantes {
     public  static  int DETAIL_USR_VISIBLE = 0;
     //mes actual
     public  static  int MES_ACT;
-
 
     public static int ID_USR;
     public static int IDFRACC_USR;

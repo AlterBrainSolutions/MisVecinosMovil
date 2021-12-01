@@ -33,7 +33,7 @@ import alterbrain.com.app.Constantes;
 
 public class AutenticoFragment extends Fragment {
 
-    private static String URL_players = "https://missvecinos.com.mx/android/autenticos.php?idcasa="+ Constantes.NOM_USR;
+    private static String URL_players = "https://missvecinos.com.mx/android/autenticos.php?idUsr="+ Constantes.ID_USR;
     RecyclerView recyclerView;
     MyAutenticoRecyclerViewAdapter autenticoRecyclerViewAdapter;
     List<Autentico> autenticoList;
@@ -64,8 +64,8 @@ public class AutenticoFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        URL_players = "https://missvecinos.com.mx/android/autenticos.php?idcasa=" + Constantes.NOM_USR;
-        Toast.makeText(getContext(), ""+URL_players, Toast.LENGTH_SHORT).show();
+        URL_players = "https://missvecinos.com.mx/android/autenticos.php?idUsr="+ Constantes.ID_USR;
+        //Toast.makeText(getContext(), ""+URL_players, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -102,7 +102,7 @@ public class AutenticoFragment extends Fragment {
 
                                 autenticoList.add(new Autentico(
                                         autoriz.getInt("id"),
-                                        autoriz.getString("casaid")
+                                        autoriz.getString("nombreInv")
                                 ));
                             }
                             autenticoRecyclerViewAdapter = new MyAutenticoRecyclerViewAdapter(getContext(), autenticoList);

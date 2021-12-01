@@ -37,24 +37,15 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
 
     private static SecureRandom random = new SecureRandom();
     private static final String CHARACTER_SET="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    private Spinner spnTipo;
-    String tipo = "Habitual";
+    private Spinner spnTipo, spnTiempo;
+    String tipo = "Habitual", tiempo="Ocasional";
     ImageView ivFecha;
     TextView tvFecha;
     String fecha;
     Button btnAceptar, btnBorrar;
-    EditText etComentario, etNombre;
-    String nombre, comentario, casa, URL = "https://missvecinos.com.mx/android/crearacceso.php", codAcce;
-
-    // Create a random alphanumeric string
-    private static String getRandomString(int len) {
-        StringBuffer buff = new StringBuffer(len);
-        for(int i=0;i<len;i++) {
-            int offset = random.nextInt(CHARACTER_SET.length());
-            buff.append(CHARACTER_SET.substring(offset,offset+1));
-        }
-        return buff.toString();
-    }
+    EditText etComentario, etNombreInv;
+    String nombreInv, comentario, casa, codAcce, URL = "https://missvecinos.com.mx/android/crearacceso.php";
+    int idFracc, idUsu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,14 +53,8 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_crear_acceso);
         ivFecha = findViewById(R.id.imageViewFechaAcc);
         tvFecha = findViewById(R.id.textViewFechaAcc);
-        etNombre = findViewById(R.id.editTextNombreAcc);
+        etNombreInv = findViewById(R.id.editTextNombreAcc);
         etComentario = findViewById(R.id.editTextComentarioAcc);
-
-
-        /*nombre = Constantes.NOMBRE_ACCE;
-        fecha = Constantes.FECHA_ACCE;
-        comentario = Constantes.COMENTARIO_ACCE;
-        tipo = Constantes.TIPO_ACCE;*/
 
         btnAceptar = findViewById(R.id.buttonAceptarAcc);
         btnBorrar = findViewById(R.id.buttonBorrarAcc);
@@ -77,19 +62,24 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                casa = Constantes.NOM_USR;
-                nombre = etNombre.getText().toString().trim();
+                //casa = Constantes.NOM_USR;
+                idFracc= Constantes.IDFRACC_USR;
+                idUsu = Constantes.ID_USR;
+                nombreInv = etNombreInv.getText().toString().trim();
                 comentario = etComentario.getText().toString().trim();
 
-                if (!casa.equals("") && !tipo.equals("") && !nombre.isEmpty()){
-                    Constantes.NOMBRE_ACCE = nombre;
+                Toast.makeText(CrearAccesoActivity.this, ""+idFracc +"-"+ idUsu, Toast.LENGTH_SHORT).show();
+
+                if (!fecha.equals("") && !tipo.equals("") && !nombreInv.isEmpty()){
+                    Constantes.NOMBRE_ACCE = nombreInv;
                     Constantes.FECHA_ACCE = fecha;
                     Constantes.COMENTARIO_ACCE = comentario;
                     Constantes.TIPO_ACCE = tipo;
                     codAcce = getRandomString(16);
                     Constantes.COD_ACCE = codAcce;
-                    AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
-                    dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
+
+                    //AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
+                    //dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
 
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
@@ -99,6 +89,8 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                             if (response.equals("success")) {
                                 Toast.makeText(CrearAccesoActivity.this, "¡Registrado exitosamente!", Toast.LENGTH_SHORT).show();
                                 btnAceptar.setClickable(false);
+                                AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
+                                dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
                                 //finish();
                             } else if (response.equals("failure")) {
                                 Toast.makeText(CrearAccesoActivity.this, "¡Ocurrió un error!", Toast.LENGTH_SHORT).show();
@@ -116,8 +108,11 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> data = new HashMap<>();
-                            data.put("usuario", casa);
-                            data.put("nombre", nombre);
+                            //data.put("usuario", casa);
+                            data.put("idFracc", ""+idFracc);
+                            data.put("idUsu", ""+idUsu);
+                            data.put("tiempo", ""+tiempo);
+                            data.put("nombreinv", nombreInv);
                             data.put("fecha", fecha);
                             data.put("tipo", tipo);
                             data.put("comentarios", comentario);
@@ -129,8 +124,8 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                     RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                     requestQueue.add(stringRequest);
                 }else{
-                    etNombre.setError("Complete los campos");
-                    etNombre.requestFocus();
+                    etNombreInv.setError("Complete los campos");
+                    etNombreInv.requestFocus();
                 }
 
             }
@@ -138,19 +133,19 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nombre = etNombre.getText().toString();
+                nombreInv = etNombreInv.getText().toString();
                 comentario = etComentario.getText().toString();
 
-                if (!nombre.isEmpty()){
-                    Constantes.NOMBRE_ACCE = nombre;
+                if (!nombreInv.isEmpty()){
+                    Constantes.NOMBRE_ACCE = nombreInv;
                     Constantes.FECHA_ACCE = fecha;
                     Constantes.COMENTARIO_ACCE = comentario;
                     Constantes.TIPO_ACCE = tipo;
                     BrrAccesoDialogFragment dialog = new BrrAccesoDialogFragment();
                     dialog.show(getSupportFragmentManager(), "BrrAccesoDialogFragment");
                 }else{
-                    etNombre.setError("Complete los campos");
-                    etNombre.requestFocus();
+                    etNombreInv.setError("Complete los campos");
+                    etNombreInv.requestFocus();
                 }
             }
         });
@@ -164,6 +159,15 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
 
         SpinnerComponentes();
     }
+    // Create a random alphanumeric string
+    private static String getRandomString(int len) {
+        StringBuffer buff = new StringBuffer(len);
+        for(int i=0;i<len;i++) {
+            int offset = random.nextInt(CHARACTER_SET.length());
+            buff.append(CHARACTER_SET.substring(offset,offset+1));
+        }
+        return buff.toString();
+    }
 
     public void abrirCalendario(View view){
         Calendar cal = Calendar.getInstance();
@@ -176,7 +180,8 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
             DatePickerDialog dpd = new DatePickerDialog(CrearAccesoActivity.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    fecha = dayOfMonth + "/" + (month +1) + "/" + year;
+                    //fecha = dayOfMonth + "/" + (month +1) + "/" + year;
+                    fecha = year + "-" + (month +1) + "-" + dayOfMonth;
                     tvFecha.setText(fecha);
                 }
             }, anio,mes,dia);
@@ -192,6 +197,16 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
         spnTipo.setAdapter(reservaAdapter);
 
         spnTipo.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> tiempoAdapter;
+        tiempoAdapter = ArrayAdapter.createFromResource(this, R.array.tiempoacc, android.R.layout.simple_spinner_item);
+
+        spnTiempo = findViewById(R.id.spinnerTiempoAcc);
+        spnTiempo.setAdapter(tiempoAdapter);
+
+        spnTiempo.setOnItemSelectedListener(this);
+
+
     }
 
 
@@ -204,6 +219,9 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                 /*}else{
                     tipo = "";
                 }*/
+                break;
+            case R.id.spinnerTiempoAcc:
+                tiempo = parent.getItemAtPosition(position).toString();
                 break;
         }
     }

@@ -66,10 +66,7 @@ import alterbrain.com.TransparenciaActivity;
 import alterbrain.com.app.Constantes;
 
 public class HomeFragment extends Fragment {
-    TextView tvDescrip, tvNomFrc;
-    TextView tvDescrip, tvFraccName;
-    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje;
-    TextView tvDescrip;
+    TextView tvDescrip, tvNomFrc, tvFraccName;
     ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje, ivFondoFraccUsr;
     ImageView btnMas, btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
@@ -118,7 +115,7 @@ public class HomeFragment extends Fragment {
         btnServicio = root.findViewById(R.id.imageViewServicios);
         constraintMenuPop = root.findViewById(R.id.constraintMenuPop);
         rlHome = root.findViewById(R.id.relativeLayoutHomeServ);
-        tvFraccName = root.findViewById(R.id.textViewDescFrac);
+        tvFraccName = root.findViewById(R.id.textViewNomFracc);
 
         db = FirebaseFirestore.getInstance();
 
