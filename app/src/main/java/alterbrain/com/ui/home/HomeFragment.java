@@ -115,7 +115,7 @@ public class HomeFragment extends Fragment {
         btnServicio = root.findViewById(R.id.imageViewServicios);
         constraintMenuPop = root.findViewById(R.id.constraintMenuPop);
         rlHome = root.findViewById(R.id.relativeLayoutHomeServ);
-        /*tvFraccName = root.findViewById(R.id.textViewDescFrac);*/
+        tvFraccName = root.findViewById(R.id.textViewNomFracc);
 
         db = FirebaseFirestore.getInstance();
 

@@ -43,7 +43,7 @@ public class ConsultaAutnActivity extends AppCompatActivity implements Response.
     }
 
     private void consultaAutn() {
-        String url ="https://missvecinos.com.mx/android/consultaautn.php?idautn="+idAutentico;
+        String url ="https://missvecinos.com.mx/android/consultaautn.php?idAutn="+idAutentico;
 
         jr = new JsonObjectRequest(Request.Method.GET,url,null, this, this);
         rq.add(jr);
@@ -57,27 +57,30 @@ public class ConsultaAutnActivity extends AppCompatActivity implements Response.
     @Override
     public void onResponse(JSONObject response) {
         Noticia3 noticia3 = new Noticia3();
-        Autentico2 autentico2 = new Autentico2();
-        Toast.makeText(this, "Se ha encontrado al autorizado " +idAutentico, Toast.LENGTH_SHORT).show();
+        Autentico autentico = new Autentico();
+        Toast.makeText(this, "Se ha encontrado al invitado " +idAutentico, Toast.LENGTH_SHORT).show();
 
         JSONArray jsonArray = response.optJSONArray("datos");
         JSONObject jsonObject = null;
 
         try {
             jsonObject = jsonArray.getJSONObject(0);
-            autentico2.setNombre(jsonObject.optString("nombre"));
-            autentico2.setFecha(jsonObject.optString("fecha"));
-            autentico2.setTipoVisitante(jsonObject.optString("tipoVisitante"));
-            autentico2.setComentario(jsonObject.optString("comentarios"));
+            autentico.setNombre(jsonObject.optString("nombre"));
+            autentico.setFecha(jsonObject.optString("fecha"));
+            autentico.setTipoVisitante(jsonObject.optString("tipoVisitante"));
+            autentico.setComentario(jsonObject.optString("comentarios"));
+            autentico.setCodigo(jsonObject.optString("codigo"));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         Intent i = new Intent(this, AcpAcceso2Activity.class);
-        i.putExtra("nombre", autentico2.getNombre());
-        i.putExtra("fecha", autentico2.getFecha());
-        i.putExtra("tipoVisitante", autentico2.getTipoVisitante());
-        i.putExtra("comentarios", autentico2.getComentario());
+        i.putExtra("nombre", autentico.getNombre());
+        i.putExtra("fecha", autentico.getFecha());
+        i.putExtra("tipoVisitante", autentico.getTipoVisitante());
+        i.putExtra("comentarios", autentico.getComentario());
+        i.putExtra("codigo", autentico.getCodigo());
         startActivity(i);
         finish();
     }

@@ -43,17 +43,17 @@ public class MainActivity7 extends AppCompatActivity {
         setContentView(R.layout.activity_main7);
         Toolbar toolbar = findViewById(R.id.toolbar4);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab4);
+        /*FloatingActionButton fab = findViewById(R.id.fab4);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 //firebaseAuth[0] = FirebaseAuth.getInstance();
                 FirebaseAuth.getInstance().signOut();
                 finishAffinity();
             }
-        });
+        });*/
 
 
         drawer = findViewById(R.id.drawer_layout4);
