@@ -32,13 +32,23 @@
 
     </EditText>
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/ivEgresoPDF"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_round_picture_as_pdf_24"
         android:layout_marginRight="10dp"
         >
-    </ImageView>
+    </ImageView>-->
+
+    <Button
+        android:id="@+id/ivEgresoPDF"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_attach_file_24"
+        android:layout_marginRight="10dp"
+        android:textSize="0sp"
+        >
+    </Button>
 
 </LinearLayout>

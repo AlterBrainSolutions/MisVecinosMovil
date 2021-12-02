@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -135,7 +137,7 @@ public class Transparencia12Activity extends AppCompatActivity {
 
                                 auxTotal += Float.parseFloat(total);
 
-                                /*imagen = jsonObject.getString("imagen");*/
+                                imagen = jsonObject.getString("imagen");
 
                                 barEgresos.add(new BarEntry(aux, Float.parseFloat(total)));
 
@@ -145,7 +147,26 @@ public class Transparencia12Activity extends AppCompatActivity {
 
                                 EditText editText2 = (EditText)abonosView.findViewById(R.id.etEgresoNombre);
 
-                                ImageView imageView = (ImageView)abonosView.findViewById(R.id.ivEgresoPDF);
+                                Button button = (Button) abonosView.findViewById(R.id.ivEgresoPDF);
+
+                                if(imagen.isEmpty() || imagen.equals("0")){
+                                    button.setVisibility(View.INVISIBLE);
+                                }else{
+                                    button.setVisibility(View.VISIBLE);
+                                }
+
+                                button.setText("https://la-joya.missvecinos.com.mx/admin/" + imagen);
+
+                                button.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent i = new Intent(Transparencia12Activity.this, MuestraFotoTransparencia.class);
+                                        Constantes.URL_IMG_TRP = (String) button.getText();
+                                        startActivity(i);
+                                        /*Toast.makeText(Transparencia11Activity.this,
+                                                button.getText(), Toast.LENGTH_SHORT).show();*/
+                                    }
+                                });
 
                                 editText1.setText(total);
                                 editText1.setFocusable(false);

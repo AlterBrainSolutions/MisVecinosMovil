@@ -23,6 +23,8 @@ public class Constantes {
     public  static  int DETAIL_USR_VISIBLE = 0;
     //mes actual
     public  static  int MES_ACT;
+    //
+    public static String URL_IMG_TRP;
 
 
     public static int ID_USR;
