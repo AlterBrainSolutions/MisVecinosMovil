@@ -190,7 +190,7 @@ public class Transparencia2Activity extends AppCompatActivity {
                             barEgresos.add(new BarEntry(contGrafica, cantidad - auxTotal));
                             tvIngresoNeto.setText((cantidad - auxTotal) + " MN");
 
-                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Tranparencia Noviembre");
+                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Tranparencia Febrero");
                             barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
                             barDataSet.setValueTextColor(Color.BLACK);
                             barDataSet.setValueTextSize(16f);
