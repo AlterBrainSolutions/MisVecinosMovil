@@ -159,7 +159,7 @@ public class Transparencia4Activity extends AppCompatActivity {
                                     button.setVisibility(View.VISIBLE);
                                 }
 
-                                button.setText("https://la-joya.missvecinos.com.mx/admin/" + imagen);
+                                button.setText("https://la-joya.missvecinos.com.mx/admin/" + imagen.trim());
 
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
