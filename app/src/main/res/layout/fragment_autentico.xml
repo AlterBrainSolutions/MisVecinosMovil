@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textViewFechaVAtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -40,17 +40,17 @@
             app:layout_constraintTop_toTopOf="@+id/textViewNombreAtn" />
 
         <TextView
-            android:id="@+id/textView75"
+            android:id="@+id/textViewComentarioAtn"
             android:layout_width="0dp"
             android:layout_height="21dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
-            android:text="Comentarios: es la persona encargada de limpiezaes la persona encargada de limpiezaes la persona encargada de lim"
+            android:text="Comentarios:"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaVAtn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

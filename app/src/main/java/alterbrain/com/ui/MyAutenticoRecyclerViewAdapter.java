@@ -37,6 +37,8 @@ public class MyAutenticoRecyclerViewAdapter extends RecyclerView.Adapter<MyAuten
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.textViewNombre.setText(holder.mItem.getNombre());
+        holder.textViewFechaV.setText("Fecha de visita: " + holder.mItem.getFechaVis());
+        holder.textViewComen.setText("Comentario: " + holder.mItem.getComentario());
 
         holder.textViewNombre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,12 +56,17 @@ public class MyAutenticoRecyclerViewAdapter extends RecyclerView.Adapter<MyAuten
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView textViewNombre;
+        public final TextView textViewFechaV;
+        public final TextView textViewComen;
+
         public Autentico mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             textViewNombre = view.findViewById(R.id.textViewNombreAtn);
+            textViewFechaV = view.findViewById(R.id.textViewFechaVAtn);
+            textViewComen = view.findViewById(R.id.textViewComentarioAtn);
         }
 
         @Override

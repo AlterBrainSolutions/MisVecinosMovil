@@ -66,7 +66,7 @@ public class ConsultaAutnActivity extends AppCompatActivity implements Response.
         try {
             jsonObject = jsonArray.getJSONObject(0);
             autentico.setNombre(jsonObject.optString("nombre"));
-            autentico.setFecha(jsonObject.optString("fecha"));
+            autentico.setFechaVis(jsonObject.optString("fecha"));
             autentico.setTipoVisitante(jsonObject.optString("tipoVisitante"));
             autentico.setComentario(jsonObject.optString("comentarios"));
             autentico.setCodigo(jsonObject.optString("codigo"));
@@ -77,7 +77,7 @@ public class ConsultaAutnActivity extends AppCompatActivity implements Response.
 
         Intent i = new Intent(this, AcpAcceso2Activity.class);
         i.putExtra("nombre", autentico.getNombre());
-        i.putExtra("fecha", autentico.getFecha());
+        i.putExtra("fecha", autentico.getFechaVis());
         i.putExtra("tipoVisitante", autentico.getTipoVisitante());
         i.putExtra("comentarios", autentico.getComentario());
         i.putExtra("codigo", autentico.getCodigo());

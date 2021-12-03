@@ -28,6 +28,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import alterbrain.com.BuildConfig;
+import alterbrain.com.MainActivity1;
+import alterbrain.com.MainActivity5;
 import alterbrain.com.R;
 import alterbrain.com.app.Constantes;
 
@@ -143,7 +145,9 @@ public class AcpAccesoDialogFragment extends DialogFragment {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
                 getDialog().dismiss();
-                //^
+                Intent i = new Intent(getContext(), MainActivity1.class);
+                startActivity(i);
+                //TODO hacer una constante para que al regresar a CrearAcc se finalice ese activity
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

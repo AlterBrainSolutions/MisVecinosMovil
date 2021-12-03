@@ -4,7 +4,8 @@ public class Autentico {
 
     private int idAcceso;
     private String nombre;
-    private String fecha;
+    private String fechaVis;
+    private String fechaReg;
     private String tipoVisitante;
     private String comentario;
     private String codigo;
@@ -17,12 +18,43 @@ public class Autentico {
         this.nombre = nombre;
     }
 
-    public Autentico(String nombre, String fecha, String tipoVisitante, String comentario, String codigo) {
+    public Autentico(int idAcceso, String nombre, String fechaVis, String comentario) {
+        this.idAcceso = idAcceso;
         this.nombre = nombre;
-        this.fecha = fecha;
+        this.fechaVis = fechaVis;
+        this.comentario = comentario;
+    }
+
+    public Autentico(String nombre, String fechaVis, String tipoVisitante, String comentario, String codigo) {
+        this.nombre = nombre;
+        this.fechaVis = fechaVis;
         this.tipoVisitante = tipoVisitante;
         this.comentario = comentario;
         this.codigo = codigo;
+    }
+
+    public int getIdAcceso() {
+        return idAcceso;
+    }
+
+    public void setIdAcceso(int idAcceso) {
+        this.idAcceso = idAcceso;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getFechaReg() {
+        return fechaReg;
+    }
+
+    public void setFechaReg(String fechaReg) {
+        this.fechaReg = fechaReg;
     }
 
     public String getCodigo() {
@@ -33,12 +65,12 @@ public class Autentico {
         this.codigo = codigo;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getFechaVis() {
+        return fechaVis;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFechaVis(String fechaVis) {
+        this.fechaVis = fechaVis;
     }
 
     public String getTipoVisitante() {
@@ -59,19 +91,5 @@ public class Autentico {
 
 
 
-    public int getIdAcceso() {
-        return idAcceso;
-    }
 
-    public void setIdAcceso(int idAcceso) {
-        this.idAcceso = idAcceso;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 }

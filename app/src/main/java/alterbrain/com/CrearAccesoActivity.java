@@ -41,10 +41,9 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
     String tipo = "Habitual", tiempo="Ocasional";
     ImageView ivFecha;
     TextView tvFecha;
-    String fecha;
     Button btnAceptar, btnBorrar;
     EditText etComentario, etNombreInv;
-    String nombreInv, comentario, casa, codAcce, URL = "https://missvecinos.com.mx/android/crearacceso.php";
+    String nombreInv, comentario, casa, fechaVis, fechaReg, codAcce, URL = "https://missvecinos.com.mx/android/crearacceso2.php";
     int idFracc, idUsu;
 
     @Override
@@ -59,6 +58,13 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
         btnAceptar = findViewById(R.id.buttonAceptarAcc);
         btnBorrar = findViewById(R.id.buttonBorrarAcc);
 
+        Calendar cal = Calendar.getInstance();
+
+        int anio = cal.get(Calendar.YEAR);
+        int mes = cal.get(Calendar.MONTH);
+        int dia = cal.get(Calendar.DAY_OF_MONTH);
+        fechaReg = anio + "-" + (mes+1) + "-"+ dia;
+
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,9 +76,9 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
 
                 Toast.makeText(CrearAccesoActivity.this, ""+idFracc +"-"+ idUsu, Toast.LENGTH_SHORT).show();
 
-                if (!fecha.equals("") && !tipo.equals("") && !nombreInv.isEmpty()){
+                if (!fechaVis.equals("") && !tipo.equals("") && !nombreInv.isEmpty()){
                     Constantes.NOMBRE_ACCE = nombreInv;
-                    Constantes.FECHA_ACCE = fecha;
+                    Constantes.FECHA_ACCE = fechaVis;
                     Constantes.COMENTARIO_ACCE = comentario;
                     Constantes.TIPO_ACCE = tipo;
                     codAcce = getRandomString(16);
@@ -113,7 +119,8 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                             data.put("idUsu", ""+idUsu);
                             data.put("tiempo", ""+tiempo);
                             data.put("nombreinv", nombreInv);
-                            data.put("fecha", fecha);
+                            data.put("fechaReg", fechaReg);
+                            data.put("fechaVis", fechaVis);
                             data.put("tipo", tipo);
                             data.put("comentarios", comentario);
                             data.put("codigo", codAcce);
@@ -138,7 +145,7 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
 
                 if (!nombreInv.isEmpty()){
                     Constantes.NOMBRE_ACCE = nombreInv;
-                    Constantes.FECHA_ACCE = fecha;
+                    Constantes.FECHA_ACCE = fechaVis;
                     Constantes.COMENTARIO_ACCE = comentario;
                     Constantes.TIPO_ACCE = tipo;
                     BrrAccesoDialogFragment dialog = new BrrAccesoDialogFragment();
@@ -181,8 +188,8 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     //fecha = dayOfMonth + "/" + (month +1) + "/" + year;
-                    fecha = year + "-" + (month +1) + "-" + dayOfMonth;
-                    tvFecha.setText(fecha);
+                    fechaVis = year + "-" + (month +1) + "-" + dayOfMonth;
+                    tvFecha.setText(fechaVis);
                 }
             }, anio,mes,dia);
             dpd.show();
