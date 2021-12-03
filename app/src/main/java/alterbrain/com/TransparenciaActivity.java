@@ -36,7 +36,7 @@ public class TransparenciaActivity extends AppCompatActivity {
 
     LinearLayout layoutList;
     Button btn1, btn2;
-    TextView tvTotalIngresos, tvIngresoNeto;
+    TextView tvTotalIngresos, tvIngresoNeto, tvCasasCantidad;
     int mes = 1;
     private int usuario = Constantes.ID_USR;
     private String URL_corriente = "https://missvecinos.com.mx/android/transparenciaConsulta.php?usuario=" + usuario + "&mes=" + mes;
@@ -55,6 +55,7 @@ public class TransparenciaActivity extends AppCompatActivity {
         barChart = findViewById(R.id.pcBar1Transex);
         tvTotalIngresos = findViewById(R.id.tvTotalIngresos1);
         tvIngresoNeto = findViewById(R.id.tvIngresoNeto1);
+        tvCasasCantidad = findViewById(R.id.tvCasasCantidad1);
 
         mQueue = Volley.newRequestQueue(TransparenciaActivity.this);
         jsonParse2();
@@ -87,10 +88,11 @@ public class TransparenciaActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
 
+                            ArrayList<BarEntry> barEgresos = new ArrayList<>();
                             JSONArray resultados1 = response.getJSONArray("ingresos");
 
-                            int tamRes1 = resultados1.length();
-                            Float cantidad = 0f;
+                            int tamRes1 = resultados1.length(), contGrafica = 1;
+                            Float cantidad = 0f, auxCantidad = 0f;
 
                             for (int i = 0; i < tamRes1; i++) {
 
@@ -98,13 +100,20 @@ public class TransparenciaActivity extends AppCompatActivity {
 
                                 cantidad += Float.parseFloat(jsonObject.getString("cantidad"));
 
+                                if(i == 0){
+                                    auxCantidad = cantidad;
+                                }
+
                                 /*View abonosView = getLayoutInflater().inflate(R.layout.row_egresos, null, false);*/
 
                             }
 
+                            barEgresos.add(new BarEntry(contGrafica, cantidad));
+                            contGrafica++;
                             /*"idEgresoFracc":"4","concepto":"xxx","descripcion":".","importe":"200.00","total":"200.00","imagen":""*/
 
                             tvTotalIngresos.setText(String.valueOf(cantidad) + " MN");
+                            tvCasasCantidad.setText(auxCantidad + " X " + tamRes1);
 
                             /*Toast.makeText(Transparencia7Activity.this,
                                     "Cantidad total: " + cantidad, Toast.LENGTH_SHORT).show();*/
@@ -114,7 +123,6 @@ public class TransparenciaActivity extends AppCompatActivity {
                             int tamRes2 = resultados2.length(), aux = 1;
                             String concepto, imagen, total;
                             Float auxTotal = 0f;
-                            ArrayList<BarEntry> barEgresos = new ArrayList<>();
 
                             for (int i = 0; i < tamRes2; i++) {
 
@@ -126,7 +134,7 @@ public class TransparenciaActivity extends AppCompatActivity {
 
                                 auxTotal += Float.parseFloat(total);
 
-                                barEgresos.add(new BarEntry(aux, Float.parseFloat(total)));
+                                barEgresos.add(new BarEntry(contGrafica, Float.parseFloat(total)));
 
                                 imagen = jsonObject.getString("imagen");
 
@@ -157,7 +165,7 @@ public class TransparenciaActivity extends AppCompatActivity {
                                     }
                                 });
 
-                                editText1.setText(total);
+                                editText1.setText(total + " MN");
                                 editText1.setFocusable(false);
 
                                 editText2.setText(concepto);
@@ -166,11 +174,13 @@ public class TransparenciaActivity extends AppCompatActivity {
                                 layoutList.addView(abonosView);
 
                                 aux++;
+                                contGrafica++;
                             }
 
                             tvIngresoNeto.setText((cantidad - auxTotal) + " MN");
+                            barEgresos.add(new BarEntry(contGrafica, cantidad - auxTotal));
 
-                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Egresos");
+                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Tranparencia Noviembre");
                             barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
                             barDataSet.setValueTextColor(Color.BLACK);
                             barDataSet.setValueTextSize(16f);
@@ -179,7 +189,7 @@ public class TransparenciaActivity extends AppCompatActivity {
 
                             barChart.setFitBars(true);
                             barChart.setData(barData);
-                            barChart.getDescription().setText("EGRESOS");
+                            barChart.getDescription().setText("");
                             barChart.animateY(2000);
 
                         } catch (JSONException e) {
