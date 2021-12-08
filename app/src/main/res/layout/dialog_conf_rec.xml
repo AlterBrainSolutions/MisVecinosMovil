@@ -133,7 +133,6 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_rounded"
         android:text="Confirmar"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/textViewAlertAL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlert6" />
@@ -146,16 +145,32 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_rounded"
         android:text="Cancelar"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewAlertPET"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlert6" />
 
-    <androidx.constraintlayout.widget.Guideline
+    <TextView
+        android:id="@+id/dummyTV"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="GRACIAS POR RECLICLAR"
+        android:textColor="@color/transparent"
+        android:textSize="0sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAlertConf" />
+
+
+    <!--app:layout_constraintBottom_toTopOf="@+id/guideline2"-->
+
+    <!--<androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="412dp" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAlertConf"
+        app:layout_constraintGuide_begin="412dp"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

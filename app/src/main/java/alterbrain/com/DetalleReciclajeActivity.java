@@ -164,6 +164,20 @@ public class DetalleReciclajeActivity extends AppCompatActivity {
                                         numeroCasa, Toast.LENGTH_SHORT).show();*/
                             }
 
+                            JSONArray paraGraficas = response.getJSONArray("conteoGraficas");
+
+                            int tamGraf = paraGraficas.length();
+
+                            for (int i = 0; i < tamGraf; i++) {
+                                JSONObject jsonObject = new JSONObject(paraGraficas.get(i).toString());
+                                /*String numeroCasa = jsonObject.getString("numeroCasa");*/
+                                graficaPet = jsonObject.getInt("contPet");
+                                graficaAl = jsonObject.getInt("contAlum");
+
+                                /*Toast.makeText(DetalleReciclajeActivity.this, String.valueOf(graficaPet)+ "y "+
+                                        String.valueOf(graficaAl), Toast.LENGTH_SHORT).show();*/
+                            }
+
                             porcPet = (float)((graficaPet * 100)/PET);
                             porcAl = (float)((graficaAl*100)/ALUM);
                             float resto1 = (float)100 - porcPet;
