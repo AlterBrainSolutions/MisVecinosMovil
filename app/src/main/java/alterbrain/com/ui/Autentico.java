@@ -3,6 +3,7 @@ package alterbrain.com.ui;
 public class Autentico {
 
     private int idAcceso;
+    private String tiempo;
     private String nombre;
     private String fechaVis;
     private String fechaReg;
@@ -39,6 +40,14 @@ public class Autentico {
 
     public void setIdAcceso(int idAcceso) {
         this.idAcceso = idAcceso;
+    }
+
+    public String getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(String tiempo) {
+        this.tiempo = tiempo;
     }
 
     public String getNombre() {

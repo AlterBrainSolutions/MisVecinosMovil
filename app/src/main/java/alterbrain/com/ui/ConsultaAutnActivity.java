@@ -35,7 +35,7 @@ public class ConsultaAutnActivity extends AppCompatActivity implements Response.
         Bundle extras = getIntent().getExtras();
         idAutentico = extras.getInt("valorAutentico");
 
-        Toast.makeText(this, "ID= "+idAutentico, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "ID= "+idAutentico, Toast.LENGTH_SHORT).show();
 
         rq = Volley.newRequestQueue(this);
 
@@ -58,15 +58,17 @@ public class ConsultaAutnActivity extends AppCompatActivity implements Response.
     public void onResponse(JSONObject response) {
         Noticia3 noticia3 = new Noticia3();
         Autentico autentico = new Autentico();
-        Toast.makeText(this, "Se ha encontrado al invitado " +idAutentico, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Se ha encontrado al invitado " +idAutentico, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Se ha encontrado al invitado ", Toast.LENGTH_SHORT).show();
 
         JSONArray jsonArray = response.optJSONArray("datos");
         JSONObject jsonObject = null;
 
         try {
             jsonObject = jsonArray.getJSONObject(0);
+            autentico.setTiempo(jsonObject.optString("tiempo"));
             autentico.setNombre(jsonObject.optString("nombre"));
-            autentico.setFechaVis(jsonObject.optString("fecha"));
+            autentico.setFechaVis(jsonObject.optString("fechaVist"));
             autentico.setTipoVisitante(jsonObject.optString("tipoVisitante"));
             autentico.setComentario(jsonObject.optString("comentarios"));
             autentico.setCodigo(jsonObject.optString("codigo"));
@@ -76,6 +78,8 @@ public class ConsultaAutnActivity extends AppCompatActivity implements Response.
         }
 
         Intent i = new Intent(this, AcpAcceso2Activity.class);
+        i.putExtra("idA",idAutentico);
+        i.putExtra("tiempo", autentico.getTiempo());
         i.putExtra("nombre", autentico.getNombre());
         i.putExtra("fecha", autentico.getFechaVis());
         i.putExtra("tipoVisitante", autentico.getTipoVisitante());

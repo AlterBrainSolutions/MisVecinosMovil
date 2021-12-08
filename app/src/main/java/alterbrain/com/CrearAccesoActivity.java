@@ -2,8 +2,10 @@ package alterbrain.com;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -43,8 +45,9 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
     TextView tvFecha;
     Button btnAceptar, btnBorrar;
     EditText etComentario, etNombreInv;
-    String nombreInv, comentario, casa, fechaVis, fechaReg, codAcce, URL = "https://missvecinos.com.mx/android/crearacceso2.php";
+    String nombreInv, comentario, casa, fechaVis = "", fechaReg, codAcce, URL = "https://missvecinos.com.mx/android/crearacceso.php";
     int idFracc, idUsu;
+    int anio1, mes1, dia1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +63,10 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
 
         Calendar cal = Calendar.getInstance();
 
-        int anio = cal.get(Calendar.YEAR);
-        int mes = cal.get(Calendar.MONTH);
-        int dia = cal.get(Calendar.DAY_OF_MONTH);
-        fechaReg = anio + "-" + (mes+1) + "-"+ dia;
+        anio1 = cal.get(Calendar.YEAR);
+        mes1 = cal.get(Calendar.MONTH);
+        dia1 = cal.get(Calendar.DAY_OF_MONTH);
+        fechaReg = anio1 + "-" + (mes1+1) + "-"+ dia1;
 
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +98,7 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                             if (response.equals("success")) {
                                 Toast.makeText(CrearAccesoActivity.this, "¡Registrado exitosamente!", Toast.LENGTH_SHORT).show();
                                 btnAceptar.setClickable(false);
+                                vaciarCampos();
                                 AcpAccesoDialogFragment dialog = new AcpAccesoDialogFragment();
                                 dialog.show(getSupportFragmentManager(), "AcpAccesoDialogFragment");
                                 //finish();
@@ -166,6 +170,15 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
 
         SpinnerComponentes();
     }
+
+    private void vaciarCampos() {
+        etNombreInv.setText("");
+        tvFecha.setText("Fecha de visita");
+        etComentario.setText("");
+        //btnAceptar.setBackground(ContextCompat.getDrawable(CrearAccesoActivity.this, R.drawable.button_rounded_border_blue));
+        btnAceptar.setText("-");
+    }
+
     // Create a random alphanumeric string
     private static String getRandomString(int len) {
         StringBuffer buff = new StringBuffer(len);
@@ -188,8 +201,26 @@ public class CrearAccesoActivity extends AppCompatActivity implements AdapterVie
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     //fecha = dayOfMonth + "/" + (month +1) + "/" + year;
-                    fechaVis = year + "-" + (month +1) + "-" + dayOfMonth;
-                    tvFecha.setText(fechaVis);
+
+                    if (year >= anio1){
+                        if ((month+1) >= (mes1+1)){
+                            if (dayOfMonth >= dia1){
+                                fechaVis = year + "-" + (month +1) + "-" + dayOfMonth;
+                                tvFecha.setText(fechaVis);
+                            }else {
+                                Toast.makeText(CrearAccesoActivity.this, "El día debe ser mayor", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            if (year > anio1){
+                                fechaVis = year + "-" + (month +1) + "-" + dayOfMonth;
+                                tvFecha.setText(fechaVis);
+                            }else {
+                                Toast.makeText(CrearAccesoActivity.this, "El mes debe ser mayor", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }else{
+                        Toast.makeText(CrearAccesoActivity.this, "El año debe ser mayor", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }, anio,mes,dia);
             dpd.show();

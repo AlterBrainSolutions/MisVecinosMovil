@@ -35,7 +35,7 @@
             android:text="Fecha de visita: -/-/-"
             android:textColor="@color/azulmv"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/textViewNombreAtn"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewNombreAtn"
             app:layout_constraintTop_toTopOf="@+id/textViewNombreAtn" />
 
