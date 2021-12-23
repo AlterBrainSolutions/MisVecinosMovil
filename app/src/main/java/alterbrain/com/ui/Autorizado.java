@@ -13,6 +13,11 @@ public class Autorizado {
         this.imageninvi = imageninvi;
     }
 
+    public Autorizado(int idautorizado, String nombreinvi) {
+        this.idautorizado = idautorizado;
+        this.nombreinvi = nombreinvi;
+    }
+
     public int getIdautorizado() {
         return idautorizado;
     }

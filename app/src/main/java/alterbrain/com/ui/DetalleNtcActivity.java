@@ -40,7 +40,7 @@ public class DetalleNtcActivity extends AppCompatActivity {
 
         }else{
             Glide.with(this)
-                    .load(imagen)
+                    .load("http://la-joya.missvecinos.com.mx/admin/"+imagen)
                     .centerCrop()
                     .into(imageViewNoticia);
         }

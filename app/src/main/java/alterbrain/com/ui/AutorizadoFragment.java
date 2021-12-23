@@ -28,12 +28,12 @@ import java.util.List;
 
 import alterbrain.com.MainActivity1;
 import alterbrain.com.R;
-
+import alterbrain.com.app.Constantes;
 
 
 public class AutorizadoFragment extends Fragment {
 
-    private static String URL_players = "https://missvecinos.com.mx/android/autorizados.php?idcasa="+ MainActivity1.casaNum.toString();
+    private static String URL_players = "https://missvecinos.com.mx/android/autorizados.php?idUsr="+ Constantes.ID_USR;
 
     RecyclerView recyclerView;
     MyAutorizadoRecyclerViewAdapter autorizadoRecyclerViewAdapter;
@@ -68,8 +68,9 @@ public class AutorizadoFragment extends Fragment {
         //autorizadoList.clear();
         //autorizadoRecyclerViewAdapter.notifyDataSetChanged();
         //finish();
-        URL_players = "https://missvecinos.com.mx/android/autorizados.php?idcasa=" + MainActivity1.casaNum.toString();
-        Toast.makeText(getContext(), ""+URL_players, Toast.LENGTH_SHORT).show();
+        //URL_players = "https://missvecinos.com.mx/android/autorizados.php?idcasa=" + MainActivity1.casaNum.toString();
+        URL_players = "https://missvecinos.com.mx/android/autorizados.php?idUsr="+ Constantes.ID_USR;
+        //Toast.makeText(getContext(), ""+URL_players, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -109,9 +110,7 @@ public class AutorizadoFragment extends Fragment {
 
                                 autorizadoList.add(new Autorizado(
                                         autoriz.getInt("id"),
-                                        autoriz.getString("casaid"),
-                                        autoriz.getString("nombreinvi"),
-                                        autoriz.getString("imageninvi")
+                                        autoriz.getString("nombreinvi")
                                 ));
                             }
                             autorizadoRecyclerViewAdapter = new MyAutorizadoRecyclerViewAdapter(getContext(), autorizadoList);

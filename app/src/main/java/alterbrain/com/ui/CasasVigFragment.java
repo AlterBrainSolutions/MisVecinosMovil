@@ -83,7 +83,6 @@ public class CasasVigFragment extends Fragment {
             // Lista de elementos (Restaurantes)
             //visitanteList = new ArrayList<>();
             //visitanteList.add(new Visitante("https://png.pngtree.com/element_origin_min_pic/00/00/06/12575cb97a22f0f.jpg", "011", "Casa 38"));
-            //TODO COMENTAR DESDE AQUI
             //visitanteList.add(new Visitante(1, "INADEM", "Casa 1", "https://png.pngtree.com/element_origin_min_pic/00/00/06/12575cb97a22f0f.jpg"));
             //casasvigRecyclerViewAdapter = new MyCasasVigRecyclerViewAdapter(getActivity(), visitanteList);
             //recyclerView.setAdapter(casasvigRecyclerViewAdapter);

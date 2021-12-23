@@ -51,7 +51,7 @@ public class MyNoticiaRecyclerViewAdapter3 extends RecyclerView.Adapter<MyNotici
         });
 
         Glide.with(ctx)
-                .load(holder.mItem.getImagen())
+                .load("http://la-joya.missvecinos.com.mx/admin/"+holder.mItem.getImagen())
                 .centerCrop()
                 .into(holder.imageViewPhotoFrac);
     }
