@@ -38,8 +38,9 @@ public class Transparencia12Activity extends AppCompatActivity {
 
     LinearLayout layoutList;
     Button btn1, btn2;
-    TextView tvTotalIngresos, tvIngresoNeto, tvCasasCantidad;
+    TextView tvTotalIngresos, tvIngresoNeto, tvCasasCantidad, tvIngresosAntes;
     int mes = 12;
+    float anterior, acumuladoTotal, ingresoNeto;
     private int usuario = Constantes.ID_USR;
     private String URL_corriente = "https://missvecinos.com.mx/android/transparenciaConsulta.php?usuario=" + usuario + "&mes=" + mes;
     private RequestQueue mQueue;
@@ -58,6 +59,8 @@ public class Transparencia12Activity extends AppCompatActivity {
         tvTotalIngresos = findViewById(R.id.tvTotalIngresos12);
         tvIngresoNeto = findViewById(R.id.tvIngresoNeto12);
         tvCasasCantidad = findViewById(R.id.tvCasasCantidad12);
+        tvIngresosAntes = findViewById(R.id.tvIngresosAntes12);
+
 
         mQueue = Volley.newRequestQueue(Transparencia12Activity.this);
         jsonParse2();
@@ -98,6 +101,24 @@ public class Transparencia12Activity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            JSONArray resIngAnt = response.getJSONArray("ingresosAntes");
+                            Float ingresosAntes = 0f;
+
+                            JSONObject jsonObject2 = new JSONObject(resIngAnt.get(0).toString());
+
+                            ingresosAntes = Float.parseFloat(jsonObject2.getString("total"));
+
+                            /*TODO -------------------------------------------------------------------*/
+                            JSONArray resEgrAnt = response.getJSONArray("egresosAntes");
+                            Float egresosAntes = 0f;
+
+                            JSONObject jsonObject3 = new JSONObject(resEgrAnt.get(0).toString());
+
+                            egresosAntes = Float.parseFloat(jsonObject3.getString("total"));
+
+                            anterior = ingresosAntes - egresosAntes;
+
+                            /*TODO -------------------------------------------------------------------*/
                             ArrayList<BarEntry> barEgresos = new ArrayList<>();
                             JSONArray resultados1 = response.getJSONArray("ingresos");
 
@@ -187,8 +208,13 @@ public class Transparencia12Activity extends AppCompatActivity {
                                 contGrafica++;
                             }
 
-                            tvIngresoNeto.setText((cantidad - auxTotal) + " MN");
-                            barEgresos.add(new BarEntry(contGrafica, cantidad - auxTotal));
+                            ingresoNeto = cantidad - auxTotal;
+                            acumuladoTotal = ingresoNeto + anterior;
+
+                            tvIngresoNeto.setText((ingresoNeto) + " MN");
+                            tvIngresosAntes.setText(String.valueOf(acumuladoTotal));
+
+                            barEgresos.add(new BarEntry(contGrafica, ingresoNeto));
 
                             BarDataSet barDataSet = new BarDataSet(barEgresos, "Tranparencia Diciembre");
                             barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);

@@ -24,6 +24,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
         android:gravity="center"
         android:text="DEPOSITA LOS ENVASES EN EL CONTENEDOR CORRESPONDIENTE"
         android:textColor="@color/black"
@@ -41,8 +43,8 @@
         android:text="RECUERDA COMPRIMIRLOS PREVIAMENTE"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAlert1"
+        app:layout_constraintStart_toStartOf="@+id/textViewAlert1"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlert1" />
 
     <TextView
@@ -54,8 +56,8 @@
         android:text="NÚMERO DE ENVASES DEPOSITADOS"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAlert2"
+        app:layout_constraintStart_toStartOf="@+id/textViewAlert2"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlert2" />
 
     <TextView
@@ -121,8 +123,8 @@
         android:text="GRACIAS POR RECLICLAR"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAlert5"
+        app:layout_constraintStart_toStartOf="@+id/textViewAlert4"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlertPET" />
 
     <Button
@@ -130,11 +132,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/button_rounded"
         android:text="Confirmar"
-        app:layout_constraintEnd_toStartOf="@+id/textViewAlertAL"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAlertPET"
+        app:layout_constraintStart_toStartOf="@+id/textViewAlert4"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlert6" />
 
     <Button
@@ -142,17 +143,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/button_rounded"
         android:text="Cancelar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAlertPET"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAlert5"
+        app:layout_constraintStart_toStartOf="@+id/textViewAlertAL"
         app:layout_constraintTop_toBottomOf="@+id/textViewAlert6" />
 
     <TextView
         android:id="@+id/dummyTV"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="5dp"
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="GRACIAS POR RECLICLAR"
