@@ -22,7 +22,7 @@
             android:id="@+id/cnstrLayoutVgl"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="220dp">
+            android:layout_marginTop="218dp">
 
             <ImageView
                 android:id="@+id/imageView21"
@@ -52,7 +52,7 @@
             android:name="alterbrain.com.ui.CasasVigFragment"
             android:layout_width="match_parent"
             android:layout_height="450dp"
-            android:layout_marginTop="288dp"
+            android:layout_marginTop="282dp"
             tools:layout="@layout/fragment_casasvig_list" />
 
 
@@ -89,7 +89,7 @@
                 android:id="@+id/textViewNomFraccVig"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Vigilante"
+                android:text="Fraccionamiento"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"

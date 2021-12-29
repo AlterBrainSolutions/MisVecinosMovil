@@ -13,8 +13,8 @@ android {
         applicationId "alterbrain.com"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 15
-        versionName "4.4"
+        versionCode 16
+        versionName "4.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

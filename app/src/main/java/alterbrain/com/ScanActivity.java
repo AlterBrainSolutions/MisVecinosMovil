@@ -13,12 +13,14 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import alterbrain.com.ui.AutorizadosActivity;
+import alterbrain.com.ui.ConsultaAccesoQrActivity;
 
 public class ScanActivity extends AppCompatActivity {
 
     Button btnScan;
     EditText txtResultado;
+    private String cod="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,7 @@ public class ScanActivity extends AppCompatActivity {
             public void onClick(View v) {
                 IntentIntegrator integrator = new IntentIntegrator(ScanActivity.this);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-                integrator.setPrompt("Lector - AGUA");
+                integrator.setPrompt("Lector - MisVecinos");
                 integrator.setCameraId(0);
                 integrator.setBeepEnabled(true);
                 integrator.setBarcodeImageEnabled(true);
@@ -52,10 +54,16 @@ public class ScanActivity extends AppCompatActivity {
             }else {
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
                 txtResultado.setText(result.getContents());
+                cod = result.getContents();
+                Intent i = new Intent(this, ConsultaAccesoQrActivity.class);
+                i.putExtra("codigoAcc", cod);
+                startActivity(i);
+                finish();
             }
         }else{
             super.onActivityResult(requestCode, resultCode, data);
         }
 
     }
+
 }

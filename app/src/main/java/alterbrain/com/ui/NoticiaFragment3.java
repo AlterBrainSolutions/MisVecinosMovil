@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 import alterbrain.com.model.Noticia3;
 
 /**
@@ -35,7 +36,7 @@ import alterbrain.com.model.Noticia3;
 public class NoticiaFragment3 extends Fragment {
 
     //TODO Modificar la consulta para que no consulte la descripcion de la noticia, y esta se pueda saber por separado con ConsultaNtcActivity
-    private static final String URL_noticias = "https://missvecinos.com.mx/android/noticias.php";
+    private static String URL_noticias = "https://missvecinos.com.mx/android/noticias.php?idFracc="+ Constantes.IDFRACC_USR;
     List<Noticia3> noticiasList;
     RecyclerView recyclerView;
 
@@ -68,6 +69,7 @@ public class NoticiaFragment3 extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+        URL_noticias = "https://missvecinos.com.mx/android/noticias.php?idFracc="+ Constantes.IDFRACC_USR;
     }
 
     @Override

@@ -28,6 +28,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".ui.UpdateAccesoQrActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
+            android:name=".ui.ConsultaAccesoQrActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
             android:name=".MuestraFotoTransparencia"
             android:exported="true" />
         <activity
@@ -95,8 +103,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

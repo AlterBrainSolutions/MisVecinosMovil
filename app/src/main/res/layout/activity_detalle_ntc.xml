@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="INADEM"
+        android:text="NOTICIA"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/inadem" />
+                app:srcCompat="@drawable/frac" />
 
             <TextView
                 android:id="@+id/textViewTituloDetN"

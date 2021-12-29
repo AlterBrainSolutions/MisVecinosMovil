@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismv"
-    tools:context=".ScanActivity">
+    tools:context=".ui.UpdateAccesoQrActivity">
 
     <TextView
-        android:id="@+id/textViewTituloAtr"
+        android:id="@+id/textViewTituloAccQr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="ESCÁNER"
+        android:text="ESCÁNER QR"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAccQr"
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:text="Escanear"
+                android:text="Regresar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
