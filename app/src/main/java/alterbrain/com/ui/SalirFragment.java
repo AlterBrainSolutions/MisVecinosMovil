@@ -60,8 +60,13 @@ public class SalirFragment extends Fragment {
         btnCierraSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Constantes.NOM = "";
+                Constantes.PAS = "";
+
                 FirebaseAuth.getInstance().signOut();
                 getActivity().finishAffinity();
+
+
             }
         });
 

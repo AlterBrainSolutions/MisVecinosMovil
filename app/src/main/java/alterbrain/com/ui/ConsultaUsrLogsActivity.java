@@ -80,6 +80,10 @@ public class ConsultaUsrLogsActivity extends AppCompatActivity implements Respon
             e.printStackTrace();
         }
         Intent i = new Intent(this, MainActivity7.class);
+
+        Constantes.NOM = nombreUsr;
+        Constantes.PAS = passUsr;
+
         Constantes.ID_USULOGIS = usuLogis.getId();
         Constantes.NOM_USULOGIS = usuLogis.getNombre();
         Constantes.APELL_USULOGIS = usuLogis.getApellido();

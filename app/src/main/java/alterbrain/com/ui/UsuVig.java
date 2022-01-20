@@ -4,6 +4,7 @@ public class UsuVig {
      private int idVigilante;
      private int idFraccDVig;
      private String nombre;
+     private String imagen;
      private String direccion;
      private double telefono;
      private String horario;
@@ -33,6 +34,14 @@ public class UsuVig {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getDireccion() {

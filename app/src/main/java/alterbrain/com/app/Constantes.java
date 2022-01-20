@@ -27,6 +27,9 @@ public class Constantes {
     //
     public static String URL_IMG_TRP;
 
+    public static String NOM = "";
+    public static String PAS = "";
+
     public static int ID_USR;
     public static int IDFRACC_USR;
     public static String NOM_USR;
@@ -59,6 +62,7 @@ public class Constantes {
     public static int ID_VIG;
     public static int ID_VIGFRACC;
     public static String NOM_VIG;
+    public static String FOTO_VIG;
     public static String DIR_VIG = "";
     public static double TEL_VIG;
     public static String HORAR_VIG;

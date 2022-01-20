@@ -1,10 +1,10 @@
 package alterbrain.com.ui;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,16 +20,15 @@ import org.json.JSONObject;
 
 import alterbrain.com.R;
 
-public class ConsultaAccesoQrActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
+public class ConsultaAccesoQrActivity2 extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
     String codigo;
     RequestQueue rq;
     JsonRequest jr;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_acceso);
+        setContentView(R.layout.activity_consulta_acceso_qr2);
 
         Bundle extras = getIntent().getExtras();
         codigo = extras.getString("codigoAcc");
@@ -45,6 +44,7 @@ public class ConsultaAccesoQrActivity extends AppCompatActivity implements Respo
         jr = new JsonObjectRequest(Request.Method.GET,url,null, this, this);
         rq.add(jr);
     }
+
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -77,7 +77,7 @@ public class ConsultaAccesoQrActivity extends AppCompatActivity implements Respo
             e.printStackTrace();
         }
 
-        Intent i = new Intent(this, UpdateAccesoQrActivity.class);
+        Intent i = new Intent(this, ConsultaNumCasaQrActivity.class);
         i.putExtra("idAcceso",acceso.getIdAcceso());
         i.putExtra("idAccesoUsuario",acceso.getIdAccesoUsuario());
         i.putExtra("tiempo", acceso.getTiempo());

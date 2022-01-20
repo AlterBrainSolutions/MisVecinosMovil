@@ -48,7 +48,7 @@ public class VigilanteFragment extends Fragment implements Response.Listener<JSO
     String numalerts = "";
     TextView tvNomV, tvNumAler, tvNomFr;
     ConstraintLayout constraintLayout;
-    ImageView ivFondoHome;
+    ImageView ivFondoHome, ivFotoVig;
 
     public VigilanteFragment() {
         // Required empty public constructor
@@ -68,6 +68,7 @@ public class VigilanteFragment extends Fragment implements Response.Listener<JSO
         tvNumAler = view.findViewById(R.id.textViewNumAlerVig);
         tvNomFr = view.findViewById(R.id.textViewNomFraccVig);
         ivFondoHome = view.findViewById(R.id.imageViewHomVig);
+        ivFotoVig = view.findViewById(R.id.imageViewFotoVig);
 
         tvNomV.setText(Constantes.NOM_VIG);
         tvNomFr.setText("FRACCIONAMIENTO "+Constantes.NOM_FRACC);
@@ -85,6 +86,10 @@ public class VigilanteFragment extends Fragment implements Response.Listener<JSO
                 .load(Constantes.IMG_FRACC)
                 .centerCrop()
                 .into(ivFondoHome);
+        Glide.with(this)
+                .load(Constantes.FOTO_VIG)
+                .centerCrop()
+                .into(ivFotoVig);
 
 
         return view;

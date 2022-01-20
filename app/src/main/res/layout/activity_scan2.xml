@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismv"
-    tools:context=".ui.UpdateAccesoQrActivity">
-
+    tools:context=".ui.ScanActivity2">
     <TextView
-        android:id="@+id/textViewTituloAccQr"
+        android:id="@+id/textViewTituloAtr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="ESCÁNER QR"
+        android:text="ESCÁNER"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -28,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAccQr"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr"
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,9 +49,9 @@
                 android:text="ESCÁNER" />-->
 
             <EditText
-                android:id="@+id/editTextScan"
+                android:id="@+id/editTextScan2"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
@@ -67,18 +66,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/buttonScan"
+                android:id="@+id/buttonScan2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
-                android:background="@drawable/button_rounded"
-                android:text="Regresar"
+                android:text="Escanear"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextScan" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextScan2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

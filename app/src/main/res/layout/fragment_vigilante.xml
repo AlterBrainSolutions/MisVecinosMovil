@@ -62,7 +62,7 @@
             android:layout_marginTop="110dp">
 
             <ImageView
-                android:id="@+id/imageView18"
+                android:id="@+id/imageViewFotoVig"
                 android:layout_width="107dp"
                 android:layout_height="102dp"
                 android:layout_marginStart="8dp"
@@ -82,8 +82,8 @@
                 android:textColor="@color/purple_700"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView18"
-                app:layout_constraintTop_toTopOf="@+id/imageView18" />
+                app:layout_constraintStart_toEndOf="@+id/imageViewFotoVig"
+                app:layout_constraintTop_toTopOf="@+id/imageViewFotoVig" />
 
             <TextView
                 android:id="@+id/textViewNomFraccVig"

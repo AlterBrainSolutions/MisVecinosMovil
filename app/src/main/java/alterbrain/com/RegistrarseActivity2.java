@@ -28,7 +28,7 @@ public class RegistrarseActivity2 extends AppCompatActivity {
     private TextView tvStatus;
     private Button btnRegister, btnRegresar;
     private String URL = "https://missvecinos.com.mx/android/register2.php";
-    private String name, email, password, reenterPassword;
+    private String name, email, password, reenterPassword, codigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,8 @@ public class RegistrarseActivity2 extends AppCompatActivity {
         btnRegister = findViewById(R.id.buttonEnviar);
         btnRegresar = findViewById(R.id.buttonRegresar);
         name = email = password = reenterPassword = "";
-
+        Bundle extras = getIntent().getExtras();
+        codigo = extras.getString("codigo");
         eventos();
     }
 
@@ -67,6 +68,7 @@ public class RegistrarseActivity2 extends AppCompatActivity {
                             if (response.equals("success")) {
                                 tvStatus.setText("Registrado exitosamente");
                                 btnRegister.setClickable(false);
+                                Toast.makeText(RegistrarseActivity2.this, "Registrado exitosamente", Toast.LENGTH_SHORT).show();
                             } else if (response.equals("failure")) {
                                 tvStatus.setText("Ocurrió un error!");
                             }
@@ -85,6 +87,7 @@ public class RegistrarseActivity2 extends AppCompatActivity {
                             data.put("name", name);
                             data.put("email", email);
                             data.put("password", password);
+                            data.put("codigo", codigo);
                             return data;
                         }
                     };

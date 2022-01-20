@@ -1,5 +1,6 @@
 package alterbrain.com;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import alterbrain.com.app.Constantes;
+import alterbrain.com.ui.ConsultaUsrVigActivity;
+import alterbrain.com.ui.ScanActivity2;
 
 public class MainActivity5 extends AppCompatActivity {
 
@@ -54,18 +57,20 @@ public class MainActivity5 extends AppCompatActivity {
         setContentView(R.layout.activity_main5);
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
-        //FloatingActionButton fab = findViewById(R.id.fab3);
+        FloatingActionButton fab = findViewById(R.id.fab3);
         //final FirebaseAuth[] firebaseAuth = new FirebaseAuth[1];
-        /*fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity5.this, ScanActivity2.class);
+                startActivity(intent);
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 //firebaseAuth[0] = FirebaseAuth.getInstance();
                 FirebaseAuth.getInstance().signOut();
-                finishAffinity();
+                finishAffinity();*/
             }
-        });*/
+        });
 
         drawer = findViewById(R.id.drawer_layout3);
         navigationView = findViewById(R.id.nav_view3);

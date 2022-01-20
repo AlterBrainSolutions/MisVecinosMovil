@@ -78,6 +78,10 @@ public class ConsultaUsrActivity extends AppCompatActivity implements Response.L
         }
 
         Intent i = new Intent(this, ConsultaImgFrUsuActivity.class);
+
+        Constantes.NOM = nombreUsr;
+        Constantes.PAS = passUsr;
+
         Constantes.ID_USR = usuario.getId();
         Constantes.IDFRACC_USR = usuario.getIdFraccUsu();
         Constantes.NOM_USR = nombreUsr;

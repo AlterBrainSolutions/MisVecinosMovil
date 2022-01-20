@@ -22,15 +22,14 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import alterbrain.com.MainActivity1;
 import alterbrain.com.MainActivity5;
 import alterbrain.com.R;
 import alterbrain.com.app.Constantes;
 
-public class UpdateAccesoQrActivity extends AppCompatActivity {
+public class UpdateAccesoQrActivity2 extends AppCompatActivity {
 
     String tiempo,nombre, fechaRegs, fechaVis, horaEntrada, horaSalida, tipo, comenta;
-    int id, idUsu, hora,minutos, quehorasson;
+    int id, idUsu, hora,minutos, quehorasson, numeroCasa;
     String URL_HE = "https://missvecinos.com.mx/android/updateHEAcc.php";
     String URL_FchQr = "https://missvecinos.com.mx/android/updatePerAcc.php";
     String URL_historial = "https://missvecinos.com.mx/android/histAccesos.php";
@@ -38,10 +37,11 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
 
     EditText etMsg;
     Button btnR;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_acceso_qr);
+        setContentView(R.layout.activity_update_acceso_qr2);
 
         Bundle extras = getIntent().getExtras();
         id = extras.getInt("idAcceso");
@@ -54,33 +54,30 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
         horaSalida = extras.getString("horaSalida");
         tipo = extras.getString("tipoVisitante");
         comenta = extras.getString("comentarios");
-        etMsg = findViewById(R.id.editTextScan);
-        btnR = findViewById(R.id.buttonScan);
+        numeroCasa = extras.getInt("numeroCasa");
+        etMsg = findViewById(R.id.editTextScan2);
+        btnR = findViewById(R.id.buttonScan2);
 
         btnR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(UpdateAccesoQrActivity.this, MainActivity5.class);
+                Intent i = new Intent(UpdateAccesoQrActivity2.this, MainActivity5.class);
                 startActivity(i);
                 finish();
             }
         });
 
-        if (Constantes.ID_USR != idUsu){
+        /*if (Constantes.ID_USR != idUsu){
             Toast.makeText(this, "QR de otro Vecino: "+idUsu, Toast.LENGTH_SHORT).show();
             finish();
-        }else {
+        }else {*/
             Toast.makeText(this, "hora Entrada: ["+horaEntrada+"]", Toast.LENGTH_SHORT).show();
 
             if (horaEntrada.isEmpty()){
-
-                //para asignar hora de entrada (UpdateHoraEntrada)
                 Calendar c = Calendar.getInstance();
                 hora = c.get(Calendar.HOUR_OF_DAY);
                 minutos = c.get(Calendar.MINUTE);
                 //Toast.makeText(this, "hora: "+hora+":"+minutos, Toast.LENGTH_SHORT).show();
-                //primero se registra la fechaVist original del acceso permanente,
-                //		luego la fechaVist en la que ingresa (sale)
                 if (fechaVis.compareTo("0000-00-00") ==0){
                     Calendar cal = Calendar.getInstance();
 
@@ -96,7 +93,6 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                         "\nTipo: "+tipo+"\nComentario: "+comenta);
             }else{
                 if (horaSalida.isEmpty()){
-                    //para asignar hora de salida (guardarHist)
                     Calendar c = Calendar.getInstance();
                     hora = c.get(Calendar.HOUR_OF_DAY);
                     minutos = c.get(Calendar.MINUTE);
@@ -105,8 +101,6 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                     //updateHoraSal();
                     if (tiempo.compareTo("Permanente") ==0){
                         //Toast.makeText(UpdateAccesoQrActivity.this, "FechaV: ["+ fechaVis+"]", Toast.LENGTH_SHORT).show();
-
-                        // se guarda la fecha actual como de salida en el historial, xq hay un unico campo para fechaVist
                         if (fechaVis.compareTo("0000-00-00") ==0){
                             Calendar cal = Calendar.getInstance();
 
@@ -129,13 +123,13 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                         etMsg.setText("Configuración: "+tiempo+"\nInvitado: "+nombre+"\nFecha de visita: "+fechaVis+"\nHora de Entrada: "+horaEntrada+
                                 "\nHora de Salida:"+hora+":"+minutos+"\nTipo: "+tipo+"\nComentario: "+comenta);
                     }else{
-                        Toast.makeText(UpdateAccesoQrActivity.this, "Error, tipo de acceso indefinido: "+ tiempo, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UpdateAccesoQrActivity2.this, "Error, tipo de acceso indefinido: "+ tiempo, Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast.makeText(this, "Este Qr ya tiene hora de entrada y salida", Toast.LENGTH_SHORT).show();
                 }
             }
-        }
+        /*}*/
 
     }
 
@@ -146,12 +140,12 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                 /*si el texto de respuesta es correcto, crearemos
                  * un objeto de intencion y lanzar una actividad de éxito con esa intencion*/
                 if (response.equals("success")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "¡Datos actualizados exitosamente!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "¡Datos actualizados exitosamente!", Toast.LENGTH_SHORT).show();
 
                     //mostrar mensaje en editT
                     //finish
                 } else if (response.equals("failure")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "Ocurrió un error al actualizar!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "Ocurrió un error al actualizar!", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -181,12 +175,12 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                 /*si el texto de respuesta es correcto, crearemos
                  * un objeto de intencion y lanzar una actividad de éxito con esa intencion*/
                 if (response.equals("success")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "¡Borrado exitosamente!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "¡Borrado exitosamente!", Toast.LENGTH_SHORT).show();
                     /*Intent i = new Intent(UpdateAccesoQrActivity.this, MainActivity1.class);
                     startActivity(i);
                     finish();*/
                 } else if (response.equals("failure")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "Ocurrió un error!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "Ocurrió un error!", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -208,7 +202,6 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
-
     private void guardarHist() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_historial, new Response.Listener<String>() {
             @Override
@@ -216,10 +209,10 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                 /*si el texto de respuesta es correcto, crearemos
                  * un objeto de intencion y lanzar una actividad de éxito con esa intencion*/
                 if (response.equals("success")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "¡Registro historial exitoso!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "¡Registro historial exitoso!", Toast.LENGTH_SHORT).show();
 
                 } else if (response.equals("failure")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "Ocurrió un error al guardar historial!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "Ocurrió un error al guardar historial!", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -235,7 +228,7 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                 Map<String, String> data = new HashMap<>();
                 data.put("idAccesoFracc", ""+Constantes.ID_VIGFRACC);
                 data.put("idUsuarioAcceso", ""+idUsu);
-                data.put("numeroCasa", ""+Constantes.NUM_CSA);
+                data.put("numeroCasa", ""+numeroCasa);
                 data.put("tiempo", ""+tiempo);
                 data.put("nombre", ""+nombre);
                 data.put("fechaRegs", ""+fechaRegs);
@@ -259,7 +252,7 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                 /*si el texto de respuesta es correcto, crearemos
                  * un objeto de intencion y lanzar una actividad de éxito con esa intencion*/
                 if (response.equals("success")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "¡Entrada actualizada exitosamente!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "¡Entrada actualizada exitosamente!", Toast.LENGTH_SHORT).show();
                     if (tiempo == "Permanente"){
 
                     }
@@ -267,7 +260,7 @@ public class UpdateAccesoQrActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();*/
                 } else if (response.equals("failure")) {
-                    Toast.makeText(UpdateAccesoQrActivity.this, "Ocurrió un error al actualizar la hora!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateAccesoQrActivity2.this, "Ocurrió un error al actualizar la hora!", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {

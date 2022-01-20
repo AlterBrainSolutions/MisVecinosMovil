@@ -69,15 +69,21 @@ public class ConsultaUsrVigActivity extends AppCompatActivity implements Respons
             usuVig.setIdVigilante(jsonObject.optInt("idVigilante"));
             usuVig.setIdFraccDVig(jsonObject.optInt("idVigilanteFracc"));
             usuVig.setNombre(jsonObject.optString("nombre"));
+            usuVig.setImagen(jsonObject.optString("imagen"));
             usuVig.setTelefono(jsonObject.optDouble("telefono"));
             usuVig.setHorario(jsonObject.optString("horario"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         Intent i = new Intent(this, ConsultaImgFActivity.class);
+
+        Constantes.NOM = nombreUsr;
+        Constantes.PAS = passUsr;
+
         Constantes.ID_VIG = usuVig.getIdVigilante();
         Constantes.ID_VIGFRACC = usuVig.getIdFraccDVig();
         Constantes.NOM_VIG = usuVig.getNombre();
+        Constantes.FOTO_VIG = usuVig.getImagen();
         Constantes.TEL_VIG = usuVig.getTelefono();
         Constantes.HORAR_VIG = usuVig.getHorario();
         Constantes.USU_VIG = nombreUsr;

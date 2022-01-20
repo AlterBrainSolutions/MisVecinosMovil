@@ -1,4 +1,4 @@
-package alterbrain.com;
+package alterbrain.com.ui;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,28 +13,28 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import alterbrain.com.ui.ConsultaAccesoQrActivity;
+import alterbrain.com.R;
+import alterbrain.com.ScanActivity;
 
-public class ScanActivity extends AppCompatActivity {
+public class ScanActivity2 extends AppCompatActivity {
 
     Button btnScan;
     EditText txtResultado;
     private String cod="";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scan);
+        setContentView(R.layout.activity_scan2);
 
-        btnScan = findViewById(R.id.buttonScan);
-        txtResultado = findViewById(R.id.editTextScan);
+        btnScan = findViewById(R.id.buttonScan2);
+        txtResultado = findViewById(R.id.editTextScan2);
 
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentIntegrator integrator = new IntentIntegrator(ScanActivity.this);
+                IntentIntegrator integrator = new IntentIntegrator(ScanActivity2.this);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-                integrator.setPrompt("Centre la línea a la mitad del QR - MisVecinos");
+                integrator.setPrompt("Lector - MisVecinos");
                 integrator.setCameraId(0);
                 integrator.setBeepEnabled(true);
                 integrator.setBarcodeImageEnabled(true);
@@ -55,7 +55,7 @@ public class ScanActivity extends AppCompatActivity {
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
                 txtResultado.setText(result.getContents());
                 cod = result.getContents();
-                Intent i = new Intent(this, ConsultaAccesoQrActivity.class);
+                Intent i = new Intent(this, ConsultaAccesoQrActivity2.class);
                 i.putExtra("codigoAcc", cod);
                 startActivity(i);
                 finish();
@@ -65,5 +65,4 @@ public class ScanActivity extends AppCompatActivity {
         }
 
     }
-
 }
