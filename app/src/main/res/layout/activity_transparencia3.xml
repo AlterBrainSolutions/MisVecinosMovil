@@ -98,7 +98,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.531"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvIngresoNeto3" />
+                app:layout_constraintTop_toBottomOf="@+id/tvIngresosAntes3" />
 
             <TextView
                 android:id="@+id/textView37"
@@ -137,6 +137,30 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView22"
                 app:layout_constraintEnd_toStartOf="@id/tvTotalIngresos3"/>
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:text="SALDO ACUMULADO"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+            <TextView
+                android:id="@+id/tvIngresosAntes3"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/holo_green_light"
+                android:paddingTop="5dp"
+                android:text="8,254.5 MN"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView38" />
 
             <Button
                 android:id="@+id/button3Back"
