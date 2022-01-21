@@ -15,4 +15,5 @@
     <color name="segSwipe">#FB5656</color>
     <color name="segProgressEnd">#FF0B00</color>
     <color name="segProgressStart">#EF1A10</color>
+    <color name="IngresosEgresosRojo">#ffcc0000</color>
 </resources>

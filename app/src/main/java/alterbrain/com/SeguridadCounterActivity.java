@@ -88,6 +88,8 @@ public class SeguridadCounterActivity extends AppCompatActivity {
                 updateProgressBar((entero * 100)/5);
             }
 
+            /*TODO poner la direccion que se trae de la base de datos del fraccionamioento*/
+
             @Override
             public void onFinish() {
 

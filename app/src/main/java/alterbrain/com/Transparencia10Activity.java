@@ -211,11 +211,11 @@ public class Transparencia10Activity extends AppCompatActivity {
                             acumuladoTotal = ingresoNeto + anterior;
 
                             tvIngresoNeto.setText((ingresoNeto) + " MN");
-                            tvIngresosAntes.setText(String.valueOf(acumuladoTotal));
+                            tvIngresosAntes.setText(String.valueOf(acumuladoTotal)+ " MN");
 
                             barEgresos.add(new BarEntry(contGrafica, ingresoNeto));
 
-                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Tranparencia Octubre");
+                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Transparencia Octubre");
                             barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
                             barDataSet.setValueTextColor(Color.BLACK);
                             barDataSet.setValueTextSize(16f);
