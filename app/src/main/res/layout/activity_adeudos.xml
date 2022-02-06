@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="ADEUDOS 2021"
+        android:text="ADEUDOS"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -67,7 +67,7 @@
                 android:layout_marginTop="16dp"
                 android:text="AL CORRIENTE"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNumeroCasasAdeudos" />
 
@@ -100,7 +100,7 @@
                 android:layout_marginTop="16dp"
                 android:text="1 MES DE RETRASO"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
@@ -133,7 +133,7 @@
                 android:layout_marginTop="16dp"
                 android:text="MÁS DE 2 MESES"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 

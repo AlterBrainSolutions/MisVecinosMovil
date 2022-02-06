@@ -49,7 +49,7 @@ public class AdeudosActivity extends AppCompatActivity {
         tvCorriente.setText(String.valueOf(alCorriente));
         tvAdeudoUnMes.setText(String.valueOf(unMes));
         tvAdeudoMasDeUnMes.setText(String.valueOf(dosMeses));
-        tvNombreFracc.setText("Numero de viviendas en el fraccionamiento " + Constantes.NOMBRE_FRACC);
+        tvNombreFracc.setText("NÚMERO DE VIVIENDAS EN EL FRACCIONAMIENTO: " + Constantes.NOMBRE_FRACC);
         numViviendas = Constantes.AL_CORRIENTE+Constantes.DOS_MESES+Constantes.UN_MES;
         tvNumeroCasas.setText(String.valueOf(numViviendas));
 

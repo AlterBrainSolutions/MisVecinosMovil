@@ -24,14 +24,14 @@ public class ViewPagerAdapter2 extends RecyclerView.Adapter<ViewPagerAdapter2.Vi
 
     private String[] textoDescripcion = {"Presiona este botón cuando te encuentres en peligro, " +
             "tardará 1O segundos en enviar un mensaje con tu ubicación a tus contactos de emergencia.",
-            "Agrega hasta a 3 de tus contactos para notificarles en caso de activar el servicio SOS y " +
+            "Agrega hasta a tres de tus contactos para notificarles en caso de activar el servicio SOS y " +
                     "tener una pronta respuesta,",
-            "\"Mis Vecinos\" enviará de la ubicación a los contactos de confianza y al servicio de " +
+            "La app \"Mis Vecinos\" enviará la ubicación a los contactos de confianza y al servicio de " +
                     "vigilancia del fraccionamiento cuando se active el botón de pánico."};
 
-    private String[] textoTitle = {"Boton SOS",
+    private String[] textoTitle = {"Botón SOS",
             "Contactos de emergencia",
-            "Localizacion Automática"};
+            "Localización Automática"};
 
     private Context ctx;
 

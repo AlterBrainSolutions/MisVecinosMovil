@@ -22,13 +22,17 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Currency;
 
 import alterbrain.com.app.Constantes;
 
@@ -36,7 +40,7 @@ public class TransparenciaActivity extends AppCompatActivity {
 
     LinearLayout layoutList;
     Button btn1, btn2;
-    TextView tvTotalIngresos, tvIngresoNeto, tvCasasCantidad, tvIngresosAntes;
+    TextView tvTotalIngresos, tvIngresoNeto, tvCasasCantidad, tvIngresosAntes, tvSaldoMesAnterior, tvResiduosMes;
     int mes = 1;
     float anterior, acumuladoTotal, ingresoNeto;
     private int usuario = Constantes.ID_USR;
@@ -58,6 +62,8 @@ public class TransparenciaActivity extends AppCompatActivity {
         tvIngresoNeto = findViewById(R.id.tvIngresoNeto1);
         tvCasasCantidad = findViewById(R.id.tvCasasCantidad1);
         tvIngresosAntes = findViewById(R.id.tvIngresosAntes1);
+        tvSaldoMesAnterior = findViewById(R.id.tvSaldoMesAnterior1);
+        tvResiduosMes = findViewById(R.id.tvIngresoReciclaje1);
 
         mQueue = Volley.newRequestQueue(TransparenciaActivity.this);
         jsonParse2();
@@ -89,7 +95,13 @@ public class TransparenciaActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            /*ArrayList<String> xAxisLabels = new ArrayList<>();*/
+                            NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
+                            numberFormat.setMaximumFractionDigits(2);
+                            numberFormat.setCurrency(Currency.getInstance("MXN"));
+                            String currencySymbol = numberFormat.format(0.00).replace("0.00", "");
 
+                            /*TODO ---------------------INGRESOS ANTERIORES----------------------------------------------*/
                             JSONArray resIngAnt = response.getJSONArray("ingresosAntes");
                             Float ingresosAntes = 0f;
 
@@ -97,7 +109,7 @@ public class TransparenciaActivity extends AppCompatActivity {
 
                             ingresosAntes = Float.parseFloat(jsonObject2.getString("total"));
 
-                            /*TODO -------------------------------------------------------------------*/
+                            /*TODO ------------------------EGRESOS ANTERIORES-------------------------------------------*/
                             JSONArray resEgrAnt = response.getJSONArray("egresosAntes");
                             Float egresosAntes = 0f;
 
@@ -107,10 +119,10 @@ public class TransparenciaActivity extends AppCompatActivity {
 
                             anterior = ingresosAntes - egresosAntes;
 
-                            /*TODO -------------------------------------------------------------------*/
+                            /*TODO ---------------------------INGRESOS----------------------------------------*/
 
-                            ArrayList<BarEntry> barEgresos = new ArrayList<>();
                             JSONArray resultados1 = response.getJSONArray("ingresos");
+                            ArrayList<BarEntry> barCantidad = new ArrayList<>();
 
                             int tamRes1 = resultados1.length(), contGrafica = 1;
                             Float cantidad = 0f, auxCantidad = 0f;
@@ -124,26 +136,42 @@ public class TransparenciaActivity extends AppCompatActivity {
                                 if(i == 0){
                                     auxCantidad = cantidad;
                                 }
-
                                 /*View abonosView = getLayoutInflater().inflate(R.layout.row_egresos, null, false);*/
-
                             }
 
-                            barEgresos.add(new BarEntry(contGrafica, cantidad));
+                            /*TODO ------------------------RECICLAJE DEL MES-------------------------------------------*/
+
+                            JSONArray  respReciclaje = response.getJSONArray("reciclaje");
+                            float reciclaje = 0f;
+                            JSONObject jsonObjRec = new JSONObject(respReciclaje.get(0).toString());
+                            reciclaje = Float.parseFloat(jsonObjRec.getString("cantidad"));
+
+                            /*TODO ------------------------PARA MOSTRAR DATOS DE GRAFICAS Y TEXTVIEWS-------------------------------------------*/
+
+                            barCantidad.add(new BarEntry(contGrafica, new float[]{reciclaje, cantidad}));
+                            /*BarDataSet barDataSet1 = new BarDataSet(barEgresos, "Cantidad");*/
                             contGrafica++;
                             /*"idEgresoFracc":"4","concepto":"xxx","descripcion":".","importe":"200.00","total":"200.00","imagen":""*/
 
-                            tvTotalIngresos.setText(String.valueOf(cantidad) + " MN");
-                            tvCasasCantidad.setText(auxCantidad + " X " + tamRes1);
-
+                            tvTotalIngresos.setText(numberFormat.format(cantidad).replace(currencySymbol,
+                                    currencySymbol + " "));
+                            tvCasasCantidad.setText(numberFormat.format(auxCantidad).replace(currencySymbol,
+                                    currencySymbol + " ") + " X " + tamRes1);
+                            cantidad += reciclaje;
+                            tvResiduosMes.setText(numberFormat.format(reciclaje).replace(currencySymbol,
+                                    currencySymbol + " "));
                             /*Toast.makeText(Transparencia7Activity.this,
                                     "Cantidad total: " + cantidad, Toast.LENGTH_SHORT).show();*/
 
+                            /*TODO --------------------------E G R E S O S-----------------------------------------*/
                             JSONArray resultados2 = response.getJSONArray("egresos");
+                            ArrayList<BarEntry> barEgresos = new ArrayList<>();
 
                             int tamRes2 = resultados2.length(), aux = 1;
                             String concepto, imagen, total;
-                            Float auxTotal = 0f;
+                            float auxTotal = 0f;/*TODO cambié el tipo de Float a float*/
+                            float egresosArr[] = new float[tamRes2];
+                            String labelsEg[] = new String[tamRes2];
 
                             for (int i = 0; i < tamRes2; i++) {
 
@@ -155,7 +183,12 @@ public class TransparenciaActivity extends AppCompatActivity {
 
                                 auxTotal += Float.parseFloat(total);
 
-                                barEgresos.add(new BarEntry(contGrafica, Float.parseFloat(total)));
+                                egresosArr[i] = Float.parseFloat(total);
+                                labelsEg[i] = "Eg. " + aux;
+                                /*barEgresos.add(new BarEntry(contGrafica, egresosArr[i] = Float.parseFloat(total)));*/
+
+                                /*BarDataSet barDataSet2 = new BarDataSet(barEgresos, "Egresos");*/
+                                /*xAxisLabels.add(concepto);*/
 
                                 imagen = jsonObject.getString("imagen");
 
@@ -186,7 +219,8 @@ public class TransparenciaActivity extends AppCompatActivity {
                                     }
                                 });
 
-                                editText1.setText(total + " MN");
+                                editText1.setText(numberFormat.format(Float.parseFloat(total)).replace(currencySymbol,
+                                        currencySymbol + " "));
                                 editText1.setFocusable(false);
 
                                 editText2.setText(concepto);
@@ -195,25 +229,67 @@ public class TransparenciaActivity extends AppCompatActivity {
                                 layoutList.addView(abonosView);
 
                                 aux++;
-                                contGrafica++;
+                                /*contGrafica++;*/
                             }
 
+                            /*Arrays.sort(egresosArr);*//*TODO para cambiar ordenar el array de floats */
+                            barEgresos.add(new BarEntry(contGrafica, egresosArr));
+                            contGrafica++;
+
+                            ArrayList<BarEntry> barIngresos = new ArrayList<>();
                             ingresoNeto = cantidad - auxTotal;
                             acumuladoTotal = ingresoNeto + anterior;
 
-                            tvIngresoNeto.setText((ingresoNeto) + " MN");
-                            tvIngresosAntes.setText(String.valueOf(acumuladoTotal));
+                            if(anterior >= 0){
+                                tvSaldoMesAnterior.setText(numberFormat.format(anterior).replace(currencySymbol,
+                                        currencySymbol + " "));
+                            }else{
+                                tvSaldoMesAnterior.setBackgroundColor(getResources().getColor(R.color.IngresosEgresosRojo));
+                                tvSaldoMesAnterior.setText(numberFormat.format(anterior).replace(currencySymbol,
+                                        currencySymbol + " "));
+                            }
+                            /*TODO -------------------------CALCULO INGRESO ANTERIOR------------------------------------------*/
+                            tvIngresoNeto.setText(numberFormat.format(ingresoNeto).replace(currencySymbol,
+                                    currencySymbol + " "));
+                            tvIngresosAntes.setText(numberFormat.format(acumuladoTotal).replace(currencySymbol,
+                                    currencySymbol + " "));
 
-                            barEgresos.add(new BarEntry(contGrafica, ingresoNeto));
+                            barIngresos.add(new BarEntry(contGrafica, ingresoNeto));
+                            /*BarDataSet barDataSet3 = new BarDataSet(barEgresos, "Ing. Neto");*/
+                            /*xAxisLabels.add("Ingreso neto");*/
 
-                            BarDataSet barDataSet = new BarDataSet(barEgresos, "Tranparencia Enero");
+                            /*TODO -----------------------------GRAFICAS--------------------------------------*/
+                            /*TODO BARDATASET 1*/
+                            BarDataSet barDataSet = new BarDataSet(barCantidad, "");
                             barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+                            barDataSet.setValueTextSize(13f);
                             barDataSet.setValueTextColor(Color.BLACK);
-                            barDataSet.setValueTextSize(16f);
+                            barDataSet.setStackLabels(new String[]{"Rec.","Mant."});
 
-                            BarData barData = new BarData(barDataSet);
+                            /*TODO BARDATASET 2*/
+                            BarDataSet barDataSet2 = new BarDataSet(barEgresos, "");
+                            barDataSet2.setColors(ColorTemplate.JOYFUL_COLORS);
+                            barDataSet2.setValueTextSize(13f);
+                            barDataSet2.setValueTextColor(Color.BLACK);
+                            barDataSet2.setStackLabels(labelsEg);
+
+                            /*TODO BARDATASET 3*/
+                            BarDataSet barDataSet3 = new BarDataSet(barIngresos, "Ingresos");
+                            barDataSet3.setColors(ColorTemplate.COLORFUL_COLORS);
+                            barDataSet3.setValueTextSize(13f);
+                            barDataSet3.setValueTextColor(Color.BLACK);
+
+                            BarData barData = new BarData(barDataSet, barDataSet2, barDataSet3);
 
                             barChart.setFitBars(true);
+                            barChart.getXAxis().setDrawGridLines(false);
+                            barChart.getXAxis().setEnabled(false);
+                            barChart.getAxisLeft().setDrawGridLines(false);
+                            barChart.getAxisRight().setDrawGridLines(false);
+                            barChart.getAxisRight().setEnabled(false);
+                            barChart.setDrawValueAboveBar(false);
+                            /*barChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xAxisLabels));*/
+                            barChart.getXAxis().setTextSize(2f);
                             barChart.setData(barData);
                             barChart.getDescription().setText("");
                             barChart.animateY(2000);

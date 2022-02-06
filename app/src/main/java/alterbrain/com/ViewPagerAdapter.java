@@ -1,6 +1,8 @@
 package alterbrain.com;
 
 import android.content.Context;
+import android.graphics.text.LineBreaker;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,19 +23,19 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
             R.drawable.ic_ayuda_reciclaje3, R.drawable.ic_ayuda_reciclaje4};
 
     private String[] textoDescripcion = {"¿Sabías que en cada hogar se generan más de 9 " +
-            "kilogramos de basura por semana?\n\n" + "¿Sabías que un hogar promedio pude desechar " +
-            "más de 1500 envases de PET y latas de ALUMINIO al año?",
-            "1. Separa los envases de PET y las latas de Aluminio.\n" +
-                    "2. Comprímelos lo más que puedas.\n" +
-                    "3. Llévalos al contenedor e introdúcelos en su lugar correspondiente.\n" +
-                    "4. En la app de \"MIS VECINOS\", registra el número de envases que has " +
+            "kilogramos de basura por semana?.\n\n" + "¿Sabías que un hogar promedio puede desechar " +
+            "más de 1500 envases de PET y latas de ALUMINIO al año?.",
+            "1. Separa los envases de PET y las latas de Aluminio.\n\n" +
+                    "2. Comprímelos lo más que puedas.\n\n" +
+                    "3. Llévalos al contenedor e introdúcelos en su lugar correspondiente.\n\n" +
+                    "4. En la app de \"MIS VECINOS\", registra\n el número de envases que has " +
                     "introducido.",
-            "La plataforma \"MIS VECINOS\" te plantea el objetivo de fomentar el reciclaje\n\n" +
-                    "¿CÓMO?\nUtilizando los contenedores que se instalaran en tu fraccionamiento," +
-                    " en los cuales podras depositar los envases de PET y Aluminio.",
+            "La plataforma \"MIS VECINOS\" te plantea el objetivo de fomentar el reciclaje.\n\n" +
+                    "¿CÓMO?\nUtilizando los contenedores que se instalarán en tu fraccionamiento," +
+                    " en los cuales podrás depositar los envases de PET y Aluminio.",
             "Desde la app de \"MIS VECINOS\", lee el código QR que está en la parte frontal del " +
-                    "contenedor.\n\nEn la app de \"MIS VECINOS\", te informaremos la cantidad de " +
-                    "envases que se recicló por mes/año y los beneficios de esta acción."};
+                    "contenedor.\n\nEn la app de \"MIS VECINOS\", te informaremos de la cantidad de " +
+                    "envases que se reciclaron por mes/año y los beneficios de esta acción."};
 
     private String[] textoTitle = {"Prueba1",
             "CÓMO SE USAN LOS CONTENDORES:",
@@ -69,6 +71,9 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
             holder.textTitle.setVisibility(View.VISIBLE);
             holder.textTitle.setTextSize(20);
             holder.textDesc.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                holder.textDesc.setJustificationMode(LineBreaker.JUSTIFICATION_MODE_INTER_WORD);
+            }*/
         }
     }
 
