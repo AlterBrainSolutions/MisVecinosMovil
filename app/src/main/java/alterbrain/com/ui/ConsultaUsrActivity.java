@@ -2,7 +2,9 @@ package alterbrain.com.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -25,14 +27,17 @@ import alterbrain.com.model.Noticia3;
 
 public class ConsultaUsrActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
+    /*public static final String MissPreferencias = "Hola?";*/
     String emailUsr,passUsr, nombreUsr;
     RequestQueue rq;
     JsonRequest jr;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_usr);
 
+        sharedPreferences = getSharedPreferences("sesion_usuario", Context.MODE_PRIVATE);
         nombreUsr = emailUsr = passUsr = "";
         Bundle extras = getIntent().getExtras();
         //emailUsr = extras.getString("emailUsr");
@@ -79,8 +84,14 @@ public class ConsultaUsrActivity extends AppCompatActivity implements Response.L
 
         Intent i = new Intent(this, ConsultaImgFrUsuActivity.class);
 
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         Constantes.NOM = nombreUsr;
         Constantes.PAS = passUsr;
+        editor.putBoolean("sesion_iniciada", true);
+        editor.putString("usuario", nombreUsr);
+        editor.putString("contra", passUsr);
+        editor.commit();
+        /*sharedPreferences.getString("usuario", "");*/
 
         Constantes.ID_USR = usuario.getId();
         Constantes.IDFRACC_USR = usuario.getIdFraccUsu();

@@ -2,6 +2,8 @@ package alterbrain.com.ui;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -35,6 +37,7 @@ public class SalirFragment extends Fragment {
     TextView tvDescrip;
     String descri;
     FirebaseFirestore db;
+    SharedPreferences sharedPreferences;
 
     private ImageView profilePic;
     private FirebaseStorage storage;
@@ -52,16 +55,24 @@ public class SalirFragment extends Fragment {
         View root = inflater.inflate(R.layout.salir_fragment, container, false);
         btnCierraSesion = root.findViewById(R.id.buttonCerrarSesion);
 
+        sharedPreferences = this.getActivity().getSharedPreferences("sesion_usuario", Context.MODE_PRIVATE);
         tvDescrip = root.findViewById(R.id.textViewDescripcionExit);
         profilePic = root.findViewById(R.id.imageView_faceExit);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         btnCierraSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Constantes.NOM = "";
                 Constantes.PAS = "";
+                /*editor.remove("sesion_iniciada");
+                editor.remove("usuario");
+                editor.remove("contra");*/
+                editor.clear();
+                editor.putBoolean("sesion_iniciada", false);
+                editor.commit();
 
                 FirebaseAuth.getInstance().signOut();
                 getActivity().finishAffinity();

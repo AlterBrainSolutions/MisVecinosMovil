@@ -3,7 +3,9 @@ package alterbrain.com;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +37,7 @@ public class LoginActivity2 extends AppCompatActivity {
     private String URLlogs = "https://missvecinos.com.mx/android/login4.php";
     private String URLViglt = "https://missvecinos.com.mx/android/loginVig.php";
     private Button btnLogin;
+    SharedPreferences sharedPreferences;
 
     Button btnaviso, btnregistrar;
 
@@ -42,6 +45,7 @@ public class LoginActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+        sharedPreferences = getSharedPreferences("sesion_usuario", Context.MODE_PRIVATE);
         usuario = email = password = usuarioLogis = contraseniaLogis= usuarioVig = contraseniaVig = "";
         //etEmail = findViewById(R.id.editTextEmail);
         etUsuario = findViewById(R.id.editTextUsuario);
@@ -51,14 +55,22 @@ public class LoginActivity2 extends AppCompatActivity {
         btnaviso = findViewById(R.id.buttonAviso);
         btnregistrar = findViewById(R.id.buttonRegistrar);
 
+        if(sharedPreferences.getBoolean("sesion_iniciada", true)){
+            String usu = sharedPreferences.getString("usuario", null);
+            String pas = sharedPreferences.getString("contra", null);
+            ingresar(usu, pas);
+        }/*else{
+            *//*Toast.makeText(LoginActivity2.this, "ERRRRRRRROOOR", Toast.LENGTH_SHORT).show();*//*
+        }*/
+
         eventos();
     }
     @Override
     protected void onStart() {
         super.onStart();
 
-        //comprobamos si el usuario a iniciado sesion en este dispositivo
-        ingresar(Constantes.NOM, Constantes.PAS);
+        /*//comprobamos si el usuario a iniciado sesion en este dispositivo
+        ingresar(Constantes.NOM, Constantes.PAS);*/
     }
 
     private void ingresar(String usu, String pas){

@@ -78,14 +78,19 @@ public class TransparenciaActivity extends AppCompatActivity {
         eventos();
     }
     private void eventos(){
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(TransparenciaActivity.this, Transparencia2Activity.class);
-                startActivity(i);
-                finish();
+            if(Constantes.MES_ACT <= 1){
+                btn2.setVisibility(View.INVISIBLE);
+            }else{
+                btn2.setVisibility(View.VISIBLE);
             }
-        });
+            btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(TransparenciaActivity.this, Transparencia2Activity.class);
+                    startActivity(i);
+                    finish();
+                }
+            });
     }
 
     private void jsonParse2() {
@@ -254,28 +259,59 @@ public class TransparenciaActivity extends AppCompatActivity {
                             tvIngresosAntes.setText(numberFormat.format(acumuladoTotal).replace(currencySymbol,
                                     currencySymbol + " "));
 
-                            barIngresos.add(new BarEntry(contGrafica, ingresoNeto));
+                            barIngresos.add(new BarEntry(contGrafica, acumuladoTotal));
                             /*BarDataSet barDataSet3 = new BarDataSet(barEgresos, "Ing. Neto");*/
                             /*xAxisLabels.add("Ingreso neto");*/
+
+                        int [] colorsRed = {
+                           /* Color.parseColor("#FFEBEE"),
+                            Color.parseColor("#FFCDD2"),
+                            Color.parseColor("#EF9A9A"),
+                            Color.parseColor("#E57373"),*/
+                            Color.parseColor("#EF5350"),
+                            Color.parseColor("#F44336"),
+                            Color.parseColor("#E53935"),
+                            Color.parseColor("#D32F2F"),
+                            Color.parseColor("#C62828"),
+                            Color.parseColor("#B71C1C")
+                            /*Color.parseColor("#FF8A80"),
+                            Color.parseColor("#FF5252"),
+                            Color.parseColor("#FF1744"),
+                            Color.parseColor("#D50000")*/
+                        };
+
+                            int [] colorsGreen = {
+                                    /* Color.parseColor("#FFEBEE"),
+                                     Color.parseColor("#FFCDD2"),
+                                     Color.parseColor("#EF9A9A"),
+                                     Color.parseColor("#E57373"),*/
+                                    Color.parseColor("#64DD17"),
+                                    Color.parseColor("#B2FF59")
+                                    /*Color.parseColor("#FF8A80"),
+                                    Color.parseColor("#FF5252"),
+                                    Color.parseColor("#FF1744"),
+                                    Color.parseColor("#D50000")*/
+                            };
+
 
                             /*TODO -----------------------------GRAFICAS--------------------------------------*/
                             /*TODO BARDATASET 1*/
                             BarDataSet barDataSet = new BarDataSet(barCantidad, "");
-                            barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+                            barDataSet.setColors(colorsGreen);
                             barDataSet.setValueTextSize(13f);
                             barDataSet.setValueTextColor(Color.BLACK);
                             barDataSet.setStackLabels(new String[]{"Rec.","Mant."});
 
                             /*TODO BARDATASET 2*/
                             BarDataSet barDataSet2 = new BarDataSet(barEgresos, "");
-                            barDataSet2.setColors(ColorTemplate.JOYFUL_COLORS);
+                            barDataSet2.setColors(colorsRed);
                             barDataSet2.setValueTextSize(13f);
                             barDataSet2.setValueTextColor(Color.BLACK);
                             barDataSet2.setStackLabels(labelsEg);
 
                             /*TODO BARDATASET 3*/
                             BarDataSet barDataSet3 = new BarDataSet(barIngresos, "Ingresos");
-                            barDataSet3.setColors(ColorTemplate.COLORFUL_COLORS);
+                            barDataSet3.setColors(Color.parseColor("#00C853"));
                             barDataSet3.setValueTextSize(13f);
                             barDataSet3.setValueTextColor(Color.BLACK);
 

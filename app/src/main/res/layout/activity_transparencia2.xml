@@ -42,7 +42,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
-                android:text="INGRESOS EN EL MES DE FEBRERO POR CUOTAS DE MANTENIMIENTO"
+                android:textSize="13sp"
+                android:text="INGRESOS EN EL MES DE FEBRERO"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,35 +56,66 @@
                 android:layout_marginEnd="16dp"
                 android:background="@android:color/holo_green_light"
                 android:paddingTop="5dp"
+                android:textSize="13sp"
                 android:text="24,000.00 MN"
                 android:textAlignment="center"
+                android:layout_marginTop="12dp"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
             <TextView
                 android:id="@+id/tvCasasCantidad2"
-                android:layout_width="100dp"
+                android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="16dp"
+                android:textSize="13sp"
                 android:background="@android:color/holo_green_light"
                 android:paddingTop="5dp"
                 android:text="0 x 0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView22"
                 app:layout_constraintEnd_toStartOf="@id/tvTotalIngresos2"/>
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:textSize="13sp"
+                android:text="RECOLECCIÓN DE RESIDUOS"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCasasCantidad2" />
+
+            <TextView
+                android:id="@+id/tvIngresoReciclaje2"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/holo_green_light"
+                android:paddingTop="5dp"
+                android:textSize="13sp"
+                android:text="8,254.5 MN"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView40" />
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:textSize="13sp"
                 android:text="EGRESOS"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/textView22"
-                app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
             <!--<fragment
                 android:id="@+id/fragment4"
@@ -106,7 +138,7 @@
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/pcBar2Transex"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -120,6 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
+                android:textSize="13sp"
                 android:text="SALDO"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
@@ -133,10 +166,38 @@
                 android:background="@android:color/holo_green_light"
                 android:paddingTop="5dp"
                 android:text="8,254.5 MN"
+                android:textSize="13sp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView37" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:textSize="13sp"
+                android:text="REMANENTE DEL MES ANTERIOR"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+            <TextView
+                android:id="@+id/tvSaldoMesAnterior2"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/holo_green_light"
+                android:paddingTop="5dp"
+                android:textSize="13sp"
+                android:text="8,254.5 MN"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView39" />
+
 
             <TextView
                 android:id="@+id/textView38"
@@ -146,8 +207,9 @@
                 android:layout_marginTop="32dp"
                 android:text="SALDO ACUMULADO"
                 android:textColor="@color/black"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView37" />
+                app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
             <TextView
                 android:id="@+id/tvIngresosAntes2"
@@ -158,6 +220,7 @@
                 android:paddingTop="5dp"
                 android:text="8,254.5 MN"
                 android:textAlignment="center"
+                android:textSize="13sp"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView38" />
