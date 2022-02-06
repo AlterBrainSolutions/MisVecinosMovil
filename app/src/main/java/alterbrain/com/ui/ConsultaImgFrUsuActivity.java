@@ -27,7 +27,7 @@ public class ConsultaImgFrUsuActivity extends AppCompatActivity implements Respo
 
     RequestQueue rq;
     JsonRequest jr;
-    String nomimg ="", nomfrc = "";
+    String nomimg ="", nomfrc = "", link="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +62,15 @@ public class ConsultaImgFrUsuActivity extends AppCompatActivity implements Respo
 
             nomimg = jsonObject.optString("imagen");
             nomfrc = jsonObject.optString("nombreFracc");
+            link = jsonObject.optString("linkFracc");
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        //Toast.makeText(this, ""+link, Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, MainActivity1.class);
         Constantes.IMG_FRACC = nomimg;
         Constantes.NOM_FRACC = nomfrc;
+        Constantes.LINK_FRACC = link;
 
         startActivity(i);
         finish();

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 
 public class DetalleNtcActivity extends AppCompatActivity {
 
@@ -40,8 +41,7 @@ public class DetalleNtcActivity extends AppCompatActivity {
 
         }else{
             Glide.with(this)
-                    .load("http://la-joya.missvecinos.com.mx/admin/"+imagen)
-                    .centerCrop()
+                    .load("https://"+ Constantes.LINK_FRACC+"/admin/"+imagen)
                     .into(imageViewNoticia);
         }
 

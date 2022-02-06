@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismv"
-    tools:context=".Noticias3Activity">
-
+    tools:context=".ui.CatalogoActivity">
     <TextView
-        android:id="@+id/textViewTituloNtc_act"
+        android:id="@+id/textViewTituloAtr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="NOTICIAS"
+        android:text="CATÁLOGO DE OFICIOS"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -23,13 +22,13 @@
 
     <fragment
         android:id="@+id/fragment8"
-        android:name="alterbrain.com.ui.NoticiaFragment3"
+        android:name="alterbrain.com.ui.OficioFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloNtc_act"
-        tools:layout="@layout/fragment_noticia3_list" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr"
+        tools:layout="@layout/fragment_oficio_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

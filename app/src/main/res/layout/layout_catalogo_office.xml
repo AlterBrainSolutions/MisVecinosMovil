@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grismv"
-    tools:context=".Noticias3Activity">
+    android:background="@color/grismv">
 
     <TextView
-        android:id="@+id/textViewTituloNtc_act"
+        android:id="@+id/textViewTituloAtr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="NOTICIAS"
+        android:text="Oficios"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -29,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloNtc_act"
-        tools:layout="@layout/fragment_noticia3_list" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr"
+        tools:layout="@layout/fragment_oficio_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

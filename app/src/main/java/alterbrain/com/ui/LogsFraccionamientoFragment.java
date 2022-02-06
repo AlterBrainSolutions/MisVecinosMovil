@@ -29,7 +29,6 @@ import java.util.List;
 import alterbrain.com.MainActivity1;
 import alterbrain.com.R;
 import alterbrain.com.app.Constantes;
-import alterbrain.com.ui.placeholder.PlaceholderContent;
 
 
 public class LogsFraccionamientoFragment extends Fragment {

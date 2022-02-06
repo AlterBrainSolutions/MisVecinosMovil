@@ -64,10 +64,11 @@ import alterbrain.com.Transparencia8Activity;
 import alterbrain.com.Transparencia9Activity;
 import alterbrain.com.TransparenciaActivity;
 import alterbrain.com.app.Constantes;
+import alterbrain.com.ui.CatalogoActivity;
 
 public class HomeFragment extends Fragment {
     TextView tvDescrip, tvNomFrc, tvFraccName;
-    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivConversacion, ivReciclaje, ivFondoFraccUsr;
+    ImageView ivNoticias, ivAgenda, ivDocumentos, ivManita, ivTransparency, ivPagos, ivAdeudos, ivEncuestas, ivCatalogo, ivReciclaje, ivFondoFraccUsr;
     ImageView btnMas, btnCerrar, btnAnuncio, btnReserva, btnServicio, btnBuzon;
     ConstraintLayout constraintMenuPop;
     RelativeLayout rlHome;
@@ -107,7 +108,7 @@ public class HomeFragment extends Fragment {
         ivPagos = root.findViewById(R.id.imageViewPagosh);
         ivAdeudos = root.findViewById(R.id.imageViewAdeudosh);
         ivEncuestas = root.findViewById(R.id.imageViewEncuestas);
-        ivConversacion = root.findViewById(R.id.imageViewConversacion);
+        ivCatalogo = root.findViewById(R.id.imageViewCatalogo);
         btnCerrar = root.findViewById(R.id.imageViewCerrarPop);
         btnAnuncio = root.findViewById(R.id.imageViewAnuncios);
         btnReserva = root.findViewById(R.id.imageViewReserva);
@@ -158,10 +159,10 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
-        ivConversacion.setOnClickListener(new View.OnClickListener() {
+        ivCatalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ConversacionActivity.class);
+                Intent i = new Intent(getActivity(), CatalogoActivity.class);
                 startActivity(i);
             }
         });

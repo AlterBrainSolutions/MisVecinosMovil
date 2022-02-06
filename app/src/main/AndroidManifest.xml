@@ -28,10 +28,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".ui.ConsultaNumCasaQrActivity"
+            android:name=".ui.CatalogoActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MisVecinos.NoActionBar"/>
+        <activity
+            android:name=".ui.ConsultaNumCasaQrActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
         <activity
             android:name=".ui.UpdateAccesoQrActivity2"
             android:exported="true"

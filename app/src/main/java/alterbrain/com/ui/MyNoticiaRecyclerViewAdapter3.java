@@ -14,7 +14,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import alterbrain.com.Noticias3Activity;
 import alterbrain.com.R;
+import alterbrain.com.app.Constantes;
 import alterbrain.com.model.Noticia3;
 
 
@@ -47,11 +49,12 @@ public class MyNoticiaRecyclerViewAdapter3 extends RecyclerView.Adapter<MyNotici
             @Override
             public void onClick(View v) {
                 abrirNoticia.open(ctx, holder.mItem.getIdNoticia());
+                //  3/3 Noticias3Activity.tvNoticia.setText(holder.mItem.getTitulo());
             }
         });
 
         Glide.with(ctx)
-                .load("http://la-joya.missvecinos.com.mx/admin/"+holder.mItem.getImagen())
+                .load("https://"+Constantes.LINK_FRACC+"/admin/"+holder.mItem.getImagen())
                 .centerCrop()
                 .into(holder.imageViewPhotoFrac);
     }
