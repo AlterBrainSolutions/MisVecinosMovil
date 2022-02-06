@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import alterbrain.com.R;
-import alterbrain.com.ui.placeholder.PlaceholderContent.PlaceholderItem;
 
 import java.util.List;
 

@@ -28,29 +28,37 @@ import java.util.List;
 
 import alterbrain.com.R;
 import alterbrain.com.app.Constantes;
+import alterbrain.com.model.Noticia3;
 
 
-public class AlertasVigFragment extends Fragment {
+/**
+ * A fragment representing a list of Items.
+ */
+public class OficioFragment extends Fragment {
 
-    private static final String URL_players = "https://missvecinos.com.mx/android/alertasvig.php?idVigSeg="+ Constantes.ID_VIG;
-
+    //String que guarda la url donde se almacena el PHP con la consulta que traera la lista de oficios
+    private static String URL_oficios = "https://missvecinos.com.mx/android/oficios.php";
+    //lista de objetos oficio, que guardan los oficios registrados en la web
+    List<Oficio> oficioList;
+    //recyclerView que sera utilizado para mostrar la fragment_list
     RecyclerView recyclerView;
-    MyAlertasVigRecyclerViewAdapter myAlertasVigRecyclerViewAdapter;
-    List<AlertasVig> alertasVigList;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
 
-
-    public AlertasVigFragment() {
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public OficioFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static AlertasVigFragment newInstance(int columnCount) {
-        AlertasVigFragment fragment = new AlertasVigFragment();
+    public static OficioFragment newInstance(int columnCount) {
+        OficioFragment fragment = new OficioFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -64,12 +72,14 @@ public class AlertasVigFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+        //para actualizar la lista en caso de que se recargue el fragment
+        URL_oficios = "https://missvecinos.com.mx/android/oficios.php";
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_alertasvig_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_oficio_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -80,16 +90,17 @@ public class AlertasVigFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            alertasVigList = new ArrayList<>();
-            //recyclerView.setAdapter(new MyAlertasVigRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            oficioList = new ArrayList<>();
 
-            loadAlertas();
+            loadOficios();
+            //recyclerView.setAdapter(new MyOficioRecyclerViewAdapter(PlaceholderContent.ITEMS));
         }
         return view;
     }
 
-    private void loadAlertas() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_players,
+    private void loadOficios() {
+        //medodo usado con la libreria volley para obtner la lista de oficios
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_oficios,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -97,15 +108,19 @@ public class AlertasVigFragment extends Fragment {
                             JSONArray array = new JSONArray(response);
 
                             for (int i = 0; i < array.length(); i++) {
-                                JSONObject alerta = array.getJSONObject(i);
+                                JSONObject oficio = array.getJSONObject(i);
 
-                                alertasVigList.add(new AlertasVig(
-                                        alerta.getInt("idSeguridad"),
-                                        alerta.getString("casa"),
-                                        alerta.getString("horaActivacion")
+                                oficioList.add(new Oficio(
+                                        oficio.getInt("idOficio"),
+                                        oficio.getString("oficio"),
+                                        oficio.getString("direccion"),
+                                        oficio.getInt("telefono"),
+                                        oficio.getString("email"),
+                                        oficio.getString("imgP"),
+                                        oficio.getString("imgE")
                                 ));
                             }
-                            recyclerView.setAdapter(new MyAlertasVigRecyclerViewAdapter(getContext(), alertasVigList));
+                            recyclerView.setAdapter(new MyOficioRecyclerViewAdapter(getContext(), oficioList));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

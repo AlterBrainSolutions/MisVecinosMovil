@@ -58,6 +58,7 @@ public class Constantes {
     public static  int CONTALUMN_FRACC;
     public static String CODCONTEN_FRACC;
     public static String IMG_FRACC;
+    public static String LINK_FRACC;
 
     public static int ID_VIG;
     public static int ID_VIGFRACC;
