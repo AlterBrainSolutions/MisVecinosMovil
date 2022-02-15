@@ -24,11 +24,14 @@ public class MyOficioRecyclerViewAdapter extends RecyclerView.Adapter<MyOficioRe
     private Context ctx;
     //lista de oficios obtenida de la consulta de oficios
     private final List<Oficio> mValues;
+    //Objeto AbrirWhats que sirve para mandar whats a cada oficio disponible
+    AbrirWhats abrirWhats;
 
     public MyOficioRecyclerViewAdapter(Context context, List<Oficio> items) {
         //inicializamos las variables a usar posteriormente
         ctx = context;
         mValues = items;
+        abrirWhats = new AbrirWhats();
     }
 
     @Override
@@ -47,6 +50,14 @@ public class MyOficioRecyclerViewAdapter extends RecyclerView.Adapter<MyOficioRe
         holder.mItem = mValues.get(position);
         holder.textViewOficio.setText(holder.mItem.getNomOficio());
         holder.textViewEmail.setText(holder.mItem.getEmail());
+
+        holder.imageViewWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //enviamos datos especificos de cada oficio a requerir
+                abrirWhats.open(ctx, holder.mItem.getTelefono(), holder.mItem.getNomOficio());
+            }
+        });
 
         Glide.with(ctx)
                 .load("https://"+ Constantes.LINK_FRACC+"/admin/"+holder.mItem.getImagenPer())
