@@ -56,8 +56,8 @@ public class LoginActivity2 extends AppCompatActivity {
         btnregistrar = findViewById(R.id.buttonRegistrar);
 
         if(sharedPreferences.getBoolean("sesion_iniciada", true)){
-            String usu = sharedPreferences.getString("usuario", null);
-            String pas = sharedPreferences.getString("contra", null);
+            String usu = sharedPreferences.getString("usuario", "");
+            String pas = sharedPreferences.getString("contra", "");
             ingresar(usu, pas);
         }/*else{
             *//*Toast.makeText(LoginActivity2.this, "ERRRRRRRROOOR", Toast.LENGTH_SHORT).show();*//*
