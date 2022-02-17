@@ -2,7 +2,9 @@ package alterbrain.com.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -28,11 +30,13 @@ public class ConsultaUsrVigActivity extends AppCompatActivity implements Respons
     String passUsr, nombreUsr;
     RequestQueue rq;
     JsonRequest jr;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_usr_vig);
 
+        sharedPreferences = getSharedPreferences("sesion_usuario", Context.MODE_PRIVATE);
         nombreUsr = passUsr = "";
         Bundle extras = getIntent().getExtras();
         nombreUsr = extras.getString("nombreUsr");
@@ -76,6 +80,12 @@ public class ConsultaUsrVigActivity extends AppCompatActivity implements Respons
             e.printStackTrace();
         }
         Intent i = new Intent(this, ConsultaImgFActivity.class);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("sesion_iniciada", true);
+        editor.putString("usuario", nombreUsr);
+        editor.putString("contra", passUsr);
+        editor.commit();
 
         Constantes.NOM = nombreUsr;
         Constantes.PAS = passUsr;

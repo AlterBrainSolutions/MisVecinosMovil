@@ -47,18 +47,22 @@ public class MyOficioRecyclerViewAdapter extends RecyclerView.Adapter<MyOficioRe
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        //asignamos cada valor de la lista de Oficios a el objeto mItem de tipo oficio
         holder.mItem = mValues.get(position);
+        //obtenemos los valores correspondientes de cada oficio, asignandolo a la vista correspondiente
         holder.textViewOficio.setText(holder.mItem.getNomOficio());
         holder.textViewEmail.setText(holder.mItem.getEmail());
 
         holder.imageViewWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //enviamos datos especificos de cada oficio a requerir
+                //la clase abrir noticia tiene un metodo que nos permite mandar un whats a cada usuario de oficio
+                //se envian datos especificos de cada oficio a requerir
                 abrirWhats.open(ctx, holder.mItem.getTelefono(), holder.mItem.getNomOficio());
             }
         });
 
+        //Libreria Glide para mostrar imagenes cargadas desde internet a el ImageView Correspondiente
         Glide.with(ctx)
                 .load("https://"+ Constantes.LINK_FRACC+"/admin/"+holder.mItem.getImagenPer())
                 .centerCrop()
@@ -88,6 +92,7 @@ public class MyOficioRecyclerViewAdapter extends RecyclerView.Adapter<MyOficioRe
         public ViewHolder(View view) {
             super(view);
             mView = view;
+            //asignamos cada vista del fragment_oficio a su objeto correspondiente
             textViewOficio = (TextView) view.findViewById(R.id.textViewNomOficio);
             textViewEmail = (TextView) view.findViewById(R.id.textViewEmail_ofic);
             imageViewPerfil = view.findViewById(R.id.imageViewPerfil_ofc);

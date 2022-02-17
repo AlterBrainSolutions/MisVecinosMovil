@@ -114,7 +114,7 @@ public class OficioFragment extends Fragment {
                                         oficio.getInt("idOficio"),
                                         oficio.getString("oficio"),
                                         oficio.getString("direccion"),
-                                        oficio.getInt("telefono"),
+                                        oficio.getString("telefono"),
                                         oficio.getString("email"),
                                         oficio.getString("imgP"),
                                         oficio.getString("imgE")

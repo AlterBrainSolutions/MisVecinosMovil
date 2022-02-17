@@ -6,7 +6,7 @@ public class Oficio {
     private int idOficio;
     private String nomOficio;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String email;
     private String imagenPer;
     private String imagenEstb;
@@ -16,7 +16,7 @@ public class Oficio {
     public Oficio() {
     }
 
-    public Oficio(int idOficio, String nomOficio, String direccion, int telefono, String email, String imagenPer, String imagenEstb) {
+    public Oficio(int idOficio, String nomOficio, String direccion, String telefono, String email, String imagenPer, String imagenEstb) {
         this.idOficio = idOficio;
         this.nomOficio = nomOficio;
         this.direccion = direccion;
@@ -24,6 +24,11 @@ public class Oficio {
         this.email = email;
         this.imagenPer = imagenPer;
         this.imagenEstb = imagenEstb;
+    }
+
+    public Oficio(int idOficio, String nomOficio) {
+        this.idOficio = idOficio;
+        this.nomOficio = nomOficio;
     }
 
     public int getIdOficio() {
@@ -50,11 +55,11 @@ public class Oficio {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

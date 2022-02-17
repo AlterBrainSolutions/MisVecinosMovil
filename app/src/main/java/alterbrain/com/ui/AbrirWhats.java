@@ -9,10 +9,13 @@ public class AbrirWhats {
     public AbrirWhats() {
     }
 
-    public void open(Context ctx, int num, String serv){
+    //metodo que recibe contexto de donde se ubica el fragmen, el numero de telefono(String porque es bigint) Y nomServicio
+    public void open(Context ctx, String num, String serv){
+        //metodo para enviar whatsapp
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_VIEW);
-        String uri = "whatsapp://send?phone="+"52"+num+"&text=Hola, buen dia "+serv+" necesito ayuda con su servicio";
+        //uri que contiene numero de telefono (lada mx) y mensaje por defecto
+        String uri = "whatsapp://send?phone=52"+num+"&text=Hola, buen dia '"+serv+"', necesito ayuda con su servicio";
         sendIntent.setData(Uri.parse(uri));
         ctx.startActivity(sendIntent);
     }

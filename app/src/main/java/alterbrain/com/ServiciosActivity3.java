@@ -37,27 +37,35 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import alterbrain.com.app.Constantes;
+import alterbrain.com.ui.MyOficioRecyclerViewAdapter;
+import alterbrain.com.ui.Oficio;
 
 public class ServiciosActivity3 extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private static final String CARPETA_PRINCIPAL = "misImagenesApp/";//directorio principal
-    private static final String CARPETA_IMAGEN = "imagenes";//carpeta donde se guardan las fotos
-    private static final String DIRECTORIO_IMAGEN = CARPETA_PRINCIPAL + CARPETA_IMAGEN;//ruta carpeta de directorios
-    private String path;//almacena la ruta de la imagen
-    File fileImagen;
+
     Bitmap bitmap;
-
-
     private static final int COD_SELECCIONA = 10;
     private static final int COD_FOTO = 20;
+
+    //spiner que tendra la lista de oficios vigentes
     private Spinner spnServicios;
+    //String que guarda la url donde se almacena el PHP con la consulta que traera la lista de oficios
+    private static String URL_oficios = "https://missvecinos.com.mx/android/oficios.php";
+    //lista de objetos oficio, que guardan los oficios registrados en la web
+    List<Oficio> oficioList;
     String serv;
     ImageView ivFecha, ivAgregaImagen;
     TextView tvFecha, tvStatus;
@@ -74,6 +82,8 @@ public class ServiciosActivity3 extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicios3);
+
+        //asignamos los objetos a sus vistas determinadas
         ivFecha = findViewById(R.id.imageViewFechaServicio);
         tvFecha = findViewById(R.id.textViewFechaServicio);
         ivAgregaImagen = findViewById(R.id.imageViewSubeImgSrv);
@@ -81,9 +91,14 @@ public class ServiciosActivity3 extends AppCompatActivity implements AdapterView
         etPresupuesto = findViewById(R.id.editTextPresupuestoServ);
         btnGuardar = findViewById(R.id.buttonGuardarServ);
         tvStatus = findViewById(R.id.textViewTituloSolServ);
+        spnServicios = findViewById(R.id.spinnerServicios);
 
+        //declaramos como Listener a esta Activity
+        spnServicios.setOnItemSelectedListener(this);
+        oficioList = new ArrayList<>();
         eventos();
-        SpinnerComponentes();
+        //metodo que se encarga de consultar y cargar la lista de oficios a la oficioList
+        loadOficios();
     }
     private void eventos() {
         ivFecha.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +165,56 @@ public class ServiciosActivity3 extends AppCompatActivity implements AdapterView
             }
         });
     }
+    private void loadOficios() {
+        //metodo usado con la libreria volley para obtener la lista de oficios
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_oficios,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray array = new JSONArray(response);
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject oficio = array.getJSONObject(i);
+
+                                oficioList.add(new Oficio(
+                                        oficio.getInt("idOficio"),
+                                        oficio.getString("oficio")
+                                ));
+                            }
+                            //una vez cargada la oficios List con los nombres de los oficios se asignan al spinner
+                            cargarSpinner();
+                            //recyclerView.setAdapter(new MyOficioRecyclerViewAdapter(getContext(), oficioList));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(ServiciosActivity3.this, error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+        Volley.newRequestQueue(ServiciosActivity3.this).add(stringRequest);
+    }
+
+    private void cargarSpinner() {
+        //asignamos los valores (nombres) de la lista de oficios que acabamos de consultar
+        List<String> lables = new ArrayList<String>();
+
+        //txtAgregar.setText("");
+
+        for (int i = 0; i < oficioList.size(); i++) {
+            lables.add(oficioList.get(i).getNomOficio());
+        }
+
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lables);
+
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spnServicios.setAdapter(spinnerAdapter);
+    }
 
     private void mostrarDialogOpciones() {
         //Toast.makeText(this, "Mostrar opciones", Toast.LENGTH_SHORT).show();
@@ -185,44 +250,6 @@ public class ServiciosActivity3 extends AppCompatActivity implements AdapterView
         }
     }
 
-    private void abriCamara() {
-        File miFile=new File(Environment.getExternalStorageDirectory(),DIRECTORIO_IMAGEN);
-        boolean isCreada=miFile.exists();
-
-        if(isCreada==false){
-            isCreada=miFile.mkdirs();
-        }
-
-        if(isCreada==true){
-            Long consecutivo= System.currentTimeMillis()/1000;
-            String nombre=consecutivo.toString()+".jpg";
-            Toast.makeText(this, "creada", Toast.LENGTH_SHORT).show();
-
-            path=Environment.getExternalStorageDirectory()+File.separator+DIRECTORIO_IMAGEN
-                    +File.separator+nombre;//indicamos la ruta de almacenamiento
-
-            fileImagen=new File(path);
-
-            Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(fileImagen));
-
-            ////
-            /*if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N)
-            {
-                String authorities=this.getPackageName()+".provider";
-                Uri imageUri= FileProvider.getUriForFile(this,authorities,fileImagen);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-            }else
-            {
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(fileImagen));
-            }*/
-            startActivityForResult(intent,COD_FOTO);
-
-            ////
-
-        }
-
-    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -332,25 +359,6 @@ public class ServiciosActivity3 extends AppCompatActivity implements AdapterView
         startActivityForResult(intent, 1);
 
     }
-    /*public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            imageUri = data.getData();
-            ivAgregaImagen.setImageURI(imageUri);
-            //uploadPicture();
-        }
-    }*/
-
-    private void SpinnerComponentes(){
-        ArrayAdapter<CharSequence> serviciosAdapter;
-
-        serviciosAdapter = ArrayAdapter.createFromResource(this, R.array.servicios, android.R.layout.simple_spinner_item);
-
-        spnServicios = findViewById(R.id.spinnerServicios);
-        spnServicios.setAdapter(serviciosAdapter);
-
-        spnServicios.setOnItemSelectedListener(this);
-    }
 
     public void abrirCalendario(View view){
         Calendar cal = Calendar.getInstance();
@@ -371,15 +379,17 @@ public class ServiciosActivity3 extends AppCompatActivity implements AdapterView
         }
     }
 
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //metodo que reacciona cuando seleccionamos un item del spinner
         switch (parent.getId()){
             case R.id.spinnerServicios:
-                //if (position !=0){
                 serv = parent.getItemAtPosition(position).toString();
-                //}else{
-                //  serv = "";
-                //}
+                Toast.makeText(
+                        getApplicationContext(),
+                        parent.getItemAtPosition(position).toString() + " Seleccionado" ,
+                        Toast.LENGTH_LONG).show();
                 break;
         }
     }
