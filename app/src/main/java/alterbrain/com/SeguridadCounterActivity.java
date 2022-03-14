@@ -49,6 +49,7 @@ public class SeguridadCounterActivity extends AppCompatActivity {
     FloatingActionButton fabMenuSeg;
     int usuario;
     String numCasa, URL = "https://missvecinos.com.mx/android/insertaseguridad.php";
+    int fracc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

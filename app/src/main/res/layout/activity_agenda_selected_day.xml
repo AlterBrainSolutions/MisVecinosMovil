@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismv"
-    tools:context=".DocumentosActivity">
+    tools:context=".AgendaSelectedDayActivity">
 
     <TextView
-        android:id="@+id/textViewTituloAtr"
+        android:id="@+id/textViewTituloAtrAgendita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="DOCUMENTOS"
+        android:text="AGENDA"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -21,14 +21,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="alterbrain.com.ui.DocumentoFragment"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtr"
-        tools:layout="@layout/fragment_documento_list"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloAtrAgendita">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <fragment
+                android:id="@+id/fragment3"
+                android:name="alterbrain.com.ui.AgendaFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout="@layout/fragment_agenda_list" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

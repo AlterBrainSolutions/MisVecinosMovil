@@ -37,11 +37,12 @@ public class MyDocumentoRecyclerViewAdapter extends RecyclerView.Adapter<MyDocum
         holder.mItem = mValues.get(position);
         holder.textViewTitulo.setText(holder.mItem.getTitulodoc());
         holder.textViewFecha.setText(holder.mItem.getFechadoc());
-
+        String rutaDoc = mValues.get(position).getRuta();
         holder.buttonGoDocm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent detail = new Intent(ctx, VeDocumentoActivity.class);
+                detail.putExtra("rutaDocumento", rutaDoc);
                 ctx.startActivity(detail);
             }
         });

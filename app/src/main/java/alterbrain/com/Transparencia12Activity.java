@@ -221,7 +221,13 @@ public class Transparencia12Activity extends AppCompatActivity {
                                     button.setVisibility(View.VISIBLE);
                                 }
 
-                                button.setText("https://la-joya.missvecinos.com.mx/admin/" + imagen.trim());
+                                String link= imagen;
+                                String mailparams = link.replaceAll("(^ \\.\\.\\/)", "");
+                                /*Toast.makeText(Transparencia2Activity.this,
+                                        mailparams+ "//" +Constantes.LINK_FRACC, Toast.LENGTH_SHORT).show();*/
+                                String link_fracc = "https://"+Constantes.LINK_FRACC+"/";
+                                /*Toast.makeText(Transparencia2Activity.this,link_fracc, Toast.LENGTH_SHORT).show();*/
+                                button.setText(link_fracc + mailparams.trim());
 
                                 button.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -248,7 +254,7 @@ public class Transparencia12Activity extends AppCompatActivity {
                             }
 
                             /*Arrays.sort(egresosArr);*//*TODO para cambiar ordenar el array de floats */
-                            barEgresos.add(new BarEntry(contGrafica, egresosArr));
+                            barEgresos.add(new BarEntry(contGrafica, auxTotal));
                             contGrafica++;
 
                             ArrayList<BarEntry> barIngresos = new ArrayList<>();
@@ -316,7 +322,7 @@ public class Transparencia12Activity extends AppCompatActivity {
                             barDataSet2.setColors(colorsRed);
                             barDataSet2.setValueTextSize(13f);
                             barDataSet2.setValueTextColor(Color.BLACK);
-                            barDataSet2.setStackLabels(labelsEg);
+                            //barDataSet2.setStackLabels(labelsEg);
 
                             /*TODO BARDATASET 3*/
                             BarDataSet barDataSet3 = new BarDataSet(barIngresos, "Ingresos");

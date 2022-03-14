@@ -59,6 +59,9 @@ public class Constantes {
     public static String CODCONTEN_FRACC;
     public static String IMG_FRACC;
     public static String LINK_FRACC;
+    public static String DAY_SELECTED;
+    public static String MONTH_SELECTED;
+    public static String YEAR_SELECTED;
 
     public static int ID_VIG;
     public static int ID_VIGFRACC;

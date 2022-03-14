@@ -26,7 +26,7 @@ public class MyNoticiaRecyclerViewAdapter3 extends RecyclerView.Adapter<MyNotici
     private final List<Noticia3> mValues;
     AbrirNoticia abrirNoticia;
 
-    public MyNoticiaRecyclerViewAdapter3(Context context, List<Noticia3> items) {
+    public          MyNoticiaRecyclerViewAdapter3(Context context, List<Noticia3> items) {
         ctx = context;
         mValues = items;
         abrirNoticia = new AbrirNoticia();

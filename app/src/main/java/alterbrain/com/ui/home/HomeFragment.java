@@ -41,9 +41,11 @@ import alterbrain.com.AccesosActivity;
 import alterbrain.com.ActivityDetalleAyuda;
 import alterbrain.com.AdeudosActivity;
 import alterbrain.com.AgendaActivity;
+import alterbrain.com.AgendaFueraDeServicioActivity;
 import alterbrain.com.AnuncioActivity;
 import alterbrain.com.ConversacionActivity;
 import alterbrain.com.Documentos2Activity;
+import alterbrain.com.DocumentosActivity;
 import alterbrain.com.EncuestasActivity;
 import alterbrain.com.Noticias3Activity;
 import alterbrain.com.PagosActivity;
@@ -134,7 +136,7 @@ public class HomeFragment extends Fragment {
         ivDocumentos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detail = new Intent(getActivity(), Documentos2Activity.class);
+                Intent detail = new Intent(getActivity(), DocumentosActivity.class);
                 getActivity().startActivity(detail);
             }
         });
@@ -155,7 +157,7 @@ public class HomeFragment extends Fragment {
         ivAgenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), AgendaActivity.class);
+                Intent i = new Intent(getActivity(), AgendaFueraDeServicioActivity.class);
                 startActivity(i);
             }
         });
