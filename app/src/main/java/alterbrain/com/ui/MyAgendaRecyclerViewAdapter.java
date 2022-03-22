@@ -1,5 +1,6 @@
 package alterbrain.com.ui;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import alterbrain.com.DetalleEventoActivity;
 import alterbrain.com.R;
 import alterbrain.com.VeDocumentoActivity;
 
@@ -37,10 +39,29 @@ public class MyAgendaRecyclerViewAdapter extends RecyclerView.Adapter<MyAgendaRe
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.textViewTipo.setText(holder.mItem.getTipo());
-        holder.textViewAsunto.setText(holder.mItem.getAsunto());
-        holder.textViewResponsable.setText(holder.mItem.getResponsable());
-        holder.textViewFecha.setText(holder.mItem.getFecha());
+        String idEvento = String.valueOf(holder.mItem.getIdEvento());
+        String titulo = holder.mItem.getTipo();
+        String descripcion = holder.mItem.getAsunto();
+        String solicitante = holder.mItem.getResponsable();
+        String fecha = holder.mItem.getFecha();
+        String imagen = holder.mItem.getImagen();
+        holder.textViewTipo.setText(titulo);
+        holder.textViewAsunto.setText(descripcion);
+        holder.textViewResponsable.setText(solicitante);
+        holder.textViewFecha.setText(fecha);
+        holder.buttonMensaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent detail = new Intent(ctx, DetalleEventoActivity.class);
+                detail.putExtra("Titulo", titulo);
+                detail.putExtra("Desc", descripcion);
+                //detail.putExtra("Solic", solicitante);
+                detail.putExtra("Fecha", fecha);
+                detail.putExtra("Imagen", imagen);
+                ctx.startActivity(detail);
+            }
+        });
+
         //holder.buttonMensaje.setOnClickListener(new View.OnClickListener() {
         //            @Override
         //            public void onClick(View v) {
@@ -49,13 +70,14 @@ public class MyAgendaRecyclerViewAdapter extends RecyclerView.Adapter<MyAgendaRe
         //            }
         //        });
 
-        holder.textViewAsunto.setOnClickListener(new View.OnClickListener() {
+        /*holder.textViewAsunto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent detail = new Intent(ctx, VeDocumentoActivity.class);
-                ctx.startActivity(detail);*/
+                *//*Intent detail = new Intent(ctx, VeDocumentoActivity.class);
+                ctx.startActivity(detail);*//*
             }
-        });
+        });*/
+
     }
 
     @Override

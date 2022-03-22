@@ -157,7 +157,7 @@ public class HomeFragment extends Fragment {
         ivAgenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), AgendaFueraDeServicioActivity.class);
+                Intent i = new Intent(getActivity(), AgendaActivity.class);
                 startActivity(i);
             }
         });

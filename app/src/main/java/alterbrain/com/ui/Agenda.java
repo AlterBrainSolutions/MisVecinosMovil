@@ -6,13 +6,15 @@ public class Agenda {
     private String asunto;
     private String responsable;
     private String fecha;
+    private String imagen;
 
-    public Agenda(int idEvento, String tipo, String asunto, String responsable, String fecha) {
+    public Agenda(int idEvento, String tipo, String asunto, String responsable, String fecha, String imagen) {
         this.idEvento = idEvento;
         this.tipo = tipo;
         this.asunto = asunto;
         this.responsable = responsable;
         this.fecha = fecha;
+        this.imagen = imagen;
     }
 
     public int getIdEvento() {
@@ -54,4 +56,8 @@ public class Agenda {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+    public String getImagen() { return imagen; }
+
+    public void setImagen(String imagen) { this.imagen = imagen; }
 }

@@ -28,6 +28,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".DetalleEventoActivity"
+            android:exported="false" />
+        <activity
             android:name=".AgendaFueraDeServicioActivity"
             android:exported="false" />
         <activity

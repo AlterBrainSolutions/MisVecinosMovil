@@ -210,7 +210,8 @@ public class AgendaFragment extends Fragment {
                                         tituloEv,
                                         descripcion,
                                         solicitante,
-                                        fechap
+                                        fechap,
+                                        imagen
                                 ));
 
                                 /*JSONObject jsonObject = new JSONObject(resultados1.get(i).toString());
