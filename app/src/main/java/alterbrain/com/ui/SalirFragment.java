@@ -85,7 +85,7 @@ public class SalirFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
 
         //getPlayerNames();
-        getNameUsu();
+        //getNameUsu();
         return root;
     }
 
