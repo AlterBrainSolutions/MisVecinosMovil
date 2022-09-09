@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grismv"
-    tools:context=".ui.UbicaLogActivity">
+    tools:context=".ui.UbicaOfiActivity">
 
     <TextView
         android:id="@+id/textViewTituloAtr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/azulmv"
-        android:text="UBICACIÓN DE FRACCIONAMIENTO"
+        android:text="UBICACIÓN DEL SERVICIO"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -20,7 +20,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollView2"
         style="@android:style/Widget.DeviceDefault.Light.ScrollView"
@@ -49,15 +48,18 @@
                 android:layout_marginTop="8dp"
 
                 app:uiZoomControls="true"
-                tools:context=".ui.UbicaLogActivity" />
+                tools:context=".ui.UbicaOfiActivity" />
 
-            <Button
-                android:id="@+id/buttonDetalleLogReci"
+            <TextView
+                android:id="@+id/textView75"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/button_rounded"
-                android:text="Detalle" />
+                android:text="Haz clic en el marcador rojo para poder abrir con Google Maps."
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

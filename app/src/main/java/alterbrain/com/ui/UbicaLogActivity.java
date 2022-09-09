@@ -33,6 +33,7 @@ public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCal
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
         btnDetalleLog = findViewById(R.id.buttonDetalleLogReci);
         btnDetalleLog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,13 +49,14 @@ public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCal
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-
         if (Constantes.LAT_FRACC == 0){
             sydney = new LatLng(19.354330782621, -99.18486166745);
         }else{
             sydney = new LatLng(Constantes.LAT_FRACC, Constantes.LONG_FRACC);
         }
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Fraccionamiento"));
+        mMap.addMarker(new MarkerOptions()
+                .position(sydney)
+                .title("Marker in Fraccionamiento"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         mMap.setMinZoomPreference(9.0f);

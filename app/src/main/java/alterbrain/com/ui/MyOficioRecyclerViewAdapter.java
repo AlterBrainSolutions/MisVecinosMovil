@@ -26,12 +26,14 @@ public class MyOficioRecyclerViewAdapter extends RecyclerView.Adapter<MyOficioRe
     private final List<Oficio> mValues;
     //Objeto AbrirWhats que sirve para mandar whats a cada oficio disponible
     AbrirWhats abrirWhats;
+    AbrirMOficio abrirMOficio;
 
     public MyOficioRecyclerViewAdapter(Context context, List<Oficio> items) {
         //inicializamos las variables a usar posteriormente
         ctx = context;
         mValues = items;
         abrirWhats = new AbrirWhats();
+        abrirMOficio = new AbrirMOficio();
     }
 
     @Override
@@ -56,9 +58,16 @@ public class MyOficioRecyclerViewAdapter extends RecyclerView.Adapter<MyOficioRe
         holder.imageViewWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //la clase abrir noticia tiene un metodo que nos permite mandar un whats a cada usuario de oficio
+                //la clase abrirWhats tiene un metodo que nos permite mandar un whats a cada usuario de oficio
                 //se envian datos especificos de cada oficio a requerir
                 abrirWhats.open(ctx, holder.mItem.getTelefono(), holder.mItem.getNomOficio());
+            }
+        });
+
+        holder.imageViewDireccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirMOficio.open(ctx, holder.mItem.getDireccion());
             }
         });
 

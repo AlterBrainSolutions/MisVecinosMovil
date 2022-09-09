@@ -28,6 +28,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".ui.UbicaOfiActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MisVecinos.NoActionBar" />
+        <activity
             android:name=".DetalleEventoActivity"
             android:exported="false" />
         <activity
