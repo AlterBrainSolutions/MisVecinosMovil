@@ -24,11 +24,11 @@
     <TextView
         android:id="@+id/textView89"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:text="Nulla vehicula, dui sed eleifend imperdiet, tortor magna porttitor nulla, vel placerat erat augue ornare risus. Pellentesque eu mi nunc. Pellentesque sit amet augue non nunc semper interdum feugiat eu odio. Nullam non pellentesque tortor. Nulla consectetur nisi augue, non eleifend erat placerat at. Aenean eget malesuada lectus, vitae pellentesque purus. Suspendisse augue metus, ultrices eu accumsan id, auctor sed quam. Mauris eros ipsum, eleifend quis magna sed, facilisis pharetra tellus. Suspendisse rhoncus gravida quam ut lacinia. Aliquam at justo eu neque pellentesque scelerisque eget ut lacus. Suspendisse potenti. Pellentesque tempor pretium lectus, nec sagittis odio gravida laoreet. Aenean aliquet arcu eu cursus ullamcorper. Morbi id dolor nibh. Duis lacinia ac neque sit amet commodo. Mauris quis ipsum pretium, bibendum mauris in, iaculis lorem."
+        android:text="Protocolo:"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

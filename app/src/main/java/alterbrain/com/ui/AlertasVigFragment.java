@@ -101,7 +101,7 @@ public class AlertasVigFragment extends Fragment {
 
                                 alertasVigList.add(new AlertasVig(
                                         alerta.getInt("idSeguridad"),
-                                        alerta.getString("casa"),
+                                        alerta.getInt("idAlertaUsuario"),
                                         alerta.getString("horaActivacion")
                                 ));
                             }

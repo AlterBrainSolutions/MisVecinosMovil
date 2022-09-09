@@ -2,6 +2,7 @@ package alterbrain.com.ui;
 
 public class AlertasVig {
     private int idSeguridad;
+    private int idAlertaUsuario;
     private String numCasa;
     private String fechaActivacion;
     private String horaActivacion;
@@ -16,6 +17,11 @@ public class AlertasVig {
         this.numCasa = numCasa;
         this.fechaActivacion = fechaActivacion;
     }
+    public AlertasVig(int idSeguridad, int idAlertaUsuario, String fechaActivacion) {
+        this.idSeguridad = idSeguridad;
+        this.idAlertaUsuario = idAlertaUsuario;
+        this.fechaActivacion = fechaActivacion;
+    }
 
     public AlertasVig(int idSeguridad, String numCasa, String fechaActivacion, String horaActivacion, int idVig, String protocoloRealizado) {
         this.idSeguridad = idSeguridad;
@@ -24,6 +30,14 @@ public class AlertasVig {
         this.horaActivacion = horaActivacion;
         this.idVig = idVig;
         this.protocoloRealizado = protocoloRealizado;
+    }
+
+    public int getIdAlertaUsuario() {
+        return idAlertaUsuario;
+    }
+
+    public void setIdAlertaUsuario(int idAlertaUsuario) {
+        this.idAlertaUsuario = idAlertaUsuario;
     }
 
     public int getIdSeguridad() {

@@ -24,7 +24,7 @@ public class ProtocoloVglActivity extends AppCompatActivity {
         btnProtRealiz = findViewById(R.id.buttonListoProto);
         tvCasa = findViewById(R.id.textViewNumCasaPrto);
 
-        tvCasa.setText("CASA "+Constantes.NUMCASA_SEGR);
+        tvCasa.setText("CASA "+Constantes.ID_ALERTA_SEGR);
         btnProtRealiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

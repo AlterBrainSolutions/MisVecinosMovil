@@ -10,10 +10,10 @@ public class AbrirAlerta {
     public AbrirAlerta(){
     }
 
-    public void open(Context ctx, int idSegr, String casa){
+    public void open(Context ctx, int idSegr, int idAlertaUsuario){
         Intent detail = new Intent(ctx, ProtocoloVglActivity.class);
         Constantes.ID_SEGR = idSegr;
-        Constantes.NUMCASA_SEGR = casa;
+        Constantes.ID_ALERTA_SEGR = idAlertaUsuario;
         ctx.startActivity(detail);
     }
 }

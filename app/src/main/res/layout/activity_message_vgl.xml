@@ -48,6 +48,17 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3"
         app:srcCompat="@drawable/adjuntar" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:text="Actualizar imagen"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewSubeImgAvsVig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSubeImgAvsVig"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSubeImgAvsVig" />
+
     <Button
         android:id="@+id/button9"
         android:layout_width="0dp"

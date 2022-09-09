@@ -75,5 +75,6 @@ public class Constantes {
 
     public static int ID_SEGR;
     public static String NUMCASA_SEGR;
+    public static int ID_ALERTA_SEGR;
 
 }

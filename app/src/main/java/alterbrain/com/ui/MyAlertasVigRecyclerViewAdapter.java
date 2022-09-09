@@ -36,13 +36,13 @@ public class MyAlertasVigRecyclerViewAdapter extends RecyclerView.Adapter<MyAler
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.textViewCasa.setText("CASA "+holder.mItem.getNumCasa());
+        holder.textViewCasa.setText("CASA "+holder.mItem.getIdAlertaUsuario());
         holder.textViewFecha.setText(holder.mItem.getFechaActivacion());
 
         holder.textViewCasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirAlerta.open(ctx, holder.mItem.getIdSeguridad(), holder.mItem.getNumCasa());
+                abrirAlerta.open(ctx, holder.mItem.getIdSeguridad(), holder.mItem.getIdAlertaUsuario());
                 /*Intent detail = new Intent(ctx, AutorizadosActivity.class);
                 ctx.startActivity(detail);*/
             }
