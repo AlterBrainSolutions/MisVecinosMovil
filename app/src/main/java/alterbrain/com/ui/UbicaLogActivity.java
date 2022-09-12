@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -49,8 +50,9 @@ public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCal
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
+        //Toast.makeText(this, ""+Constantes.LAT_FRACC, Toast.LENGTH_SHORT).show();
         if (Constantes.LAT_FRACC == 0){
-            sydney = new LatLng(19.354330782621, -99.18486166745);
+            sydney = new LatLng(19.097763, -99.589767);
         }else{
             sydney = new LatLng(Constantes.LAT_FRACC, Constantes.LONG_FRACC);
         }
@@ -59,7 +61,7 @@ public class UbicaLogActivity extends AppCompatActivity implements OnMapReadyCal
                 .title("Marker in Fraccionamiento"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        mMap.setMinZoomPreference(9.0f);
-        mMap.setMaxZoomPreference(15.0f);
+        mMap.setMinZoomPreference(14.0f);
+        mMap.setMaxZoomPreference(17.0f);
     }
 }
