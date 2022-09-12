@@ -196,64 +196,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:background="@color/common_google_signin_btn_text_light_focused"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="gone">
 
             <ImageView
                 android:id="@+id/imageViewBuzon"
                 android:layout_width="85dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="54dp"
+                android:layout_marginBottom="54dp"
                 android:src="@drawable/manitaacceso"
-                app:layout_constraintBottom_toTopOf="@+id/imageViewCerrarPop"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"></ImageView>
 
             <ImageView
-                android:id="@+id/imageViewServicios"
-                android:layout_width="85dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="110dp"
-                android:src="@drawable/manitaserv"
-                app:layout_constraintEnd_toStartOf="@+id/imageViewBuzon"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
                 android:id="@+id/imageViewCerrarPop"
                 android:layout_width="85dp"
                 android:layout_height="100dp"
                 android:src="@drawable/manitacent"
-                app:layout_constraintBottom_toTopOf="@+id/imageViewReserva"
-                app:layout_constraintEnd_toStartOf="@+id/imageViewAnuncios"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageViewServicios"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewBuzon" />
-
-            <ImageView
-                android:id="@+id/imageViewReserva"
-                android:layout_width="85dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="8dp"
-                android:src="@drawable/manitaa"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageViewCerrarPop"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/imageViewCerrarPop"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewCerrarPop" />
-
-            <ImageView
-                android:id="@+id/imageViewAnuncios"
-                android:layout_width="85dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="110dp"
-                android:src="@drawable/manitab"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewBuzon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageViewBuzon"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/imageViewBuzon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

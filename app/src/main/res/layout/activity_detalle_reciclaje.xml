@@ -180,6 +180,7 @@
                 android:text="ENVASES DEPOSITADOS ESTE AÑO"
                 android:textColor="@color/black"
                 android:textSize="17sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD7" />
 
@@ -193,6 +194,7 @@
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD8" />
 
@@ -205,6 +207,7 @@
                 android:text="ENVASES DEPOSITADOS POR FRACC."
                 android:textColor="@color/black"
                 android:textSize="17sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewcontAnio" />
 
@@ -218,6 +221,7 @@
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRD9" />
 

@@ -37,9 +37,9 @@ public class SeguridadMapFragment extends Fragment {
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
-                Mexico = new LatLng(20.0387017,-99.7610501);
+                Mexico = new LatLng(19.097763,-99.589767);
                 if (Constantes.LAT_FRACC == 0){
-                    sydney = new LatLng(19.354330782621, -99.18486166745);
+                    sydney = new LatLng(19.097763, -99.589767);
                 }else{
                     sydney = new LatLng(Constantes.LAT_FRACC, Constantes.LONG_FRACC);
                 }
@@ -51,7 +51,7 @@ public class SeguridadMapFragment extends Fragment {
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 3));
                 /*googleMap.moveCamera(CameraUpdateFactory.newLatLng(Mexico));*/
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15),5000, null);
-                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Santa Monica"));
+                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in La Joya"));
 
                 googleMap.setMinZoomPreference(0.0f);
                 googleMap.setMaxZoomPreference(40.0f);

@@ -112,10 +112,10 @@ public class HomeFragment extends Fragment {
         ivEncuestas = root.findViewById(R.id.imageViewEncuestas);
         ivCatalogo = root.findViewById(R.id.imageViewCatalogo);
         btnCerrar = root.findViewById(R.id.imageViewCerrarPop);
-        btnAnuncio = root.findViewById(R.id.imageViewAnuncios);
-        btnReserva = root.findViewById(R.id.imageViewReserva);
+        //btnAnuncio = root.findViewById(R.id.imageViewAnuncios);
+        //btnReserva = root.findViewById(R.id.imageViewReserva);
         btnBuzon = root.findViewById(R.id.imageViewBuzon);
-        btnServicio = root.findViewById(R.id.imageViewServicios);
+        //btnServicio = root.findViewById(R.id.imageViewServicios);
         constraintMenuPop = root.findViewById(R.id.constraintMenuPop);
         rlHome = root.findViewById(R.id.relativeLayoutHomeServ);
         tvFraccName = root.findViewById(R.id.textViewNomFracc);
@@ -260,20 +260,20 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
-        btnAnuncio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), AnuncioActivity.class);
-                startActivity(i);
-            }
-        });
-        btnReserva.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ReservaActivity.class);
-                startActivity(i);
-            }
-        });
+//        btnAnuncio.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getActivity(), AnuncioActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//        btnReserva.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getActivity(), ReservaActivity.class);
+//                startActivity(i);
+//            }
+//        });
         btnBuzon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -281,13 +281,13 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
-        btnServicio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ServiciosActivity3.class);
-                startActivity(i);
-            }
-        });
+//        btnServicio.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getActivity(), ServiciosActivity3.class);
+//                startActivity(i);
+//            }
+//        });
         //profilePic = root.findViewById(R.id.imageView_face);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
